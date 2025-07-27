@@ -97,9 +97,42 @@ textarea:focus {
     .contact-item,
     .service-card,
     .project-parallax-card {
-        animation-duration: 0.01ms !important;
+        animation-duration: 0.5ms !important;
         animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+        transition-duration: 0.5ms !important;
+    }
+}
+
+/* Mobile optimizations for parallax */
+@media (max-width: 768px) {
+    .projects-section {
+        perspective: none !important;
+        transform-style: initial !important;
+    }
+    
+    .projects-parallax-content {
+        transform-style: initial !important;
+        will-change: transform !important;
+    }
+    
+    .project-parallax-card {
+        will-change: transform !important;
+        transform: translateZ(0) !important;
+    }
+    
+    .project-parallax-card:hover {
+        transform: translateY(-10px) translateZ(0) !important;
+    }
+}
+
+/* Tablet optimizations */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .projects-section {
+        perspective: 800px !important;
+    }
+    
+    .project-parallax-card:hover {
+        transform: translateY(-15px) translateZ(0) !important;
     }
 }
 
@@ -1123,6 +1156,7 @@ textarea:focus {
     left: 0;
     right: 0;
     transform-style: preserve-3d;
+    will-change: transform, opacity;
 }
 
 .projects-row {
@@ -1131,6 +1165,7 @@ textarea:focus {
     margin-bottom: 5rem;
     padding: 0 2rem;
     min-width: max-content;
+    will-change: transform;
 }
 
 .projects-row-reverse {
@@ -1148,10 +1183,13 @@ textarea:focus {
     overflow: hidden;
     transition: transform 0.3s ease;
     cursor: pointer;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 .project-parallax-card:hover {
-    transform: translateY(-20px);
+    transform: translateY(-20px) translateZ(0);
 }
 
 .project-parallax-card img {
@@ -2084,7 +2122,7 @@ textarea:focus {
     .about-card {
         padding: 0.8rem;
         position: absolute;
-        top: 160%;
+        top: 165%;
         right: 5px;
         transform: translateY(-50%);
         max-width: 250px;

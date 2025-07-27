@@ -264,7 +264,7 @@ function updateTooltipPosition(e) {
     }
 }
 
-// Projects Parallax Effect
+// Projects Parallax Effect inspirado no componente React
 function initProjectsParallax() {
     const projectsSection = document.querySelector('.projects-section');
     const projectsContent = document.querySelector('.projects-parallax-content');
@@ -275,47 +275,157 @@ function initProjectsParallax() {
         return;
     }
 
+    // Valores target para animação suave (inspirado no useSpring)
+    let currentValues = {
+        translateX: 0,
+        translateXReverse: 0,
+        rotateX: 15,
+        rotateZ: 20,
+        translateY: -700,
+        opacity: 0.2
+    };
+
+    let targetValues = { ...currentValues };
+    let isAnimating = false;
+
+    // Função de interpolação suave (similar ao useSpring)
+    function lerp(start, end, factor) {
+        return start + (end - start) * factor;
+    }
+
+    // Função para animar valores suavemente
+    function animateToTarget() {
+        if (!isAnimating) return;
+
+        // Ajusta fator de suavização baseado no dispositivo
+        const isMobile = window.innerWidth <= 768;
+        const isTablet = window.innerWidth <= 1024 && window.innerWidth > 768;
+        
+        let factor = 0.1; // Desktop: suave
+        if (isMobile) {
+            factor = 0.2; // Mobile: mais direto para melhor performance
+        } else if (isTablet) {
+            factor = 0.15; // Tablet: meio termo
+        }
+        
+        let needsUpdate = false;
+
+        // Interpola cada valor
+        Object.keys(currentValues).forEach(key => {
+            const current = currentValues[key];
+            const target = targetValues[key];
+            const diff = Math.abs(target - current);
+            
+            if (diff > 0.1) {
+                currentValues[key] = lerp(current, target, factor);
+                needsUpdate = true;
+            } else {
+                currentValues[key] = target;
+            }
+        });
+
+        // Aplica as transformações interpoladas
+        projectsContent.style.transform = `
+            rotateX(${currentValues.rotateX}deg) 
+            rotateZ(${currentValues.rotateZ}deg) 
+            translateY(${currentValues.translateY}px)
+        `;
+        projectsContent.style.opacity = currentValues.opacity;
+
+        // Aplica movimento horizontal suave
+        projectsRows.forEach((row, index) => {
+            if (row.classList.contains('projects-row-reverse')) {
+                row.style.transform = `translateX(${currentValues.translateX - 500}px)`;
+            } else {
+                row.style.transform = `translateX(${currentValues.translateXReverse}px)`;
+            }
+        });
+
+        if (needsUpdate) {
+            requestAnimationFrame(animateToTarget);
+        } else {
+            isAnimating = false;
+        }
+    }
+
     function updateParallax() {
         try {
             const rect = projectsSection.getBoundingClientRect();
-            const scrollProgress = Math.max(0, Math.min(1, -rect.top / (rect.height - window.innerHeight)));
+            const viewportHeight = window.innerHeight;
             
-            // Calculate transforms
-            const translateX = scrollProgress * 1000;
-            const translateXReverse = scrollProgress * -1000;
-            const rotateX = Math.max(0, 15 - scrollProgress * 75);
-            const opacity = Math.max(0.2, Math.min(1, 0.2 + scrollProgress * 4));
-            const rotateZ = Math.max(0, 20 - scrollProgress * 100);
-            const translateY = -700 + scrollProgress * 1200;
+            // Só executa se a seção estiver visível
+            if (rect.bottom < 0 || rect.top > viewportHeight) {
+                return;
+            }
 
-            // Apply transforms to content container
-            projectsContent.style.transform = `
-                rotateX(${rotateX}deg) 
-                rotateZ(${rotateZ}deg) 
-                translateY(${translateY}px)
-            `;
-            projectsContent.style.opacity = opacity;
+            // Calcula progresso (similar ao useTransform do React)
+            const scrollProgress = Math.max(0, Math.min(1, -rect.top / (rect.height - viewportHeight)));
+            
+            // Detecta dispositivos móveis para reduzir efeitos
+            const isMobile = window.innerWidth <= 768;
+            const isTablet = window.innerWidth <= 1024 && window.innerWidth > 768;
+            
+            if (isMobile) {
+                // Versão simplificada para mobile - apenas movimento horizontal e opacity
+                targetValues.translateX = scrollProgress * 300; // Reduzido drasticamente
+                targetValues.translateXReverse = scrollProgress * -300;
+                targetValues.rotateX = 0; // Remove rotações
+                targetValues.rotateZ = 0;
+                targetValues.translateY = -200 + scrollProgress * 400; // Movimento vertical reduzido
+                targetValues.opacity = Math.max(0.5, Math.min(1, 0.5 + scrollProgress * 2));
+            } else if (isTablet) {
+                // Versão intermediária para tablet
+                targetValues.translateX = scrollProgress * 600;
+                targetValues.translateXReverse = scrollProgress * -600;
+                targetValues.rotateX = Math.max(0, 8 - scrollProgress * 40); // Rotações reduzidas
+                targetValues.rotateZ = Math.max(0, 10 - scrollProgress * 50);
+                targetValues.translateY = -400 + scrollProgress * 800;
+                targetValues.opacity = Math.max(0.3, Math.min(1, 0.3 + scrollProgress * 3));
+            } else {
+                // Versão completa para desktop
+                targetValues.translateX = scrollProgress * 1000;
+                targetValues.translateXReverse = scrollProgress * -1000;
+                targetValues.rotateX = Math.max(0, 15 - scrollProgress * 75);
+                targetValues.rotateZ = Math.max(0, 20 - scrollProgress * 100);
+                targetValues.translateY = -700 + scrollProgress * 1200;
+                targetValues.opacity = Math.max(0.2, Math.min(1, 0.2 + scrollProgress * 4));
+            }
 
-            // Apply horizontal movement to rows
-            projectsRows.forEach((row, index) => {
-                if (row.classList.contains('projects-row-reverse')) {
-                    row.style.transform = `translateX(${translateX - 500}px)`;
-                } else {
-                    row.style.transform = `translateX(${translateXReverse}px)`;
-                }
-            });
+            // Inicia animação suave se não estiver rodando
+            if (!isAnimating) {
+                isAnimating = true;
+                animateToTarget();
+            }
         } catch (error) {
             console.error('Error in parallax update:', error);
         }
     }
 
-    // Throttled scroll handler
+    // Throttle otimizado com diferentes sensibilidades por dispositivo
+    let lastScrollY = 0;
     let ticking = false;
+    
     function onScroll() {
+        const currentScrollY = window.scrollY;
+        const isMobile = window.innerWidth <= 768;
+        const isTablet = window.innerWidth <= 1024 && window.innerWidth > 768;
+        
+        // Ajusta sensibilidade baseado no dispositivo
+        let threshold = 2; // Desktop
+        if (isMobile) {
+            threshold = 8; // Mobile: menos updates para melhor performance
+        } else if (isTablet) {
+            threshold = 5; // Tablet: meio termo
+        }
+        
+        // Só atualiza se houve movimento significativo
+        if (Math.abs(currentScrollY - lastScrollY) < threshold) return;
+        
         if (!ticking) {
             requestAnimationFrame(() => {
                 updateParallax();
                 ticking = false;
+                lastScrollY = currentScrollY;
             });
             ticking = true;
         }
