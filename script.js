@@ -177,20 +177,23 @@ let globalTooltip = null;
 
 // Initialize all animations
 window.addEventListener('DOMContentLoaded', function() {
-    try {
-        console.log('Initializing animations...');
-        
+    try {        
         // Initialize parallax
         initProjectsParallax();
         
         // Initialize contact form
         initContactForm();
         
+        // Initialize scroll to top
+        initScrollToTop();
+        
+        // Initialize header logo click
+        initHeaderLogoClick();
+        
         // Start alternating typewriter animation after a delay
         setTimeout(() => {
             const typewriterElement = document.getElementById('typewriter');
             if (typewriterElement) {
-                console.log('Starting typewriter animation');
                 alternatingTypeWriter(typewriterElement, ['Offshore', 'Navais'], 120, 80, 2000);
             } else {
                 console.warn('Typewriter element not found');
@@ -226,7 +229,6 @@ function initTooltips() {
     document.body.appendChild(globalTooltip);
     
     const teamAvatars = document.querySelectorAll('.team-avatar');
-    console.log('Found team avatars:', teamAvatars.length);
     
     teamAvatars.forEach((avatar, index) => {
         const tooltip = avatar.querySelector('.tooltip');
@@ -267,11 +269,7 @@ function initProjectsParallax() {
     const projectsSection = document.querySelector('.projects-section');
     const projectsContent = document.querySelector('.projects-parallax-content');
     const projectsRows = document.querySelectorAll('.projects-row');
-    
-    console.log('Projects section:', projectsSection ? 'found' : 'not found');
-    console.log('Projects content:', projectsContent ? 'found' : 'not found');
-    console.log('Projects rows:', projectsRows.length);
-    
+        
     if (!projectsSection || !projectsContent) {
         console.warn('Projects parallax elements not found');
         return;
@@ -323,12 +321,10 @@ function initProjectsParallax() {
         }
     }
 
-    console.log('Adding scroll listener for parallax');
     window.addEventListener('scroll', onScroll, { passive: true });
     
     // Initial call
     updateParallax();
-    console.log('Parallax initialized successfully');
 }
 
 // WhatsApp form submission
@@ -390,5 +386,94 @@ function initContactForm() {
         // Reset form
         contactForm.reset();
     });
+}
+
+// Scroll to Top functionality
+function initScrollToTop() {
+    const scrollBtn = document.getElementById('scrollToTop');
+    if (!scrollBtn) {
+        console.warn('Scroll to top button not found');
+        return;
+    }
+
+    let isScrolling = false;
+
+    // Show/hide button based on scroll position
+    function toggleScrollButton() {
+        const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollPosition > 300) {
+            scrollBtn.classList.add('show');
+        } else {
+            scrollBtn.classList.remove('show');
+        }
+    }
+
+    // Smooth scroll to top
+    function scrollToTop(e) {
+        e.preventDefault();
+        
+        if (isScrolling) return;
+        isScrolling = true;
+        
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+        
+        // Reset flag after scroll completes
+        setTimeout(() => {
+            isScrolling = false;
+        }, 1000);
+    }
+
+    // Throttled scroll handler for better performance
+    let ticking = false;
+    function onScroll() {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                toggleScrollButton();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }
+
+    // Event listeners
+    window.addEventListener('scroll', onScroll, { passive: true });
+    scrollBtn.addEventListener('click', scrollToTop);
+
+    // Initial check
+    toggleScrollButton();
+    
+}
+
+// Header Logo Click to Top
+function initHeaderLogoClick() {
+    const headerLogo = document.getElementById('headerLogo');
+    if (!headerLogo) {
+        console.warn('Header logo not found');
+        return;
+    }
+
+    headerLogo.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Add hover effect
+    headerLogo.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.05)';
+        this.style.transition = 'transform 0.3s ease';
+    });
+
+    headerLogo.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+    });
+    
 }
 
