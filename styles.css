@@ -163,8 +163,11 @@ textarea:focus {
         top: 100%;
         left: 0;
         right: 0;
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         flex-direction: column;
         padding: 1rem;
         border-radius: 0 0 15px 15px;
@@ -181,10 +184,10 @@ textarea:focus {
     }
 
     .nav a {
-        color: #333;
-        text-shadow: none;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         padding: 0.8rem 0;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .nav a:last-child {
@@ -251,7 +254,7 @@ textarea:focus {
     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('img/background2.png');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-repeat: no-repeat;
     border-radius: 0 0 60px 60px;
     margin: 0 20px 40px 20px;
     z-index: 1;
@@ -2021,7 +2024,7 @@ textarea:focus {
     .about-card {
         padding: 0.8rem;
         position: absolute;
-        top: 190%;
+        top: 160%;
         right: 5px;
         transform: translateY(-50%);
         max-width: 250px;
