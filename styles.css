@@ -2122,7 +2122,7 @@ textarea:focus {
     .about-card {
         padding: 0.8rem;
         position: absolute;
-        top: 165%;
+        top: 170%;
         right: 5px;
         transform: translateY(-50%);
         max-width: 250px;
