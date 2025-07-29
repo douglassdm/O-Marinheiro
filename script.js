@@ -188,6 +188,9 @@ window.addEventListener('DOMContentLoaded', function() {
         // Initialize header logo click
         initHeaderLogoClick();
         
+        // Initialize hero slideshow
+        initHeroSlideshow();
+        
         // Start alternating typewriter animation after a delay
         setTimeout(() => {
             const typewriterElement = document.getElementById('typewriter');
@@ -527,5 +530,58 @@ function initHeaderLogoClick() {
         this.style.transform = 'scale(1)';
     });
     
+}
+
+// Hero Slideshow functionality
+function initHeroSlideshow() {
+    const hero = document.querySelector('.hero');
+    const heroBg3 = document.querySelector('.hero-bg-3');
+    
+    if (!hero || !heroBg3) {
+        console.warn('Hero slideshow elements not found');
+        return;
+    }
+
+    // Array to keep track of background elements
+    const backgrounds = [
+        { element: hero, pseudo: 'before' }, // bg1.jpg
+        { element: hero, pseudo: 'after' },  // bg2.jpg
+        { element: heroBg3, pseudo: null }   // bg3.jpg
+    ];
+    
+    let currentIndex = 0;
+    
+    // Function to show specific background
+    function showBackground(index) {
+        // Hide all backgrounds by removing active class
+        hero.classList.remove('bg-1-active', 'bg-2-active', 'bg-3-active');
+        heroBg3.classList.remove('active');
+        
+        // Show the selected background
+        switch(index) {
+            case 0:
+                hero.classList.add('bg-1-active');
+                break;
+            case 1:
+                hero.classList.add('bg-2-active');
+                break;
+            case 2:
+                hero.classList.add('bg-3-active');
+                heroBg3.classList.add('active');
+                break;
+        }
+    }
+    
+    // Function to go to next background
+    function nextBackground() {
+        currentIndex = (currentIndex + 1) % backgrounds.length;
+        showBackground(currentIndex);
+    }
+    
+    // Show first background initially
+    showBackground(0);
+    
+    // Start slideshow - change every 5 seconds
+    setInterval(nextBackground, 5000);
 }
 

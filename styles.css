@@ -362,20 +362,96 @@ textarea:focus {
     background: #f8f9fa;
 }
 
-.hero::before {
+.hero::before,
+.hero::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('img/background2.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 0 0 60px 60px;
     margin: 0 20px 40px 20px;
-    z-index: 1;
+    transition: opacity 2s ease-in-out;
+}
+
+.hero::before {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('img/bg/bg.png');
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0 0 60px 60px;
+    margin: 0 20px 40px 20px;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    z-index: 3;
+}
+
+.hero::after {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('img/bg/bg-1.jpeg');
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0 0 60px 60px;
+    margin: 0 20px 40px 20px;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    z-index: 3;
+}
+
+.hero .hero-bg-3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('img/bg/bg-2.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0 0 60px 60px;
+    margin: 0 20px 40px 20px;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    z-index: 3;
+}
+
+.hero.bg-1-active::before {
+    opacity: 1;
+}
+
+.hero.bg-1-active::after {
+    opacity: 0;
+}
+
+.hero.bg-2-active::before {
+    opacity: 0;
+}
+
+.hero.bg-2-active::after {
+    opacity: 1;
+}
+
+.hero.bg-3-active::before,
+.hero.bg-3-active::after {
+    opacity: 0;
+}
+
+.hero .hero-bg-3.active {
+    opacity: 1;
 }
 
 .hero-content {
@@ -388,11 +464,13 @@ textarea:focus {
     align-items: center;
     width: 100%;
     position: relative;
-    z-index: 2;
+    z-index: 10;
 }
 
 .hero-text {
     color: white;
+    position: relative;
+    z-index: 15;
 }
 
 .hero-subtitle {
@@ -402,6 +480,8 @@ textarea:focus {
     letter-spacing: 2px;
     margin-bottom: 1rem;
     opacity: 0.9;
+    position: relative;
+    z-index: 20;
 }
 
 .hero-title {
@@ -410,6 +490,8 @@ textarea:focus {
     line-height: 1.1;
     margin-bottom: 2rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    position: relative;
+    z-index: 20;
 }
 
 .typewriter {
@@ -434,6 +516,8 @@ textarea:focus {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
+    position: relative;
+    z-index: 20;
 }
 
 .hero-cta:hover {
