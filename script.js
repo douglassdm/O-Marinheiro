@@ -172,8 +172,6 @@ if (mobileMenuToggle && mobileNav) {
     console.warn('Mobile menu elements not found');
 }
 
-// Create global tooltip
-let globalTooltip = null;
 
 // Initialize all animations
 window.addEventListener('DOMContentLoaded', function() {
@@ -200,69 +198,13 @@ window.addEventListener('DOMContentLoaded', function() {
             }
         }, 1200);
         
-        // Initialize tooltips
-        initTooltips();
         
     } catch (error) {
         console.error('Error initializing page scripts:', error);
     }
 });
 
-// Tooltip initialization function
-function initTooltips() {            
-    // Create global tooltip element
-    globalTooltip = document.createElement('div');
-    globalTooltip.style.cssText = `
-        position: fixed;
-        background: #000;
-        color: white;
-        padding: 8px 16px;
-        border-radius: 8px;
-        font-size: 12px;
-        z-index: 99999;
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        border: 1px solid rgba(255,255,255,0.1);
-        box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-    `;
-    document.body.appendChild(globalTooltip);
-    
-    const teamAvatars = document.querySelectorAll('.team-avatar');
-    
-    teamAvatars.forEach((avatar, index) => {
-        const tooltip = avatar.querySelector('.tooltip');
-        
-        if (tooltip) {
-            const nameElement = tooltip.querySelector('.tooltip-name');
-            const designationElement = tooltip.querySelector('.tooltip-designation');
-            
-            if (nameElement && designationElement) {
-                const name = nameElement.textContent;
-                const designation = designationElement.textContent;
-                
-                avatar.addEventListener('mouseenter', (e) => {
-                    globalTooltip.innerHTML = `<div style="font-weight: bold;">${name}</div><div style="opacity: 0.8; font-size: 11px;">${designation}</div>`;
-                    globalTooltip.style.opacity = '1';
-                    updateTooltipPosition(e);
-                });
-                
-                avatar.addEventListener('mouseleave', () => {
-                    globalTooltip.style.opacity = '0';
-                });
-                
-                avatar.addEventListener('mousemove', updateTooltipPosition);
-            }
-        }
-    });
-};
 
-function updateTooltipPosition(e) {
-    if (globalTooltip) {
-        globalTooltip.style.left = (e.clientX + 10) + 'px';
-        globalTooltip.style.top = (e.clientY - 50) + 'px';
-    }
-}
 
 // Projects Parallax Effect inspirado no componente React
 function initProjectsParallax() {
