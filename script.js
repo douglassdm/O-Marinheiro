@@ -173,11 +173,16 @@ if (mobileMenuToggle && mobileNav) {
 }
 
 
-// Initialize all animations
+// Initialize all animations with performance optimizations
 window.addEventListener('DOMContentLoaded', function() {
-    try {        
-        // Initialize parallax
-        initProjectsParallax();
+    try {
+        // Check for reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        // Initialize parallax only on desktop and if motion is allowed
+        if (window.innerWidth > 1024 && !prefersReducedMotion) {
+            initProjectsParallax();
+        }
         
         // Initialize contact form
         initContactForm();
@@ -201,11 +206,36 @@ window.addEventListener('DOMContentLoaded', function() {
             }
         }, 1200);
         
+        // Initialize intersection observer for performance
+        initIntersectionObserver();
         
     } catch (error) {
         console.error('Error initializing page scripts:', error);
     }
 });
+
+// Intersection Observer for better performance on mobile
+function initIntersectionObserver() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '50px',
+        threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+            }
+        });
+    }, observerOptions);
+    
+    // Observe elements that should animate on scroll
+    const animateElements = document.querySelectorAll('.feature-item, .service-card, .contact-item');
+    animateElements.forEach(el => {
+        observer.observe(el);
+    });
+}
 
 
 
@@ -544,9 +574,9 @@ function initHeroSlideshow() {
 
     // Array to keep track of background elements
     const backgrounds = [
-        { element: hero, pseudo: 'before' }, // bg1.jpg
-        { element: hero, pseudo: 'after' },  // bg2.jpg
-        { element: heroBg3, pseudo: null }   // bg3.jpg
+        { element: hero, pseudo: 'before' }, // bg.png
+        { element: hero, pseudo: 'after' },  // bg-1.jpeg
+        { element: heroBg3, pseudo: null }   // bg-2.jpeg
     ];
     
     let currentIndex = 0;
