@@ -271,15 +271,15 @@
         /* Modern Team Card with Brand Colors */
         .team-card {
             background: linear-gradient(145deg, 
-                rgba(2, 75, 134, 0.15) 0%, 
-                rgba(25, 118, 210, 0.12) 50%, 
-                rgba(66, 165, 245, 0.08) 100%);
+                rgba(2, 75, 134, 0.25) 0%, 
+                rgba(25, 118, 210, 0.22) 50%, 
+                rgba(66, 165, 245, 0.18) 100%);
             backdrop-filter: blur(30px);
             -webkit-backdrop-filter: blur(30px);
             border: 2px solid transparent;
             background-clip: padding-box;
             border-radius: 28px;
-            padding: 0;
+            padding: 2rem 1.5rem;
             position: relative;
             overflow: hidden;
             cursor: pointer;
@@ -290,6 +290,9 @@
             box-shadow: 
                 0 20px 40px rgba(2, 75, 134, 0.15),
                 inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .team-card::after {
@@ -342,24 +345,24 @@
                 0 0 50px rgba(25, 118, 210, 0.2);
         }
 
-        /* Card Background Image */
+        /* Card Background Image - More Blurred */
         .team-card-bg {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 60%;
+            height: 100%;
             background-size: cover;
-            background-position: center top;
+            background-position: center;
             background-repeat: no-repeat;
-            filter: blur(0px);
+            filter: blur(3px) brightness(0.7) opacity(0.6);
             transition: all 0.6s ease;
             z-index: 2;
         }
 
         .team-card:hover .team-card-bg {
-            filter: blur(1px) brightness(1.1);
-            transform: scale(1.05);
+            filter: blur(8px) brightness(0.8) opacity(0.8);
+            transform: scale(1.02);
         }
 
         /* Gradient Overlay */
@@ -378,31 +381,31 @@
             z-index: 3;
         }
 
-        /* Avatar */
+        /* Avatar - Centered and Optimized */
         .team-avatar {
-            position: absolute;
-            top: 25%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 120px;
+            position: relative;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            border: 4px solid rgba(255, 255, 255, 0.9);
+            border: 3px solid rgba(255, 255, 255, 0.9);
             box-shadow: 
-                0 15px 35px rgba(0, 0, 0, 0.3),
-                0 0 0 8px rgba(255, 255, 255, 0.1);
+                0 10px 25px rgba(0, 0, 0, 0.3),
+                0 0 0 6px rgba(255, 255, 255, 0.1);
             overflow: hidden;
             z-index: 4;
             transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            margin: 0 auto 1rem auto;
+            display: block;
+            flex-shrink: 0;
         }
 
         .team-card:hover .team-avatar {
-            transform: translateX(-50%) translateY(-15px) scale(1.15);
+            transform: translateY(-5px) scale(1.1);
             box-shadow: 
-                0 30px 60px rgba(2, 75, 134, 0.4),
-                0 0 0 6px rgba(255, 255, 255, 0.9),
-                0 0 0 12px rgba(66, 165, 245, 0.3),
-                0 0 40px rgba(25, 118, 210, 0.5);
+                0 20px 40px rgba(2, 75, 134, 0.4),
+                0 0 0 4px rgba(255, 255, 255, 0.9),
+                0 0 0 8px rgba(66, 165, 245, 0.3),
+                0 0 30px rgba(25, 118, 210, 0.5);
         }
 
         .team-avatar img {
@@ -426,36 +429,37 @@
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
-        /* Content */
+        /* Content - Organized Layout */
         .team-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 2.5rem 2rem 2rem;
             z-index: 5;
-            transform: translateY(0);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             transition: transform 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            flex: 1;
+            min-height: 0;
         }
 
         .team-card:hover .team-content {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
         }
 
         .team-name {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 800;
             color: white;
             margin-bottom: 0.5rem;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            transform: translateY(20px);
             opacity: 0;
-            animation: slideUpFade 0.8s ease-out forwards;
-            animation-delay: 0.2s;
+            transform: translateY(20px);
+            animation: slideUpFadeSimple 0.8s ease-out 0.2s forwards;
+            line-height: 1.2;
         }
 
         .team-role {
-            font-size: 1rem;
+            font-size: 0.9rem;
             background: linear-gradient(135deg, #42a5f5, #1976d2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -463,79 +467,77 @@
             font-weight: 700;
             margin-bottom: 1rem;
             text-transform: uppercase;
-            letter-spacing: 1.2px;
-            text-shadow: 0 2px 8px rgba(66, 165, 245, 0.3);
-            transform: translateY(20px);
+            letter-spacing: 1px;
             opacity: 0;
-            animation: slideUpFade 0.8s ease-out forwards;
-            animation-delay: 0.3s;
+            transform: translateY(20px);
+            animation: slideUpFadeSimple 0.8s ease-out 0.3s forwards;
             position: relative;
+            display: inline-block;
+            line-height: 1.3;
         }
 
         .team-role::after {
             content: '';
             position: absolute;
             bottom: -4px;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 40px;
             height: 2px;
             background: linear-gradient(90deg, #42a5f5, #1976d2);
             border-radius: 2px;
-            animation: slideUpFade 0.8s ease-out forwards;
-            animation-delay: 0.5s;
+            box-shadow: 0 2px 8px rgba(66, 165, 245, 0.4);
         }
 
         .team-description {
             color: rgba(255, 255, 255, 0.9);
-            line-height: 1.6;
+            line-height: 1.5;
             margin-bottom: 1.5rem;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-            transform: translateY(20px);
             opacity: 0;
-            animation: slideUpFade 0.8s ease-out forwards;
-            animation-delay: 0.4s;
+            transform: translateY(20px);
+            animation: slideUpFadeSimple 0.8s ease-out 0.4s forwards;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-align: center;
         }
 
         .team-skills {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-bottom: 1.5rem;
-            transform: translateY(20px);
+            margin: 0;
             opacity: 0;
-            animation: slideUpFade 0.8s ease-out forwards;
-            animation-delay: 0.5s;
-        }
-
-        .skill-tag {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            color: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            transform: translateY(20px);
+            animation: slideUpFadeSimple 0.8s ease-out 0.5s forwards;
+            justify-content: center;
+            align-items: flex-end;
         }
 
         .skill-tag {
             background: linear-gradient(135deg, 
-                rgba(2, 75, 134, 0.3) 0%, 
-                rgba(25, 118, 210, 0.25) 50%, 
-                rgba(66, 165, 245, 0.2) 100%);
+                rgba(2, 75, 134, 0.4) 0%, 
+                rgba(25, 118, 210, 0.35) 50%, 
+                rgba(66, 165, 245, 0.3) 100%);
             backdrop-filter: blur(15px);
             color: white;
             padding: 0.5rem 1rem;
             border-radius: 25px;
             font-size: 0.75rem;
-            font-weight: 700;
-            border: 1px solid rgba(66, 165, 245, 0.3);
+            font-weight: 600;
+            border: 1px solid rgba(66, 165, 245, 0.4);
             transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-            letter-spacing: 0.5px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            max-width: 140px;
+            flex-shrink: 0;
         }
 
         .skill-tag:hover {
@@ -547,78 +549,6 @@
             border-color: rgba(255, 255, 255, 0.5);
         }
 
-        .team-contact {
-            display: flex;
-            gap: 1rem;
-            transform: translateY(20px);
-            opacity: 0;
-            animation: slideUpFade 0.8s ease-out forwards;
-            animation-delay: 0.6s;
-        }
-
-        .contact-link {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            font-size: 1.1rem;
-        }
-
-        .contact-link {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, 
-                rgba(2, 75, 134, 0.3) 0%, 
-                rgba(25, 118, 210, 0.25) 50%, 
-                rgba(66, 165, 245, 0.2) 100%);
-            backdrop-filter: blur(15px);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
-            border: 2px solid rgba(66, 165, 245, 0.3);
-            font-size: 1.2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-link::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: linear-gradient(135deg, #024b86, #1976d2, #42a5f5);
-            border-radius: 50%;
-            transition: all 0.5s ease;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-        }
-
-        .contact-link:hover {
-            transform: translateY(-8px) scale(1.15) rotate(5deg);
-            box-shadow: 
-                0 15px 35px rgba(2, 75, 134, 0.4),
-                0 0 30px rgba(66, 165, 245, 0.4);
-            border-color: rgba(255, 255, 255, 0.6);
-        }
-
-        .contact-link:hover::before {
-            width: 120%;
-            height: 120%;
-        }
 
         /* Floating Animation */
         .team-card {
@@ -646,6 +576,17 @@
             to {
                 transform: translateY(0);
                 opacity: 1;
+            }
+        }
+
+        @keyframes slideUpFadeSimple {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
@@ -786,8 +727,9 @@
             }
 
             .team-card {
-                height: 450px;
-                min-height: 450px;
+                height: 480px;
+                min-height: 480px;
+                padding: 1.5rem 1rem;
             }
 
             .team-card:hover {
@@ -795,25 +737,26 @@
             }
 
             .team-avatar {
-                width: 100px;
-                height: 100px;
-                top: 20%;
+                width: 90px;
+                height: 90px;
+                margin: 0 auto 0.8rem auto;
             }
 
-            .team-content {
-                padding: 2rem 1.5rem 1.5rem;
-            }
 
             .team-name {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
+                margin-bottom: 0.4rem;
             }
 
             .team-role {
-                font-size: 0.9rem;
+                font-size: 0.8rem;
+                margin-bottom: 0.8rem;
             }
 
             .team-description {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
+                -webkit-line-clamp: 2;
+                margin-bottom: 1rem;
             }
 
             .stats-grid {
@@ -828,23 +771,36 @@
             }
 
             .team-card {
-                height: 400px;
-                min-height: 400px;
+                height: 450px;
+                min-height: 450px;
+                padding: 1rem 0.8rem;
             }
 
             .team-avatar {
-                width: 90px;
-                height: 90px;
+                width: 80px;
+                height: 80px;
+                margin: 0 auto 0.6rem auto;
             }
 
             .team-name {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
+                margin-bottom: 0.3rem;
             }
 
-            .contact-link {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
+            .skill-tag {
+                font-size: 0.65rem;
+                padding: 0.4rem 0.7rem;
+                max-width: 110px;
+            }
+            
+            .team-role {
+                font-size: 0.75rem;
+                margin-bottom: 0.6rem;
+            }
+            
+            .team-description {
+                font-size: 0.8rem;
+                margin-bottom: 0.8rem;
             }
         }
 
@@ -1274,14 +1230,6 @@
                             <span class="skill-tag">Estratégia</span>
                             <span class="skill-tag">Liderança</span>
                         </div>
-                        <div class="team-contact">
-                            <a href="mailto:joao@omarinheiro.com" class="contact-link" title="Email">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                            <a href="https://linkedin.com" class="contact-link" title="LinkedIn">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </div>
                     </div>
                 </div>
 
@@ -1304,14 +1252,6 @@
                             <span class="skill-tag">Engenharia Naval</span>
                             <span class="skill-tag">Operações Offshore</span>
                             <span class="skill-tag">Gestão Técnica</span>
-                        </div>
-                        <div class="team-contact">
-                            <a href="mailto:carlos@omarinheiro.com" class="contact-link" title="Email">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                            <a href="https://linkedin.com" class="contact-link" title="LinkedIn">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -1336,14 +1276,6 @@
                             <span class="skill-tag">Segurança</span>
                             <span class="skill-tag">Operações Subaquáticas</span>
                         </div>
-                        <div class="team-contact">
-                            <a href="mailto:roberto@omarinheiro.com" class="contact-link" title="Email">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                            <a href="https://linkedin.com" class="contact-link" title="LinkedIn">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </div>
                     </div>
                 </div>
 
@@ -1366,14 +1298,6 @@
                             <span class="skill-tag">Engenharia Offshore</span>
                             <span class="skill-tag">Plataformas</span>
                             <span class="skill-tag">Projetos Complexos</span>
-                        </div>
-                        <div class="team-contact">
-                            <a href="mailto:ana@omarinheiro.com" class="contact-link" title="Email">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                            <a href="https://linkedin.com" class="contact-link" title="LinkedIn">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -1398,14 +1322,6 @@
                             <span class="skill-tag">Reparos Estruturais</span>
                             <span class="skill-tag">Técnicas Avançadas</span>
                         </div>
-                        <div class="team-contact">
-                            <a href="mailto:miguel@omarinheiro.com" class="contact-link" title="Email">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                            <a href="https://linkedin.com" class="contact-link" title="LinkedIn">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </div>
                     </div>
                 </div>
 
@@ -1428,14 +1344,6 @@
                             <span class="skill-tag">Segurança Operacional</span>
                             <span class="skill-tag">Prevenção</span>
                             <span class="skill-tag">Protocolos</span>
-                        </div>
-                        <div class="team-contact">
-                            <a href="mailto:patricia@omarinheiro.com" class="contact-link" title="Email">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                            <a href="https://linkedin.com" class="contact-link" title="LinkedIn">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -1500,7 +1408,7 @@
                             <i class="fab fa-instagram"></i>
                         </a>
                         <a href="#" class="social-link">
-                            <i class="fab fa-linkedin-in"></i>
+                            <i class="fab fa-whatsapp"></i>
                         </a>
                         <a href="https://wa.me/5599984995294" class="social-link">
                             <i class="fab fa-whatsapp"></i>
@@ -1615,16 +1523,6 @@
             observer.observe(card);
         });
 
-        // Add hover effects for contact links
-        document.querySelectorAll('.contact-link').forEach(link => {
-            link.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.1) rotate(5deg)';
-            });
-            
-            link.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1) rotate(0deg)';
-            });
-        });
 
         // Parallax effect for hero section
         window.addEventListener('scroll', () => {
