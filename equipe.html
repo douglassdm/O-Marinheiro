@@ -57,31 +57,6 @@
             z-index: -1;
         }
 
-        /* Accessibility Styles */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 6px;
-            background: #000;
-            color: #fff;
-            padding: 8px;
-            text-decoration: none;
-            border-radius: 4px;
-            z-index: 10001;
-            font-size: 14px;
-            font-weight: 600;
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-        }
-
-        .skip-link:focus {
-            top: 6px;
-            opacity: 1;
-            transform: translateY(0);
-            outline: 2px solid #42a5f5;
-            outline-offset: 2px;
-        }
 
         /* Header */
         .header {
@@ -500,7 +475,7 @@
             animation: slideUpFadeSimple 0.8s ease-out 0.4s forwards;
             flex: 1;
             display: -webkit-box;
-            -webkit-line-clamp: 3;
+            line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-align: center;
@@ -755,7 +730,7 @@
 
             .team-description {
                 font-size: 0.85rem;
-                -webkit-line-clamp: 2;
+                line-clamp: 2;
                 margin-bottom: 1rem;
             }
 
@@ -1172,14 +1147,11 @@
     </style>
 </head>
 <body>
-    <!-- Skip Links -->
-    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
-    <a href="#main-nav" class="skip-link">Pular para a navegação</a>
 
     <!-- Header -->
     <header class="header" role="banner">
 
-        <div id="headerLogo" style="display: flex; align-items: center; gap: 0.7rem; cursor: pointer;" aria-label="Voltar ao início da página">
+        <div id="headerLogo" style="display: flex; align-items: center; gap: 0.7rem; cursor: pointer;" onclick="window.location.href='index.html'">
             <img src="img/logo_omarinheiro.png" alt="Logo da empresa O Marinheiro - Serviços Offshore e Navais" class="logo">
             <div class="logo">
                 O Marinheiro
@@ -1453,13 +1425,6 @@
             });
         }
 
-        // Header logo click
-        const headerLogo = document.getElementById('headerLogo');
-        if (headerLogo) {
-            headerLogo.addEventListener('click', function() {
-                window.location.href = 'index.html';
-            });
-        }
 
         // Scroll to top button
         const scrollToTopBtn = document.getElementById('scrollToTop');
