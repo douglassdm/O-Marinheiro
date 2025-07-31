@@ -2667,3 +2667,23 @@ textarea:focus {
         padding: 0.8rem;
     }
 }
+
+/* Additional styles for team page */
+.nav a.active {
+    background: rgba(66, 165, 245, 0.2);
+    color: #42a5f5 !important;
+    border-radius: 20px;
+    padding: 0.8rem 1.5rem;
+    font-weight: 600;
+}
+
+/* Team page specific mobile adjustments */
+@media (max-width: 768px) {
+    .nav a.active {
+        background: rgba(66, 165, 245, 0.2);
+        color: #42a5f5 !important;
+        padding: 0.8rem 0;
+        border-radius: 0;
+        border-bottom: 2px solid #42a5f5;
+    }
+}
