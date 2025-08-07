@@ -2424,7 +2424,7 @@ textarea:focus {
 
     /* Projects Section */
     .projects-section {
-        height: 80vh;
+        height: 95vh;
         padding: 4rem 0;
         min-height: 500px;
     }
