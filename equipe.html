@@ -215,8 +215,9 @@
         .nav a {
           color: #333;
           text-shadow: none;
-          padding: 0.8rem 0;
+          padding: 1rem;
           border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          font-size: 0.9rem;
         }
 
         .nav a:last-child {
@@ -238,9 +239,7 @@
       .nav a {
         text-decoration: none;
         color: white;
-        font-weight: 500;
         transition: color 0.3s ease;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
       }
 
       .nav a:hover {
@@ -815,6 +814,12 @@
       }
 
       @media (max-width: 480px) {
+        .nav a {
+        text-decoration: none;
+        color: black;
+        transition: color 0.3s ease;
+        }
+        
         .team-grid {
           grid-template-columns: 1fr;
           gap: 1.5rem;
@@ -1093,70 +1098,72 @@
         color: #42a5f5;
       }
 
-      /* Enhanced Scroll to Top Button */
-      .scroll-to-top {
+    /* Scroll to Top Button */
+    .scroll-to-top {
         position: fixed !important;
         bottom: 30px !important;
         right: 30px !important;
-        left: auto !important;
-        top: auto !important;
-        width: 65px;
-        height: 65px;
-        background: linear-gradient(135deg, #024b86, #1976d2, #42a5f5);
+        width: 60px;
+        height: 60px;
+        background: rgba(25, 118, 210, 0.9);
         border: none;
         border-radius: 50%;
         color: white;
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         cursor: pointer;
         z-index: 9999;
         opacity: 0;
         visibility: hidden;
         transform: translateY(20px) scale(0.8);
-        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        border: 3px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 10px 40px rgba(2, 75, 134, 0.4),
-          0 0 20px rgba(66, 165, 245, 0.3);
-        position: relative;
-        overflow: hidden;
-      }
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px rgba(25, 118, 210, 0.3);
+    }
 
-      .scroll-to-top::before {
+      /* Inner glow effect */
+      .scroll-to-top::after {
         content: "";
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 0;
-        height: 0;
-        background: linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.3),
-          rgba(255, 255, 255, 0.1)
+        width: 30%;
+        height: 30%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.4),
+          transparent
         );
         border-radius: 50%;
-        transition: all 0.5s ease;
         transform: translate(-50%, -50%);
+        transition: all 0.4s ease;
+        opacity: 0;
       }
 
       .scroll-to-top:hover {
-        background: linear-gradient(135deg, #42a5f5, #024b86, #1976d2);
-        transform: translateY(-8px) scale(1.15) rotate(5deg);
-        box-shadow: 0 20px 50px rgba(2, 75, 134, 0.5),
-          0 0 30px rgba(66, 165, 245, 0.4);
-        border-color: rgba(255, 255, 255, 0.4);
+        background: linear-gradient(135deg, #42a5f5, #1976d2, #024b86);
+        transform: translateY(-12px) scale(1.2) rotate(0deg);
+        box-shadow: 0 25px 60px rgba(2, 75, 134, 0.4),
+          0 10px 30px rgba(66, 165, 245, 0.3),
+          inset 0 3px 6px rgba(255, 255, 255, 0.3),
+          0 0 40px rgba(25, 118, 210, 0.3);
+        border-color: rgba(255, 255, 255, 0.3);
+        animation: pulseGlow 2s ease-in-out infinite;
         position: fixed !important;
         bottom: 30px !important;
         right: 30px !important;
       }
 
-      .scroll-to-top:hover::before {
-        width: 120%;
-        height: 120%;
+      .scroll-to-top:hover::after {
+        width: 60%;
+        height: 60%;
+        opacity: 1;
       }
 
       .scroll-to-top:active {
-        transform: translateY(-2px) scale(1.05);
+        transform: translateY(-8px) scale(1.1) rotate(-5deg);
+        transition: all 0.2s ease;
         position: fixed !important;
         bottom: 30px !important;
         right: 30px !important;
@@ -1165,18 +1172,37 @@
       .scroll-to-top.show {
         opacity: 1;
         visibility: visible;
-        transform: translateY(0) scale(1);
+        transform: translateY(0) scale(1) rotate(0deg);
         position: fixed !important;
         bottom: 30px !important;
         right: 30px !important;
       }
 
       .scroll-to-top i {
-        transition: transform 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
       }
 
       .scroll-to-top:hover i {
-        transform: translateY(-2px);
+        transform: translateY(-3px) scale(1.1);
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+      }
+
+      /* Pulse glow animation */
+      @keyframes pulseGlow {
+        0%,
+        100% {
+          box-shadow: 0 25px 60px rgba(2, 75, 134, 0.4),
+            0 10px 30px rgba(66, 165, 245, 0.3),
+            inset 0 3px 6px rgba(255, 255, 255, 0.3),
+            0 0 40px rgba(25, 118, 210, 0.3);
+        }
+        50% {
+          box-shadow: 0 30px 70px rgba(2, 75, 134, 0.5),
+            0 15px 40px rgba(66, 165, 245, 0.4),
+            inset 0 4px 8px rgba(255, 255, 255, 0.4),
+            0 0 60px rgba(25, 118, 210, 0.4);
+        }
       }
 
       /* Responsive Header Styles - Tablet/Mobile */
@@ -1527,24 +1553,87 @@
         });
       }
 
-      // Scroll to top button
+      // Enhanced Scroll to top button with progress indicator
       const scrollToTopBtn = document.getElementById("scrollToTop");
 
       if (scrollToTopBtn) {
-        window.addEventListener("scroll", function () {
-          if (window.pageYOffset > 300) {
+        let isScrolling = false;
+
+        // Update progress indicator and visibility
+        function updateScrollButton() {
+          const scrollTop =
+            window.pageYOffset || document.documentElement.scrollTop;
+          const docHeight =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight;
+          const scrollPercent = (scrollTop / docHeight) * 100;
+          const progressDeg = (scrollPercent / 100) * 360;
+
+          // Update progress ring
+          scrollToTopBtn.style.setProperty("--progress", `${progressDeg}deg`);
+
+          // Show/hide button with enhanced threshold
+          if (scrollTop > 200) {
             scrollToTopBtn.classList.add("show");
           } else {
             scrollToTopBtn.classList.remove("show");
           }
+        }
+
+        // Throttled scroll handler for better performance
+        let ticking = false;
+        window.addEventListener("scroll", function () {
+          if (!ticking) {
+            requestAnimationFrame(() => {
+              updateScrollButton();
+              ticking = false;
+            });
+            ticking = true;
+          }
         });
 
-        scrollToTopBtn.addEventListener("click", function () {
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
+        // Enhanced smooth scroll with easing
+        scrollToTopBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          if (isScrolling) return;
+          isScrolling = true;
+
+          // Add click animation
+          this.style.transform = "translateY(-8px) scale(1.1) rotate(-10deg)";
+
+          // Reset animation after short delay
+          setTimeout(() => {
+            this.style.transform = "";
+          }, 200);
+
+          // Smooth scroll to top with custom easing
+          const scrollDuration = 800;
+          const scrollStep = -window.scrollY / (scrollDuration / 15);
+
+          function scrollToTop() {
+            if (window.scrollY !== 0) {
+              window.scrollBy(0, scrollStep);
+              requestAnimationFrame(scrollToTop);
+            } else {
+              isScrolling = false;
+            }
+          }
+
+          requestAnimationFrame(scrollToTop);
         });
+
+        // Add hover sound effect (visual feedback)
+        scrollToTopBtn.addEventListener("mouseenter", function () {
+          this.style.animationDuration = "1.5s";
+        });
+
+        scrollToTopBtn.addEventListener("mouseleave", function () {
+          this.style.animationDuration = "2s";
+        });
+
+        // Initial update
+        updateScrollButton();
       }
 
       // Smooth scrolling for navigation links
