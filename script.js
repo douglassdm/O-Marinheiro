@@ -227,20 +227,22 @@ window.addEventListener('DOMContentLoaded', function() {
         // Initialize scroll to top
         initScrollToTop();
         
-        // Initialize language selector
-        LanguageSelector.init();
-        
         // Initialize header logo click
         initHeaderLogoClick();
         
         // Initialize hero slideshow
         initHeroSlideshow();
         
-        // Start alternating typewriter animation after a delay
+        // Initialize language selector
+        LanguageSelector.init();
+        
+        // Start alternating typewriter animation after a delay - now after LanguageSelector
         setTimeout(() => {
             const typewriterElement = document.getElementById('typewriter');
             if (typewriterElement) {
-                alternatingTypeWriter(typewriterElement, ['Offshore', 'Navais'], 120, 80, 2000);
+                // Use LanguageSelector's typewriter with saved language
+                const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+                LanguageSelector.updateTypewriter(savedLang);
             } else {
                 console.warn('Typewriter element not found');
             }
@@ -766,6 +768,9 @@ const LanguageSelector = {
                 "contact-phone-label": "Phone",
                 "contact-email-label": "Email",
                 
+                // Typewriter words
+                "typewriter-words": ["Offshore", "Naval"],
+                
                 // Contact Form
                 "form-name-label": "Full Name",
                 "form-email-label": "Email",
@@ -865,6 +870,9 @@ const LanguageSelector = {
                 "contact-address-label": "Endereço",
                 "contact-phone-label": "Telefone",
                 "contact-email-label": "E-mail",
+                
+                // Typewriter words
+                "typewriter-words": ["Offshore", "Navais"],
                 
                 // Contact Form
                 "form-name-label": "Nome Completo",
@@ -966,6 +974,9 @@ const LanguageSelector = {
                 "contact-phone-label": "电话",
                 "contact-email-label": "电子邮件",
                 
+                // Typewriter words
+                "typewriter-words": ["海上", "船舶"],
+                
                 // Contact Form
                 "form-name-label": "全名",
                 "form-email-label": "电子邮件",
@@ -1031,6 +1042,87 @@ const LanguageSelector = {
                 element.placeholder = currentTranslations[key];
             }
         });
+        
+        // Update typewriter effect with current language
+        this.updateTypewriter(lang);
+    },
+    
+    updateTypewriter: function(lang) {
+        console.log('Updating typewriter for language:', lang);
+        
+        const translations = {
+            en: { "typewriter-words": ["Offshore", "Naval"] },
+            pt: { "typewriter-words": ["Offshore", "Navais"] },
+            zh: { "typewriter-words": ["海上", "船舶"] }
+        };
+        
+        const typewriterElement = document.getElementById('typewriter');
+        console.log('Typewriter element found:', !!typewriterElement);
+        
+        if (typewriterElement && translations[lang] && translations[lang]["typewriter-words"]) {
+            // Clear current typewriter content
+            typewriterElement.textContent = '';
+            
+            // Stop any existing animation by clearing potential intervals
+            if (window.currentTypewriterTimeout) {
+                clearTimeout(window.currentTypewriterTimeout);
+            }
+            
+            // Start new typewriter animation with current language words
+            const words = translations[lang]["typewriter-words"];
+            console.log('Starting typewriter with words:', words);
+            this.startTypewriterAnimation(typewriterElement, words);
+        } else {
+            console.error('Typewriter update failed:', {
+                element: !!typewriterElement,
+                lang: lang,
+                hasTranslation: !!(translations[lang] && translations[lang]["typewriter-words"])
+            });
+        }
+    },
+    
+    startTypewriterAnimation: function(element, words, typeSpeed = 120, eraseSpeed = 80, pauseTime = 2000) {
+        if (!element || !words || words.length === 0) {
+            console.error('Invalid parameters for typewriter effect');
+            return;
+        }
+        
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        function type() {
+            try {
+                const currentWord = words[wordIndex];
+                
+                if (isDeleting) {
+                    element.textContent = currentWord.substring(0, charIndex - 1);
+                    charIndex--;
+                    
+                    if (charIndex === 0) {
+                        isDeleting = false;
+                        wordIndex = (wordIndex + 1) % words.length;
+                        window.currentTypewriterTimeout = setTimeout(type, typeSpeed);
+                        return;
+                    }
+                    window.currentTypewriterTimeout = setTimeout(type, eraseSpeed);
+                } else {
+                    element.textContent = currentWord.substring(0, charIndex + 1);
+                    charIndex++;
+                    
+                    if (charIndex === currentWord.length) {
+                        isDeleting = true;
+                        window.currentTypewriterTimeout = setTimeout(type, pauseTime);
+                        return;
+                    }
+                    window.currentTypewriterTimeout = setTimeout(type, typeSpeed);
+                }
+            } catch (error) {
+                console.error('Error in typewriter animation:', error);
+            }
+        }
+        
+        type();
     }
 };
 
