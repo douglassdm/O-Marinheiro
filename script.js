@@ -1,3 +1,40 @@
+// Utility functions
+const Utils = {
+    handleError: (error, context) => {
+        console.error(`Error in ${context}:`, error);
+    },
+    
+    checkElement: (element, name) => {
+        if (!element) {
+            console.warn(`${name} not found`);
+            return false;
+        }
+        return true;
+    },
+    
+    getDeviceType: () => {
+        const width = window.innerWidth;
+        return {
+            isMobile: width <= 768,
+            isTablet: width <= 1024 && width > 768,
+            isDesktop: width > 1024
+        };
+    },
+    
+    throttle: (func, limit) => {
+        let inThrottle;
+        return function() {
+            const args = arguments;
+            const context = this;
+            if (!inThrottle) {
+                func.apply(context, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        }
+    }
+};
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -16,7 +53,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 console.warn(`Target element not found: ${href}`);
             }
         } catch (error) {
-            console.error('Error during smooth scrolling:', error);
+            Utils.handleError(error, 'smooth scrolling');
         }
     });
 });
@@ -245,10 +282,8 @@ function initProjectsParallax() {
     const projectsContent = document.querySelector('.projects-parallax-content');
     const projectsRows = document.querySelectorAll('.projects-row');
         
-    if (!projectsSection || !projectsContent) {
-        console.warn('Projects parallax elements not found');
-        return;
-    }
+    if (!Utils.checkElement(projectsSection, 'Projects section') || 
+        !Utils.checkElement(projectsContent, 'Projects content')) return;
 
     // Valores target para animação suave (inspirado no useSpring)
     let currentValues = {
@@ -382,8 +417,7 @@ function initProjectsParallax() {
     
     function onScroll() {
         const currentScrollY = window.scrollY;
-        const isMobile = window.innerWidth <= 768;
-        const isTablet = window.innerWidth <= 1024 && window.innerWidth > 768;
+        const { isMobile, isTablet } = Utils.getDeviceType();
         
         // Ajusta sensibilidade baseado no dispositivo
         let threshold = 2; // Desktop
@@ -476,10 +510,7 @@ function initContactForm() {
 // Scroll to Top functionality
 function initScrollToTop() {
     const scrollBtn = document.getElementById('scrollToTop');
-    if (!scrollBtn) {
-        console.warn('Scroll to top button not found');
-        return;
-    }
+    if (!Utils.checkElement(scrollBtn, 'Scroll to top button')) return;
 
     let isScrolling = false;
 

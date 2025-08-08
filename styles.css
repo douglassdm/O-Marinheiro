@@ -149,13 +149,19 @@ textarea:focus {
     border: 0;
 }
 
+:root {
+    --primary-gradient: linear-gradient(135deg, #1976d2, #42a5f5);
+    --shadow-default: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 15px 40px rgba(25, 118, 210, 0.4);
+    --primary-blue: #1976d2;
+    --secondary-blue: #42a5f5;
+}
+
 /* Scroll to Top Button */
 .scroll-to-top {
     position: fixed !important;
     bottom: 30px !important;
     right: 30px !important;
-    left: auto !important;
-    top: auto !important;
     width: 60px;
     height: 60px;
     background: rgba(25, 118, 210, 0.9);
@@ -178,27 +184,18 @@ textarea:focus {
 .scroll-to-top:hover {
     background: rgba(25, 118, 210, 1);
     transform: translateY(-5px) scale(1.1);
-    box-shadow: 0 15px 40px rgba(25, 118, 210, 0.4);
+    box-shadow: var(--shadow-hover);
     border-color: rgba(255, 255, 255, 0.2);
-    position: fixed !important;
-    bottom: 30px !important;
-    right: 30px !important;
 }
 
 .scroll-to-top:active {
     transform: translateY(-2px) scale(1.05);
-    position: fixed !important;
-    bottom: 30px !important;
-    right: 30px !important;
 }
 
 .scroll-to-top.show {
     opacity: 1;
     visibility: visible;
     transform: translateY(0) scale(1);
-    position: fixed !important;
-    bottom: 30px !important;
-    right: 30px !important;
 }
 
 .scroll-to-top i {
@@ -212,25 +209,11 @@ textarea:focus {
 /* Mobile adjustments for scroll to top */
 @media (max-width: 768px) {
     .scroll-to-top {
-        position: fixed !important;
         bottom: 20px !important;
         right: 20px !important;
-        left: auto !important;
-        top: auto !important;
         width: 50px;
         height: 50px;
         font-size: 1.2rem;
-        z-index: 9999;
-    }
-    
-    .scroll-to-top:hover,
-    .scroll-to-top:active,
-    .scroll-to-top.show {
-        position: fixed !important;
-        bottom: 20px !important;
-        right: 20px !important;
-        left: auto !important;
-        top: auto !important;
     }
 }
 
@@ -249,7 +232,7 @@ textarea:focus {
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-default);
 }
 
 .logo {
@@ -285,7 +268,7 @@ textarea:focus {
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        box-shadow: var(--shadow-default);
         flex-direction: column;
         padding: 1rem;
         border-radius: 0 0 15px 15px;
@@ -762,7 +745,7 @@ textarea:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    background: var(--primary-gradient);
     border-radius: 12px;
     flex-shrink: 0;
     box-shadow: 0 4px 15px rgba(25, 118, 210, 0.2);
@@ -981,7 +964,7 @@ textarea:focus {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    background: var(--primary-gradient);
 }
 
 .service-card:hover {
@@ -992,7 +975,7 @@ textarea:focus {
 .service-icon {
     width: 70px;
     height: 70px;
-    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    background: var(--primary-gradient);
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -1125,21 +1108,23 @@ textarea:focus {
 
 /* Animações de rolagem infinita */
 @keyframes scrollLeft {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 @keyframes scrollRight {
-    0% {
-        transform: translateX(-50%);
-    }
-    100% {
-        transform: translateX(0);
-    }
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+.projects-row::after {
+    content: '';
+    display: flex;
+    gap: 1rem;
+}
+
+.projects-row::after {
+    animation-duration: inherit;
 }
 
 
@@ -1248,7 +1233,7 @@ textarea:focus {
 .contact-icon {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    background: var(--primary-gradient);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -1332,7 +1317,7 @@ textarea:focus {
 
 .submit-btn {
     width: 100%;
-    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    background: var(--primary-gradient);
     color: white;
     border: none;
     padding: 1.2rem 2rem;
@@ -1367,13 +1352,15 @@ textarea:focus {
 
 .footer-content {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 3rem;
     margin-bottom: 3rem;
+    justify-items: center;
+    text-align: center;
 }
 
 .footer-brand {
-    padding-right: 2rem;
+    padding-right: 0;
 }
 
 .footer-logo {
@@ -2013,7 +2000,7 @@ textarea:focus {
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(20px);
         border-radius: 0 0 20px 20px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        box-shadow: var(--shadow-default);
         flex-direction: column;
         padding: 1.5rem;
         transform: translateY(-100%);

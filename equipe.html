@@ -338,14 +338,14 @@
             cursor: pointer;
             transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
             transform-style: preserve-3d;
-            height: 520px;
-            min-height: 520px;
+            height: 420px;
+            min-height: 420px;
             box-shadow: 
                 0 20px 40px rgba(2, 75, 134, 0.15),
                 inset 0 1px 0 rgba(255, 255, 255, 0.2);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
         }
 
         .team-card::after {
@@ -434,53 +434,6 @@
             z-index: 3;
         }
 
-        /* Avatar - Centered and Optimized */
-        .team-avatar {
-            position: relative;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 3px solid rgba(255, 255, 255, 0.9);
-            box-shadow: 
-                0 10px 25px rgba(0, 0, 0, 0.3),
-                0 0 0 6px rgba(255, 255, 255, 0.1);
-            overflow: hidden;
-            z-index: 4;
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
-            margin: 0 auto 1rem auto;
-            display: block;
-            flex-shrink: 0;
-        }
-
-        .team-card:hover .team-avatar {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 
-                0 20px 40px rgba(2, 75, 134, 0.4),
-                0 0 0 4px rgba(255, 255, 255, 0.9),
-                0 0 0 8px rgba(66, 165, 245, 0.3),
-                0 0 30px rgba(25, 118, 210, 0.5);
-        }
-
-        .team-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .team-card:hover .team-avatar img {
-            transform: scale(1.15);
-        }
-
-        .team-avatar.fallback {
-            background: linear-gradient(135deg, #024b86, #1976d2, #42a5f5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: white;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-        }
 
         /* Content - Organized Layout */
         .team-content {
@@ -488,11 +441,13 @@
             text-align: center;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
             transition: transform 0.5s cubic-bezier(0.23, 1, 0.320, 1);
             position: relative;
             flex: 1;
             min-height: 0;
+            gap: 1rem;
         }
 
         .team-card:hover .team-content {
@@ -780,8 +735,8 @@
             }
 
             .team-card {
-                height: 480px;
-                min-height: 480px;
+                height: 380px;
+                min-height: 380px;
                 padding: 1.5rem 1rem;
             }
 
@@ -789,11 +744,6 @@
                 transform: translateY(-12px) rotateX(5deg) rotateY(0deg) scale(1.01);
             }
 
-            .team-avatar {
-                width: 90px;
-                height: 90px;
-                margin: 0 auto 0.8rem auto;
-            }
 
 
             .team-name {
@@ -824,16 +774,11 @@
             }
 
             .team-card {
-                height: 450px;
-                min-height: 450px;
+                height: 350px;
+                min-height: 350px;
                 padding: 1rem 0.8rem;
             }
 
-            .team-avatar {
-                width: 80px;
-                height: 80px;
-                margin: 0 auto 0.6rem auto;
-            }
 
             .team-name {
                 font-size: 1.2rem;
@@ -924,13 +869,15 @@
 
         .footer-content {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 3rem;
             margin-bottom: 3rem;
+            justify-items: center;
+            text-align: center;
         }
 
         .footer-brand {
-            padding-right: 2rem;
+            padding-right: 0;
         }
 
         .footer-logo {
@@ -1325,20 +1272,16 @@
         <!-- Team Section -->
         <section class="team-container">
             <div class="team-grid">
-                <!-- CEO / Diretor -->
+                <!-- Presidente e Diretor Executivo -->
                 <div class="team-card">
                     <div class="particles"></div>
                     <div class="team-card-bg" style="background-image: url('img/services/sede-operacional-2.jpeg');"></div>
                     <div class="team-card-overlay"></div>
-                    <div class="team-avatar" id="joao-avatar">
-                        <img src="img/team/mergulhadorhero.png" alt="João Silva" onerror="handleImageError(this, 'fas fa-user-tie')">
-                    </div>
                     <div class="team-content">
-                        <h3 class="team-name">João Silva</h3>
-                        <p class="team-role">CEO & Diretor Executivo</p>
+                        <h3 class="team-name">Guilherme Nagel</h3>
+                        <p class="team-role">Presidente e Diretor Executivo</p>
                         <p class="team-description">
-                            Líder visionário com mais de 30 anos de experiência no setor marítimo. 
-                            Responsável pela estratégia empresarial e expansão dos negócios.
+                            "Líder visionário com mais de 30 anos de experiência no setor marítimo. Mergulhador comercial e responsável pela definição de estratégias empresariais e expansão dos negócios."
                         </p>
                         <div class="team-skills">
                             <span class="skill-tag">Gestão Executiva</span>
@@ -1348,117 +1291,41 @@
                     </div>
                 </div>
 
-                <!-- Diretor Técnico -->
+                <!-- Administrador e Diretor Comercial -->
                 <div class="team-card">
                     <div class="particles"></div>
                     <div class="team-card-bg" style="background-image: url('img/services/reparo-plataforma.JPG');"></div>
                     <div class="team-card-overlay"></div>
-                    <div class="team-avatar" id="carlos-avatar">
-                        <img src="img/team/carlos_santos.jpg" alt="Carlos Santos" onerror="handleImageError(this, 'fas fa-hard-hat')">
-                    </div>
                     <div class="team-content">
-                        <h3 class="team-name">Carlos Santos</h3>
-                        <p class="team-role">Diretor Técnico</p>
+                        <h3 class="team-name">André Pereira</h3>
+                        <p class="team-role">Administrador e Diretor Comercial</p>
                         <p class="team-description">
-                            Engenheiro naval especializado em operações offshore. 
-                            Coordena todas as operações técnicas e garante a qualidade dos serviços.
+                            "Formado em Administração pela UFMA, com experiência em gestão empresarial e atuação em contratos comerciais, tanto no mercado nacional quanto internacional."
                         </p>
                         <div class="team-skills">
-                            <span class="skill-tag">Engenharia Naval</span>
-                            <span class="skill-tag">Operações Offshore</span>
-                            <span class="skill-tag">Gestão Técnica</span>
+                            <span class="skill-tag">Administração</span>
+                            <span class="skill-tag">Gestão de Empresas</span>
+                            <span class="skill-tag">Gestão de Contratos</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Chefe de Mergulho -->
+                <!-- Supervisor de Mergulho -->
                 <div class="team-card">
                     <div class="particles"></div>
                     <div class="team-card-bg" style="background-image: url('img/services/mergulho-tecnico.jpeg');"></div>
                     <div class="team-card-overlay"></div>
-                    <div class="team-avatar" id="roberto-avatar">
-                        <img src="img/team/roberto_lima.jpg" alt="Roberto Lima" onerror="handleImageError(this, 'fas fa-swimming-pool')">
-                    </div>
                     <div class="team-content">
-                        <h3 class="team-name">Roberto Lima</h3>
-                        <p class="team-role">Chefe de Mergulho</p>
+                        <h3 class="team-name">José Roberto</h3>
+                        <p class="team-role">Supervisor de Mergulho</p>
                         <p class="team-description">
-                            Mergulhador profissional com certificações internacionais. 
-                            Responsável pela segurança e coordenação das operações subaquáticas.
+                            "Mergulhador profissional com certificações nas maiores empresas do setor, com atuação no mergulho saturado e mergulho raso. 
+                            Responsável pela segurança e coordenação das operações subaquáticas."
                         </p>
                         <div class="team-skills">
                             <span class="skill-tag">Mergulho Profissional</span>
                             <span class="skill-tag">Segurança</span>
                             <span class="skill-tag">Operações Subaquáticas</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Engenheiro Offshore -->
-                <div class="team-card">
-                    <div class="particles"></div>
-                    <div class="team-card-bg" style="background-image: url('img/services/reparo-offshore.jpg');"></div>
-                    <div class="team-card-overlay"></div>
-                    <div class="team-avatar" id="ana-avatar">
-                        <img src="img/team/ana_costa.jpg" alt="Ana Costa" onerror="handleImageError(this, 'fas fa-oil-can')">
-                    </div>
-                    <div class="team-content">
-                        <h3 class="team-name">Ana Costa</h3>
-                        <p class="team-role">Engenheira Offshore</p>
-                        <p class="team-description">
-                            Especialista em operações offshore e plataformas petrolíferas. 
-                            Desenvolve soluções técnicas para projetos complexos.
-                        </p>
-                        <div class="team-skills">
-                            <span class="skill-tag">Engenharia Offshore</span>
-                            <span class="skill-tag">Plataformas</span>
-                            <span class="skill-tag">Projetos Complexos</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Técnico de Solda -->
-                <div class="team-card">
-                    <div class="particles"></div>
-                    <div class="team-card-bg" style="background-image: url('img/services/solda.JPG');"></div>
-                    <div class="team-card-overlay"></div>
-                    <div class="team-avatar" id="miguel-avatar">
-                        <img src="img/team/miguel_oliveira.jpg" alt="Miguel Oliveira" onerror="handleImageError(this, 'fas fa-fire')">
-                    </div>
-                    <div class="team-content">
-                        <h3 class="team-name">Miguel Oliveira</h3>
-                        <p class="team-role">Técnico de Solda Subaquática</p>
-                        <p class="team-description">
-                            Especialista em soldas subaquáticas com técnicas avançadas. 
-                            Realiza reparos estruturais em ambiente submerso.
-                        </p>
-                        <div class="team-skills">
-                            <span class="skill-tag">Solda Subaquática</span>
-                            <span class="skill-tag">Reparos Estruturais</span>
-                            <span class="skill-tag">Técnicas Avançadas</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Coordenador de Segurança -->
-                <div class="team-card">
-                    <div class="particles"></div>
-                    <div class="team-card-bg" style="background-image: url('img/services/frota.jpeg');"></div>
-                    <div class="team-card-overlay"></div>
-                    <div class="team-avatar" id="patricia-avatar">
-                        <img src="img/team/patricia_ferreira.jpg" alt="Patrícia Ferreira" onerror="handleImageError(this, 'fas fa-shield-alt')">
-                    </div>
-                    <div class="team-content">
-                        <h3 class="team-name">Patrícia Ferreira</h3>
-                        <p class="team-role">Coordenadora de Segurança</p>
-                        <p class="team-description">
-                            Responsável pelos protocolos de segurança e prevenção de acidentes. 
-                            Garante que todas as operações sigam os padrões internacionais.
-                        </p>
-                        <div class="team-skills">
-                            <span class="skill-tag">Segurança Operacional</span>
-                            <span class="skill-tag">Prevenção</span>
-                            <span class="skill-tag">Protocolos</span>
                         </div>
                     </div>
                 </div>
@@ -1513,27 +1380,6 @@
                     </div>
                 </div>
 
-                <div class="footer-social">
-                    <h4>Siga-nos</h4>
-                    <div class="social-links">
-                        <a href="#" class="social-link">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="https://wa.me/5599984995294" class="social-link">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </div>
-                    <div class="footer-hours">
-                        <h5>Horário de Funcionamento</h5>
-                        <p>Segunda a Sexta: 7h às 18h<br>Sábado: 7h às 12h</p>
-                    </div>
-                </div>
             </div>
 
             <div class="footer-bottom">
@@ -1589,13 +1435,6 @@
             });
         }
 
-        // Function to handle image loading errors
-        function handleImageError(img, iconClass) {
-            img.style.display = 'none';
-            const avatar = img.parentElement;
-            avatar.classList.add('fallback');
-            avatar.innerHTML = `<i class="${iconClass}"></i>`;
-        }
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1641,16 +1480,6 @@
             }
         });
 
-        // Add loading animation for images
-        document.querySelectorAll('.team-avatar img').forEach(img => {
-            img.addEventListener('load', function() {
-                this.style.opacity = '1';
-            });
-            
-            img.addEventListener('error', function() {
-                handleImageError(this, this.dataset.fallbackIcon || 'fas fa-user');
-            });
-        });
 
         // Add click effect to team cards
         document.querySelectorAll('.team-card').forEach(card => {
