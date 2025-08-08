@@ -103,13 +103,27 @@
             <i class="fas fa-bars"></i>
         </button>
         
-        <nav class="nav" id="main-nav" role="navigation" aria-label="Navegação principal">
-            <a href="#about">SOBRE NÓS</a>
-            <a href="#services">SERVIÇOS</a>
-            <a href="#projects">PROJETOS</a>
-            <a href="equipe.html">EQUIPE</a>
-            <a href="#contact" class="book-now-btn">CONTATO</a>
-        </nav>
+        <div class="header-right">
+            <div class="language-selector" aria-label="Seletor de idioma">
+                <button class="lang-btn active" data-lang="en" aria-label="Switch to English">
+                    <img src="img/flags/usa.png" alt="English" class="flag-icon">
+                </button>
+                <button class="lang-btn" data-lang="pt" aria-label="Mudar para Português">
+                    <img src="img/flags/brazil.png" alt="Português" class="flag-icon">
+                </button>
+                <button class="lang-btn" data-lang="zh" aria-label="切换到中文">
+                    <img src="img/flags/china.png" alt="中文" class="flag-icon">
+                </button>
+            </div>
+            
+            <nav class="nav" id="main-nav" role="navigation" aria-label="Navegação principal">
+                <a href="#about">SOBRE NÓS</a>
+                <a href="#services">SERVIÇOS</a>
+                <a href="#projects">PROJETOS</a>
+                <a href="equipe.html">EQUIPE</a>
+                <a href="#contact" class="book-now-btn">CONTATO</a>
+            </nav>
+        </div>
     </header>
 
     <!-- Hero Section -->
@@ -118,12 +132,12 @@
         <div class="hero-bg-3"></div>
         <div class="hero-content">
             <div class="hero-text">
-                <div class="hero-subtitle">+ 40 ANOS DE EXPERIÊNCIA EM MERGULHO PROFISSIONAL</div>
+                <div class="hero-subtitle" data-translate="hero-subtitle">+ 40 ANOS DE EXPERIÊNCIA EM MERGULHO PROFISSIONAL</div>
                 <h1 class="hero-title" id="hero-title">
-                    Excelência em<br>
-                    Serviços <span id="typewriter" class="typewriter"></span>
+                    <span data-translate="hero-title-1">Excelência em</span><br>
+                    <span data-translate="hero-title-2">Serviços</span> <span id="typewriter" class="typewriter"></span>
                 </h1>
-                <button class="hero-cta" aria-label="Botão para conhecer mais sobre nossos serviços">VENHA NOS CONHECER</button>
+                <button class="hero-cta" data-translate="hero-cta" aria-label="Botão para conhecer mais sobre nossos serviços">VENHA NOS CONHECER</button>
             </div>
         </div>
     </section>
@@ -139,9 +153,9 @@
         <div class="about-container">
             <div class="about-content">
                 <div class="about-text">
-                    <span class="section-subtitle">SOBRE NÓS</span>
-                    <h2 class="section-title" id="about-title">Por que escolher o Marinheiro para suas aventuras marítimas?</h2>
-                    <p class="section-description">
+                    <span class="section-subtitle" data-translate="about-subtitle">SOBRE NÓS</span>
+                    <h2 class="section-title" id="about-title" data-translate="about-title">Por que escolher o Marinheiro para suas aventuras marítimas?</h2>
+                    <p class="section-description" data-translate="about-description">
                         Com 44 anos de tradição no mergulho profissional, somos pioneiros em soluções de engenharia subaquática no Maranhão.
                         Nossa experiência única nos posiciona como líderes em serviços offshore com acidente zero.
                     </p>
@@ -182,8 +196,8 @@
                         <i class="fas fa-ship"></i>
                     </div>
                     <div class="feature-content">
-                        <h3>Frota Premium</h3>
-                        <p>Barcos modernos e bem conservados, equipados com a mais recente tecnologia de segurança e comodidades de conforto.</p>
+                        <h3 data-translate="feature-1-title">Frota Premium</h3>
+                        <p data-translate="feature-1-desc">Barcos modernos e bem conservados, equipados com a mais recente tecnologia de segurança e comodidades de conforto.</p>
                     </div>
                 </div>
                 
@@ -192,8 +206,8 @@
                         <i class="fas fa-anchor"></i>
                     </div>
                     <div class="feature-content">
-                        <h3>Principais atividades</h3>
-                        <p>Inspeções Submarinas, Salvamento e Resgate de Embarcações e Serviços Offshore</p>
+                        <h3 data-translate="feature-2-title">Principais atividades</h3>
+                        <p data-translate="feature-2-desc">Inspeções Submarinas, Salvamento e Resgate de Embarcações e Serviços Offshore</p>
                     </div>
                 </div>
                 
@@ -202,8 +216,8 @@
                         <i class="fas fa-shield"></i>
                     </div>
                     <div class="feature-content">
-                        <h3>Segurança em primeiro lugar</h3>
-                        <p>Protocolos e equipamentos de segurança abrangentes para garantir sua tranquilidade em todas as viagens.</p>
+                        <h3 data-translate="feature-3-title">Segurança em primeiro lugar</h3>
+                        <p data-translate="feature-3-desc">Protocolos e equipamentos de segurança abrangentes para garantir sua tranquilidade em todas as viagens.</p>
                     </div>
                 </div>
             </div>
@@ -214,9 +228,9 @@
     <section class="services-section" id="services" aria-labelledby="services-title">
         <div class="services-container">
             <div class="services-header">
-                <span class="section-subtitle">NOSSOS SERVIÇOS</span>
-                <h2 class="section-title" id="services-title">Soluções Completas para o Setor Marítimo</h2>
-                <p class="section-description">
+                <span class="section-subtitle" data-translate="services-subtitle">NOSSOS SERVIÇOS</span>
+                <h2 class="section-title" id="services-title" data-translate="services-title">Soluções Completas para o Setor Marítimo</h2>
+                <p class="section-description" data-translate="services-description">
                     Oferecemos uma ampla gama de serviços especializados em mergulho profissional, 
                     soldas subaquáticas e soluções offshore com mais de 40 anos de experiência.
                 </p>
@@ -228,13 +242,13 @@
                         <i class="fas fa-ship"></i>
                     </div>
                     <div class="service-content">
-                        <h3>Serviços em Navios</h3>
-                        <p>Limpeza de obras vivas, substituição de anodos e reparos estruturais em embarcações flutuando.</p>
+                        <h3 data-translate="service-1-title">Serviços em Navios</h3>
+                        <p data-translate="service-1-desc">Limpeza de obras vivas, substituição de anodos e reparos estruturais em embarcações flutuando.</p>
                         <ul class="service-features">
-                            <li>Limpeza nas obras vivas</li>
-                            <li>Substituição de anodos</li>
-                            <li>Reparos no hélice e leme</li>
-                            <li>Corte e solda subaquática</li>
+                            <li data-translate="service-1-feat-1">Limpeza nas obras vivas</li>
+                            <li data-translate="service-1-feat-2">Substituição de anodos</li>
+                            <li data-translate="service-1-feat-3">Reparos no hélice e leme</li>
+                            <li data-translate="service-1-feat-4">Corte e solda subaquática</li>
                         </ul>
                     </div>
                 </div>
@@ -244,13 +258,13 @@
                         <i class="fas fa-oil-can"></i>
                     </div>
                     <div class="service-content">
-                        <h3>Serviços Offshore</h3>
-                        <p>Operações offshore com hidrojateamento UAP e instalação de sistemas submarinos avançados.</p>
+                        <h3 data-translate="service-2-title">Serviços Offshore</h3>
+                        <p data-translate="service-2-desc">Operações offshore com hidrojateamento UAP e instalação de sistemas submarinos avançados.</p>
                         <ul class="service-features">
-                            <li>Hidrojateamento UAP 40.000 PSI</li>
-                            <li>Proteção catódica</li>
-                            <li>Salvamento e resgate</li>
-                            <li>Laçadas submarinas</li>
+                            <li data-translate="service-2-feat-1">Hidrojateamento UAP 40.000 PSI</li>
+                            <li data-translate="service-2-feat-2">Proteção catódica</li>
+                            <li data-translate="service-2-feat-3">Salvamento e resgate</li>
+                            <li data-translate="service-2-feat-4">Laçadas submarinas</li>
                         </ul>
                     </div>
                 </div>
@@ -260,13 +274,13 @@
                         <i class="fas fa-search"></i>
                     </div>
                     <div class="service-content">
-                        <h3>Inspeção Submarina</h3>
-                        <p>Inspeção detalhada com fotografia e vídeo subaquáticos para análise estrutural completa.</p>
+                        <h3 data-translate="service-3-title">Inspeção Submarina</h3>
+                        <p data-translate="service-3-desc">Inspeção detalhada com fotografia e vídeo subaquáticos para análise estrutural completa.</p>
                         <ul class="service-features">
-                            <li>Inspeção visual subaquática</li>
-                            <li>Fotografia e vídeo</li>
-                            <li>Coleta de amostras</li>
-                            <li>Relatórios técnicos</li>
+                            <li data-translate="service-3-feat-1">Inspeção visual subaquática</li>
+                            <li data-translate="service-3-feat-2">Fotografia e vídeo</li>
+                            <li data-translate="service-3-feat-3">Coleta de amostras</li>
+                            <li data-translate="service-3-feat-4">Relatórios técnicos</li>
                         </ul>
                     </div>
                 </div>
@@ -279,10 +293,10 @@
         <div class="projects-parallax-container">
             <div class="projects-header">
                 <h1 class="projects-title">
-                    Nossos Projetos<br />
-                    Marítimos
+                    <span data-translate="projects-title-1">Nossos Projetos</span><br />
+                    <span data-translate="projects-title-2">Marítimos</span>
                 </h1>
-                <p class="projects-description">
+                <p class="projects-description" data-translate="projects-description">
                     Construímos soluções inovadoras para o setor marítimo com as mais recentes 
                     tecnologias. Somos uma equipe apaixonada por desenvolver projetos incríveis.
                 </p>
@@ -383,10 +397,10 @@
     <section class="clients-section" aria-labelledby="clients-title">
         <div class="clients-container">
             <div class="clients-header">
-                <span class="section-subtitle">NOSSOS CLIENTES</span>
-                <h2 class="section-title" id="clients-title">Empresas que Confiam em Nossos Serviços</h2>
+                <span class="section-subtitle" data-translate="clients-subtitle">NOSSOS CLIENTES</span>
+                <h2 class="section-title" id="clients-title" data-translate="clients-title">Empresas que Confiam em Nossos Serviços</h2>
                 <p class="section-description">
-                    Há mais de 40 anos atendendo os principais players do setor marítimo e offshore.
+                    <span data-translate="clients-description">Há mais de 40 anos atendendo os principais players do setor marítimo e offshore.</span>
                 </p>
             </div>
             
@@ -514,11 +528,11 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-header">
-                        <span class="section-subtitle">ENTRE EM CONTATO</span>
-                        <h2 class="section-title" id="contact-title">Pronto para Sua Próxima Operação?</h2>
+                        <span class="section-subtitle" data-translate="contact-subtitle">ENTRE EM CONTATO</span>
+                        <h2 class="section-title" id="contact-title" data-translate="contact-title">Pronto para Sua Próxima Operação?</h2>
                         <p class="section-description">
-                            Estamos prontos para atender suas necessidades marítimas. 
-                            Entre em contato conosco para solicitar um orçamento ou esclarecer dúvidas.
+                            <span data-translate="contact-description">Estamos prontos para atender suas necessidades marítimas. 
+                            Entre em contato conosco para solicitar um orçamento ou esclarecer dúvidas.</span>
                         </p>
                     </div>
 
@@ -528,7 +542,7 @@
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div class="contact-text">
-                                <h4>Endereço</h4>
+                                <h4 data-translate="contact-address-label">Endereço</h4>
                                 <p>Av. dos Navegantes, 1500<br>Porto do Itaqui, São Luís - MA<br>CEP: 65110-000</p>
                             </div>
                         </div>
@@ -538,7 +552,7 @@
                                 <i class="fas fa-phone"></i>
                             </div>
                             <div class="contact-text">
-                                <h4>Telefone</h4>
+                                <h4 data-translate="contact-phone-label">Telefone</h4>
                                 <p>(98) 9 9908-0000</p>
                             </div>
                         </div>
@@ -548,7 +562,7 @@
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div class="contact-text">
-                                <h4>E-mail</h4>
+                                <h4 data-translate="contact-email-label">E-mail</h4>
                                 <p>guilherme@omarinheirosv.com</p>
                             </div>
                         </div>
@@ -561,47 +575,47 @@
                         <form class="contact-form" role="form" aria-labelledby="form-title">
                             <h3 id="form-title" class="sr-only">Formulário de Contato - Solicite um Orçamento</h3>
                             <div class="form-group">
-                                <label for="name">Nome Completo</label>
+                                <label for="name" data-translate="form-name-label">Nome Completo</label>
                                 <input type="text" id="name" name="name" required>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="email">E-mail</label>
+                                    <label for="email" data-translate="form-email-label">E-mail</label>
                                     <input type="email" id="email" name="email" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="phone">Telefone</label>
+                                    <label for="phone" data-translate="form-phone-label">Telefone</label>
                                     <input type="tel" id="phone" name="phone">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="company">Empresa</label>
+                                <label for="company" data-translate="form-company-label">Empresa</label>
                                 <input type="text" id="company" name="company">
                             </div>
 
                             <div class="form-group">
-                                <label for="service">Serviço de Interesse</label>
+                                <label for="service" data-translate="form-service-label">Serviço de Interesse</label>
                                 <select id="service" name="service">
-                                    <option value="">Selecione um serviço</option>
-                                    <option value="servicos-navios">Serviços em Navios</option>
-                                    <option value="servicos-offshore">Serviços Offshore</option>
-                                    <option value="inspecao-submarina">Inspeção Submarina</option>
-                                    <option value="consultoria">Consultoria Marítima</option>
-                                    <option value="emergencia">Atendimento de Emergência</option>
-                                    <option value="outros">Outros</option>
+                                    <option value="" data-translate="form-select-placeholder">Selecione um serviço</option>
+                                    <option value="servicos-navios" data-translate="form-option-ships">Serviços em Navios</option>
+                                    <option value="servicos-offshore" data-translate="form-option-offshore">Serviços Offshore</option>
+                                    <option value="inspecao-submarina" data-translate="form-option-inspection">Inspeção Submarina</option>
+                                    <option value="consultoria" data-translate="form-option-consulting">Consultoria Marítima</option>
+                                    <option value="emergencia" data-translate="form-option-emergency">Atendimento de Emergência</option>
+                                    <option value="outros" data-translate="form-option-others">Outros</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label for="message">Mensagem</label>
-                                <textarea id="message" name="message" rows="5" placeholder="Descreva sua necessidade ou projeto..." required></textarea>
+                                <label for="message" data-translate="form-message-label">Mensagem</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Descreva sua necessidade ou projeto..." data-translate-placeholder="form-message-placeholder" required></textarea>
                             </div>
 
                             <button type="submit" class="submit-btn" aria-describedby="submit-help">
                                 <i class="fas fa-paper-plane" aria-hidden="true"></i>
-                                Enviar Mensagem
+                                <span data-translate="form-submit-button">Enviar Mensagem</span>
                             </button>
                             <span id="submit-help" class="sr-only">Clique para enviar sua mensagem via WhatsApp</span>
                         </form>
@@ -620,30 +634,30 @@
                         <img src="img/logo_omarinheiro.png" alt="Logo da empresa O Marinheiro no rodapé do site" class="footer-logo-img">
                         <h3>O Marinheiro</h3>
                     </div>
-                    <p class="footer-description">
+                    <p class="footer-description" data-translate="footer-description">
                         Há mais de 40 anos oferecendo soluções especializadas em mergulho profissional, 
                         serviços offshore e manutenção naval com excelência e segurança.
                     </p>
                     <div class="footer-certifications">
-                        <span>Certificado ISO 9001</span>
+                        <span data-translate="footer-cert-1">Certificado ISO 9001</span>
                         <span>•</span>
-                        <span>Registro CREA-MA</span>
+                        <span data-translate="footer-cert-2">Registro CREA-MA</span>
                     </div>
                 </div>
 
                 <div class="footer-services">
-                    <h4>Nossos Serviços</h4>
+                    <h4 data-translate="footer-services-title">Nossos Serviços</h4>
                     <ul>
-                        <li><a href="#services">Serviços em Navios</a></li>
-                        <li><a href="#services">Serviços Offshore</a></li>
-                        <li><a href="#services">Inspeção Submarina</a></li>
-                        <li><a href="#services">Soldas Subaquáticas</a></li>
-                        <li><a href="#services">Consultoria Marítima</a></li>
+                        <li><a href="#services" data-translate="footer-service-1">Serviços em Navios</a></li>
+                        <li><a href="#services" data-translate="footer-service-2">Serviços Offshore</a></li>
+                        <li><a href="#services" data-translate="footer-service-3">Inspeção Submarina</a></li>
+                        <li><a href="#services" data-translate="footer-service-4">Soldas Subaquáticas</a></li>
+                        <li><a href="#services" data-translate="footer-service-5">Consultoria Marítima</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-contact">
-                    <h4>Contato</h4>
+                    <h4 data-translate="footer-contact-title">Contato</h4>
                     <div class="footer-contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>Av. dos Navegantes, 1500<br>Porto do Itaqui, São Luís - MA</span>
@@ -663,12 +677,12 @@
 
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
-                    <p>&copy; 2025 O Marinheiro. Todos os direitos reservados.</p>
+                    <p data-translate="footer-copyright">&copy; 2025 O Marinheiro. Todos os direitos reservados.</p>
                     <div class="footer-links">
-                        <a href="#about">Sobre</a>
-                        <a href="#services">Serviços</a>
-                        <a href="#projects">Projetos</a>
-                        <a href="#contact">Contato</a>
+                        <a href="#about" data-translate="footer-link-about">Sobre</a>
+                        <a href="#services" data-translate="footer-link-services">Serviços</a>
+                        <a href="#projects" data-translate="footer-link-projects">Projetos</a>
+                        <a href="#contact" data-translate="footer-link-contact">Contato</a>
                     </div>
                 </div>
             </div>

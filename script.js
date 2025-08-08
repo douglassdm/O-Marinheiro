@@ -227,6 +227,9 @@ window.addEventListener('DOMContentLoaded', function() {
         // Initialize scroll to top
         initScrollToTop();
         
+        // Initialize language selector
+        LanguageSelector.init();
+        
         // Initialize header logo click
         initHeaderLogoClick();
         
@@ -645,4 +648,389 @@ function initHeroSlideshow() {
     // Start slideshow - change every 5 seconds
     setInterval(nextBackground, 5000);
 }
+
+// Language Selector
+const LanguageSelector = {
+    init: function() {
+        this.bindEvents();
+        this.setInitialLanguage();
+    },
+    
+    bindEvents: function() {
+        const langBtns = document.querySelectorAll('.lang-btn');
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const lang = btn.getAttribute('data-lang');
+                this.changeLanguage(lang);
+            });
+        });
+    },
+    
+    setInitialLanguage: function() {
+        // Set English as default active
+        const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+        this.changeLanguage(savedLang);
+    },
+    
+    changeLanguage: function(lang) {
+        // Update active state
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        const activeBtn = document.querySelector(`[data-lang="${lang}"]`);
+        if (activeBtn) {
+            activeBtn.classList.add('active');
+        }
+        
+        // Save language preference
+        localStorage.setItem('selectedLanguage', lang);
+        
+        // Add language class to body for future styling
+        document.body.className = document.body.className.replace(/lang-\w+/g, '');
+        document.body.classList.add(`lang-${lang}`);
+        
+        console.log(`Language changed to: ${lang}`);
+        
+        // Here you would typically load language-specific content
+        // For now, just console.log the change
+        this.updateContent(lang);
+    },
+    
+    updateContent: function(lang) {
+        const translations = {
+            en: {
+                // Navigation
+                about: "ABOUT US",
+                services: "SERVICES", 
+                projects: "PROJECTS",
+                team: "TEAM",
+                contact: "CONTACT",
+                
+                // Hero Section
+                "hero-subtitle": "40+ YEARS OF EXPERIENCE IN PROFESSIONAL DIVING",
+                "hero-title-1": "Excellence in",
+                "hero-title-2": "Services",
+                "hero-cta": "GET TO KNOW US",
+                
+                // About Section
+                "about-subtitle": "ABOUT US",
+                "about-title": "Why choose Marinheiro for your maritime adventures?",
+                "about-description": "With 44 years of tradition in professional diving, we are pioneers in underwater engineering solutions in Maranhão. Our unique experience positions us as leaders in offshore services with zero accidents.",
+                "feature-1-title": "Premium Fleet",
+                "feature-1-desc": "Modern and well-maintained boats, equipped with the latest safety technology and comfort amenities.",
+                "feature-2-title": "Main Activities",
+                "feature-2-desc": "Underwater Inspections, Vessel Salvage and Rescue, and Offshore Services",
+                "feature-3-title": "Safety First",
+                "feature-3-desc": "Comprehensive safety protocols and equipment to ensure your peace of mind on all journeys.",
+                
+                // Services Section
+                "services-subtitle": "OUR SERVICES",
+                "services-title": "Complete Solutions for the Maritime Sector",
+                "services-description": "We offer a wide range of specialized services in professional diving, underwater welding, and offshore solutions with over 40 years of experience.",
+                "service-1-title": "Ship Services",
+                "service-1-desc": "Hull cleaning, anode replacement, and structural repairs on floating vessels.",
+                "service-1-feat-1": "Hull cleaning",
+                "service-1-feat-2": "Anode replacement",
+                "service-1-feat-3": "Propeller and rudder repairs",
+                "service-1-feat-4": "Underwater cutting and welding",
+                "service-2-title": "Offshore Services",
+                "service-2-desc": "Offshore operations with UAP hydro-jetting and installation of advanced submarine systems.",
+                "service-2-feat-1": "UAP Hydro-jetting 40,000 PSI",
+                "service-2-feat-2": "Cathodic protection",
+                "service-2-feat-3": "Salvage and rescue",
+                "service-2-feat-4": "Underwater rigging",
+                "service-3-title": "Underwater Inspection",
+                "service-3-desc": "Detailed inspection with underwater photography and video for complete structural analysis.",
+                "service-3-feat-1": "Underwater visual inspection",
+                "service-3-feat-2": "Photography and video",
+                "service-3-feat-3": "Sample collection",
+                "service-3-feat-4": "Technical reports",
+                
+                // Projects Section
+                "projects-title-1": "Our Maritime",
+                "projects-title-2": "Projects",
+                "projects-description": "We build innovative solutions for the maritime sector with the latest technologies. We are a team passionate about developing incredible projects.",
+                
+                // Clients Section
+                "clients-subtitle": "OUR CLIENTS",
+                "clients-title": "Companies That Trust Our Services",
+                "clients-description": "For over 40 years serving the main players in the maritime and offshore sector.",
+                
+                // Contact Section
+                "contact-subtitle": "GET IN TOUCH",
+                "contact-title": "Ready for Your Next Operation?",
+                "contact-description": "We are ready to meet your maritime needs. Contact us to request a quote or clarify doubts.",
+                "contact-address-label": "Address",
+                "contact-phone-label": "Phone",
+                "contact-email-label": "Email",
+                
+                // Contact Form
+                "form-name-label": "Full Name",
+                "form-email-label": "Email",
+                "form-phone-label": "Phone",
+                "form-company-label": "Company",
+                "form-service-label": "Service of Interest",
+                "form-message-label": "Message",
+                "form-select-placeholder": "Select a service",
+                "form-option-ships": "Ship Services",
+                "form-option-offshore": "Offshore Services",
+                "form-option-inspection": "Underwater Inspection",
+                "form-option-consulting": "Maritime Consulting",
+                "form-option-emergency": "Emergency Service",
+                "form-option-others": "Others",
+                "form-message-placeholder": "Describe your need or project...",
+                "form-submit-button": "Send Message",
+                
+                // Footer
+                "footer-description": "For over 40 years offering specialized solutions in professional diving, offshore services and naval maintenance with excellence and safety.",
+                "footer-cert-1": "ISO 9001 Certified",
+                "footer-cert-2": "CREA-MA Registration",
+                "footer-services-title": "Our Services",
+                "footer-contact-title": "Contact",
+                "footer-service-1": "Ship Services",
+                "footer-service-2": "Offshore Services",
+                "footer-service-3": "Underwater Inspection",
+                "footer-service-4": "Underwater Welding",
+                "footer-service-5": "Maritime Consulting",
+                "footer-copyright": "© 2025 O Marinheiro. All rights reserved.",
+                "footer-link-about": "About",
+                "footer-link-services": "Services",
+                "footer-link-projects": "Projects",
+                "footer-link-contact": "Contact"
+            },
+            pt: {
+                // Navigation
+                about: "SOBRE NÓS",
+                services: "SERVIÇOS",
+                projects: "PROJETOS", 
+                team: "EQUIPE",
+                contact: "CONTATO",
+                
+                // Hero Section
+                "hero-subtitle": "+ 40 ANOS DE EXPERIÊNCIA EM MERGULHO PROFISSIONAL",
+                "hero-title-1": "Excelência em",
+                "hero-title-2": "Serviços",
+                "hero-cta": "VENHA NOS CONHECER",
+                
+                // About Section
+                "about-subtitle": "SOBRE NÓS",
+                "about-title": "Por que escolher o Marinheiro para suas aventuras marítimas?",
+                "about-description": "Com 44 anos de tradição no mergulho profissional, somos pioneiros em soluções de engenharia subaquática no Maranhão. Nossa experiência única nos posiciona como líderes em serviços offshore com acidente zero.",
+                "feature-1-title": "Frota Premium",
+                "feature-1-desc": "Barcos modernos e bem conservados, equipados com a mais recente tecnologia de segurança e comodidades de conforto.",
+                "feature-2-title": "Principais atividades",
+                "feature-2-desc": "Inspeções Submarinas, Salvamento e Resgate de Embarcações e Serviços Offshore",
+                "feature-3-title": "Segurança em primeiro lugar",
+                "feature-3-desc": "Protocolos e equipamentos de segurança abrangentes para garantir sua tranquilidade em todas as viagens.",
+                
+                // Services Section
+                "services-subtitle": "NOSSOS SERVIÇOS",
+                "services-title": "Soluções Completas para o Setor Marítimo",
+                "services-description": "Oferecemos uma ampla gama de serviços especializados em mergulho profissional, soldas subaquáticas e soluções offshore com mais de 40 anos de experiência.",
+                "service-1-title": "Serviços em Navios",
+                "service-1-desc": "Limpeza de obras vivas, substituição de anodos e reparos estruturais em embarcações flutuando.",
+                "service-1-feat-1": "Limpeza nas obras vivas",
+                "service-1-feat-2": "Substituição de anodos",
+                "service-1-feat-3": "Reparos no hélice e leme",
+                "service-1-feat-4": "Corte e solda subaquática",
+                "service-2-title": "Serviços Offshore",
+                "service-2-desc": "Operações offshore com hidrojateamento UAP e instalação de sistemas submarinos avançados.",
+                "service-2-feat-1": "Hidrojateamento UAP 40.000 PSI",
+                "service-2-feat-2": "Proteção catódica",
+                "service-2-feat-3": "Salvamento e resgate",
+                "service-2-feat-4": "Laçadas submarinas",
+                "service-3-title": "Inspeção Submarina",
+                "service-3-desc": "Inspeção detalhada com fotografia e vídeo subaquáticos para análise estrutural completa.",
+                "service-3-feat-1": "Inspeção visual subaquática",
+                "service-3-feat-2": "Fotografia e vídeo",
+                "service-3-feat-3": "Coleta de amostras",
+                "service-3-feat-4": "Relatórios técnicos",
+                
+                // Projects Section
+                "projects-title-1": "Nossos Projetos",
+                "projects-title-2": "Marítimos",
+                "projects-description": "Construímos soluções inovadoras para o setor marítimo com as mais recentes tecnologias. Somos uma equipe apaixonada por desenvolver projetos incríveis.",
+                
+                // Clients Section
+                "clients-subtitle": "NOSSOS CLIENTES",
+                "clients-title": "Empresas que Confiam em Nossos Serviços",
+                "clients-description": "Há mais de 40 anos atendendo os principais players do setor marítimo e offshore.",
+                
+                // Contact Section
+                "contact-subtitle": "ENTRE EM CONTATO",
+                "contact-title": "Pronto para Sua Próxima Operação?",
+                "contact-description": "Estamos prontos para atender suas necessidades marítimas. Entre em contato conosco para solicitar um orçamento ou esclarecer dúvidas.",
+                "contact-address-label": "Endereço",
+                "contact-phone-label": "Telefone",
+                "contact-email-label": "E-mail",
+                
+                // Contact Form
+                "form-name-label": "Nome Completo",
+                "form-email-label": "E-mail",
+                "form-phone-label": "Telefone",
+                "form-company-label": "Empresa",
+                "form-service-label": "Serviço de Interesse",
+                "form-message-label": "Mensagem",
+                "form-select-placeholder": "Selecione um serviço",
+                "form-option-ships": "Serviços em Navios",
+                "form-option-offshore": "Serviços Offshore",
+                "form-option-inspection": "Inspeção Submarina",
+                "form-option-consulting": "Consultoria Marítima",
+                "form-option-emergency": "Atendimento de Emergência",
+                "form-option-others": "Outros",
+                "form-message-placeholder": "Descreva sua necessidade ou projeto...",
+                "form-submit-button": "Enviar Mensagem",
+                
+                // Footer
+                "footer-description": "Há mais de 40 anos oferecendo soluções especializadas em mergulho profissional, serviços offshore e manutenção naval com excelência e segurança.",
+                "footer-cert-1": "Certificado ISO 9001",
+                "footer-cert-2": "Registro CREA-MA",
+                "footer-services-title": "Nossos Serviços",
+                "footer-contact-title": "Contato",
+                "footer-service-1": "Serviços em Navios",
+                "footer-service-2": "Serviços Offshore",
+                "footer-service-3": "Inspeção Submarina",
+                "footer-service-4": "Soldas Subaquáticas",
+                "footer-service-5": "Consultoria Marítima",
+                "footer-copyright": "© 2025 O Marinheiro. Todos os direitos reservados.",
+                "footer-link-about": "Sobre",
+                "footer-link-services": "Serviços",
+                "footer-link-projects": "Projetos",
+                "footer-link-contact": "Contato"
+            },
+            zh: {
+                // Navigation
+                about: "关于我们",
+                services: "服务",
+                projects: "项目",
+                team: "团队", 
+                contact: "联系我们",
+                
+                // Hero Section
+                "hero-subtitle": "40多年专业潜水经验",
+                "hero-title-1": "卓越的",
+                "hero-title-2": "服务",
+                "hero-cta": "了解我们",
+                
+                // About Section
+                "about-subtitle": "关于我们",
+                "about-title": "为什么选择水手进行您的海事冒险？",
+                "about-description": "拥有44年专业潜水传统，我们是马拉尼奥州水下工程解决方案的先驱者。我们独特的经验使我们成为零事故海上服务的领导者。",
+                "feature-1-title": "高级船队",
+                "feature-1-desc": "现代化且维护良好的船只，配备最新的安全技术和舒适设施。",
+                "feature-2-title": "主要活动",
+                "feature-2-desc": "水下检查、船舶打捞救援和海上服务",
+                "feature-3-title": "安全第一",
+                "feature-3-desc": "全面的安全协议和设备，确保您在所有航程中的安心。",
+                
+                // Services Section
+                "services-subtitle": "我们的服务",
+                "services-title": "海事行业完整解决方案",
+                "services-description": "我们提供专业潜水、水下焊接和海上解决方案的广泛专业服务，拥有超过40年的经验。",
+                "service-1-title": "船舶服务",
+                "service-1-desc": "船体清洁、阳极更换和浮动船只结构修理。",
+                "service-1-feat-1": "船体清洁",
+                "service-1-feat-2": "阳极更换",
+                "service-1-feat-3": "螺旋桨和舵修理",
+                "service-1-feat-4": "水下切割和焊接",
+                "service-2-title": "海上服务",
+                "service-2-desc": "UAP高压水射流海上作业和先进潜艇系统安装。",
+                "service-2-feat-1": "UAP高压水射流40,000 PSI",
+                "service-2-feat-2": "阴极保护",
+                "service-2-feat-3": "打捞救援",
+                "service-2-feat-4": "水下索具",
+                "service-3-title": "水下检查",
+                "service-3-desc": "通过水下摄影和视频进行详细检查，进行完整的结构分析。",
+                "service-3-feat-1": "水下目视检查",
+                "service-3-feat-2": "摄影和视频",
+                "service-3-feat-3": "样品采集",
+                "service-3-feat-4": "技术报告",
+                
+                // Projects Section
+                "projects-title-1": "我们的海事",
+                "projects-title-2": "项目",
+                "projects-description": "我们用最新技术为海事行业构建创新解决方案。我们是一支致力于开发令人惊叹项目的团队。",
+                
+                // Clients Section
+                "clients-subtitle": "我们的客户",
+                "clients-title": "信任我们服务的公司",
+                "clients-description": "40多年来服务海事和海上行业的主要参与者。",
+                
+                // Contact Section
+                "contact-subtitle": "联系我们",
+                "contact-title": "准备好您的下一次操作了吗？",
+                "contact-description": "我们准备好满足您的海事需求。联系我们获取报价或澄清疑问。",
+                "contact-address-label": "地址",
+                "contact-phone-label": "电话",
+                "contact-email-label": "电子邮件",
+                
+                // Contact Form
+                "form-name-label": "全名",
+                "form-email-label": "电子邮件",
+                "form-phone-label": "电话",
+                "form-company-label": "公司",
+                "form-service-label": "感兴趣的服务",
+                "form-message-label": "消息",
+                "form-select-placeholder": "选择服务",
+                "form-option-ships": "船舶服务",
+                "form-option-offshore": "海上服务",
+                "form-option-inspection": "水下检查",
+                "form-option-consulting": "海事咨询",
+                "form-option-emergency": "紧急服务",
+                "form-option-others": "其他",
+                "form-message-placeholder": "描述您的需求或项目...",
+                "form-submit-button": "发送消息",
+                
+                // Footer
+                "footer-description": "40多年来提供专业潜水、海上服务和船舶维护的专业解决方案，追求卓越和安全。",
+                "footer-cert-1": "ISO 9001认证",
+                "footer-cert-2": "CREA-MA注册",
+                "footer-services-title": "我们的服务",
+                "footer-contact-title": "联系方式",
+                "footer-service-1": "船舶服务",
+                "footer-service-2": "海上服务",
+                "footer-service-3": "水下检查",
+                "footer-service-4": "水下焊接",
+                "footer-service-5": "海事咨询",
+                "footer-copyright": "© 2025 水手公司。保留所有权利。",
+                "footer-link-about": "关于",
+                "footer-link-services": "服务",
+                "footer-link-projects": "项目",
+                "footer-link-contact": "联系"
+            }
+        };
+        
+        // Update navigation menu
+        const navLinks = document.querySelectorAll('.nav a');
+        const currentTranslations = translations[lang];
+        
+        if (navLinks.length >= 5 && currentTranslations) {
+            navLinks[0].textContent = currentTranslations.about;
+            navLinks[1].textContent = currentTranslations.services;
+            navLinks[2].textContent = currentTranslations.projects;
+            navLinks[3].textContent = currentTranslations.team;
+            navLinks[4].textContent = currentTranslations.contact;
+        }
+        
+        // Update all elements with data-translate attributes
+        const translatableElements = document.querySelectorAll('[data-translate]');
+        translatableElements.forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (currentTranslations[key]) {
+                element.textContent = currentTranslations[key];
+            }
+        });
+        
+        // Update placeholders with data-translate-placeholder attributes
+        const placeholderElements = document.querySelectorAll('[data-translate-placeholder]');
+        placeholderElements.forEach(element => {
+            const key = element.getAttribute('data-translate-placeholder');
+            if (currentTranslations[key]) {
+                element.placeholder = currentTranslations[key];
+            }
+        });
+    }
+};
 
