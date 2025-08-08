@@ -247,6 +247,7 @@ textarea:focus {
 /* Mobile menu toggle */
 .mobile-menu-toggle {
   display: none;
+  padding-left: 1rem;
   background: none;
   border: none;
   color: white;
