@@ -182,9 +182,74 @@
         cursor: pointer;
       }
 
+      /* Header Right Section */
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      /* Language Selector */
+      .language-selector {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 25px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      .lang-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.3rem;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      .lang-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(1.05);
+      }
+
+      .lang-btn.active {
+        background: rgba(66, 165, 245, 0.3);
+        box-shadow: 0 2px 8px rgba(66, 165, 245, 0.4);
+      }
+
+      .flag-icon {
+        width: 24px;
+        height: 18px;
+        object-fit: cover;
+        border-radius: 3px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
       @media (max-width: 768px) {
         .mobile-menu-toggle {
           display: block;
+        }
+
+        .header-right {
+          gap: 1rem;
+        }
+
+        .language-selector {
+          gap: 0.3rem;
+          padding: 0.3rem;
+        }
+
+        .flag-icon {
+          width: 20px;
+          height: 15px;
         }
 
         .nav {
@@ -1348,26 +1413,40 @@
         <i class="fas fa-bars"></i>
       </button>
 
-      <nav
-        class="nav"
-        id="main-nav"
-        role="navigation"
-        aria-label="Navegação principal"
-      >
-        <a href="index.html#about">SOBRE NÓS</a>
-        <a href="index.html#services">SERVIÇOS</a>
-        <a href="index.html#projects">PROJETOS</a>
-        <a href="equipe.html">EQUIPE</a>
-        <a href="index.html#contact" class="book-now-btn">CONTATO</a>
-      </nav>
+      <div class="header-right">
+        <div class="language-selector" aria-label="Seletor de idioma">
+          <button class="lang-btn active" data-lang="en" aria-label="Switch to English">
+            <img src="img/flags/usa.png" alt="English" class="flag-icon">
+          </button>
+          <button class="lang-btn" data-lang="pt" aria-label="Mudar para Português">
+            <img src="img/flags/brazil.png" alt="Português" class="flag-icon">
+          </button>
+          <button class="lang-btn" data-lang="zh" aria-label="切换到中文">
+            <img src="img/flags/china.png" alt="中文" class="flag-icon">
+          </button>
+        </div>
+        
+        <nav
+          class="nav"
+          id="main-nav"
+          role="navigation"
+          aria-label="Navegação principal"
+        >
+          <a href="index.html#about">SOBRE NÓS</a>
+          <a href="index.html#services">SERVIÇOS</a>
+          <a href="index.html#projects">PROJETOS</a>
+          <a href="equipe.html">EQUIPE</a>
+          <a href="index.html#contact" class="book-now-btn">CONTATO</a>
+        </nav>
+      </div>
     </header>
 
     <!-- Main Content -->
     <main class="main" id="main-content">
       <!-- Hero Section -->
       <section class="hero">
-        <h1>Nossa Equipe</h1>
-        <p>
+        <h1 data-translate="team-title">Nossa Equipe</h1>
+        <p data-translate="team-description">
           Conheça os profissionais especializados que fazem a diferença em cada
           operação marítima. Mais de 40 anos de experiência em mergulho
           profissional e serviços offshore.
@@ -1389,16 +1468,16 @@
             <div class="team-card-overlay"></div>
             <div class="team-content">
               <h3 class="team-name">Guilherme Nagel</h3>
-              <p class="team-role">Presidente e Diretor Executivo</p>
-              <p class="team-description">
+              <p class="team-role" data-translate="member-1-role">Presidente e Diretor Executivo</p>
+              <p class="team-description" data-translate="member-1-desc">
                 "Líder visionário com mais de 30 anos de experiência no setor
                 marítimo. Mergulhador comercial e responsável pela definição de
                 estratégias empresariais e expansão dos negócios."
               </p>
               <div class="team-skills">
-                <span class="skill-tag">Gestão Executiva</span>
-                <span class="skill-tag">Estratégia</span>
-                <span class="skill-tag">Liderança</span>
+                <span class="skill-tag" data-translate="member-1-skill-1">Gestão Executiva</span>
+                <span class="skill-tag" data-translate="member-1-skill-2">Estratégia</span>
+                <span class="skill-tag" data-translate="member-1-skill-3">Liderança</span>
               </div>
             </div>
           </div>
@@ -1415,16 +1494,16 @@
             <div class="team-card-overlay"></div>
             <div class="team-content">
               <h3 class="team-name">André Pereira</h3>
-              <p class="team-role">Administrador e Diretor Comercial</p>
-              <p class="team-description">
+              <p class="team-role" data-translate="member-2-role">Administrador e Diretor Comercial</p>
+              <p class="team-description" data-translate="member-2-desc">
                 "Formado em Administração pela UFMA, com experiência em gestão
                 empresarial e atuação em contratos comerciais, tanto no mercado
                 nacional quanto internacional."
               </p>
               <div class="team-skills">
-                <span class="skill-tag">Administração</span>
-                <span class="skill-tag">Gestão de Empresas</span>
-                <span class="skill-tag">Gestão de Contratos</span>
+                <span class="skill-tag" data-translate="member-2-skill-1">Administração</span>
+                <span class="skill-tag" data-translate="member-2-skill-2">Gestão de Empresas</span>
+                <span class="skill-tag" data-translate="member-2-skill-3">Gestão de Contratos</span>
               </div>
             </div>
           </div>
@@ -1441,17 +1520,17 @@
             <div class="team-card-overlay"></div>
             <div class="team-content">
               <h3 class="team-name">José Roberto</h3>
-              <p class="team-role">Supervisor de Mergulho</p>
-              <p class="team-description">
+              <p class="team-role" data-translate="member-3-role">Supervisor de Mergulho</p>
+              <p class="team-description" data-translate="member-3-desc">
                 "Mergulhador profissional com certificações nas maiores empresas
                 do setor, com atuação no mergulho saturado e mergulho raso.
                 Responsável pela segurança e coordenação das operações
                 subaquáticas."
               </p>
               <div class="team-skills">
-                <span class="skill-tag">Mergulho Profissional</span>
-                <span class="skill-tag">Segurança</span>
-                <span class="skill-tag">Operações Subaquáticas</span>
+                <span class="skill-tag" data-translate="member-3-skill-1">Mergulho Profissional</span>
+                <span class="skill-tag" data-translate="member-3-skill-2">Segurança</span>
+                <span class="skill-tag" data-translate="member-3-skill-3">Operações Subaquáticas</span>
               </div>
             </div>
           </div>
@@ -1476,31 +1555,31 @@
               />
               <h3>O Marinheiro</h3>
             </div>
-            <p class="footer-description">
+            <p class="footer-description" data-translate="footer-description">
               Há mais de 40 anos oferecendo soluções especializadas em mergulho
               profissional, serviços offshore e manutenção naval com excelência
               e segurança.
             </p>
             <div class="footer-certifications">
-              <span>Certificado ISO 9001</span>
+              <span data-translate="footer-cert-1">Certificado ISO 9001</span>
               <span>•</span>
-              <span>Registro CREA-MA</span>
+              <span data-translate="footer-cert-2">Registro CREA-MA</span>
             </div>
           </div>
 
           <div class="footer-services">
-            <h4>Nossos Serviços</h4>
+            <h4 data-translate="footer-services-title">Nossos Serviços</h4>
             <ul>
-              <li><a href="index.html#services">Serviços em Navios</a></li>
-              <li><a href="index.html#services">Serviços Offshore</a></li>
-              <li><a href="index.html#services">Inspeção Submarina</a></li>
-              <li><a href="index.html#services">Soldas Subaquáticas</a></li>
-              <li><a href="index.html#services">Consultoria Marítima</a></li>
+              <li><a href="index.html#services" data-translate="footer-service-1">Serviços em Navios</a></li>
+              <li><a href="index.html#services" data-translate="footer-service-2">Serviços Offshore</a></li>
+              <li><a href="index.html#services" data-translate="footer-service-3">Inspeção Submarina</a></li>
+              <li><a href="index.html#services" data-translate="footer-service-4">Soldas Subaquáticas</a></li>
+              <li><a href="index.html#services" data-translate="footer-service-5">Consultoria Marítima</a></li>
             </ul>
           </div>
 
           <div class="footer-contact">
-            <h4>Contato</h4>
+            <h4 data-translate="footer-contact-title">Contato</h4>
             <div class="footer-contact-item">
               <i class="fas fa-map-marker-alt"></i>
               <span
@@ -1521,12 +1600,12 @@
 
         <div class="footer-bottom">
           <div class="footer-bottom-content">
-            <p>&copy; 2025 O Marinheiro. Todos os direitos reservados.</p>
+            <p data-translate="footer-copyright">&copy; 2025 O Marinheiro. Todos os direitos reservados.</p>
             <div class="footer-links">
-              <a href="index.html#about">Sobre</a>
-              <a href="index.html#services">Serviços</a>
-              <a href="index.html#projects">Projetos</a>
-              <a href="index.html#contact">Contato</a>
+              <a href="index.html#about" data-translate="footer-link-about">Sobre</a>
+              <a href="index.html#services" data-translate="footer-link-services">Serviços</a>
+              <a href="index.html#projects" data-translate="footer-link-projects">Projetos</a>
+              <a href="index.html#contact" data-translate="footer-link-contact">Contato</a>
             </div>
           </div>
         </div>
@@ -1543,6 +1622,230 @@
     </button>
 
     <script>
+      // Language Selector
+      const LanguageSelector = {
+        init: function() {
+          this.bindEvents();
+          this.setInitialLanguage();
+        },
+        
+        bindEvents: function() {
+          const langBtns = document.querySelectorAll('.lang-btn');
+          langBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+              e.preventDefault();
+              const lang = btn.getAttribute('data-lang');
+              this.changeLanguage(lang);
+            });
+          });
+        },
+        
+        setInitialLanguage: function() {
+          // Set English as default active
+          const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+          this.changeLanguage(savedLang);
+        },
+        
+        changeLanguage: function(lang) {
+          // Update active state
+          document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('active');
+          });
+          
+          const activeBtn = document.querySelector(`[data-lang="${lang}"]`);
+          if (activeBtn) {
+            activeBtn.classList.add('active');
+          }
+          
+          // Save language preference
+          localStorage.setItem('selectedLanguage', lang);
+          
+          // Add language class to body for future styling
+          document.body.className = document.body.className.replace(/lang-\w+/g, '');
+          document.body.classList.add(`lang-${lang}`);
+          
+          console.log(`Language changed to: ${lang}`);
+          
+          // Update content
+          this.updateContent(lang);
+        },
+        
+        updateContent: function(lang) {
+          const translations = {
+            en: {
+              // Navigation
+              about: "ABOUT US",
+              services: "SERVICES", 
+              projects: "PROJECTS",
+              team: "TEAM",
+              contact: "CONTACT",
+              
+              // Team Section
+              "team-title": "Our Team",
+              "team-description": "Meet the specialized professionals who make the difference in every maritime operation. Over 40 years of experience in professional diving and offshore services.",
+              
+              // Team Members
+              "member-1-role": "President and Executive Director",
+              "member-1-desc": "\"Visionary leader with over 30 years of experience in the maritime sector. Commercial diver and responsible for defining business strategies and business expansion.\"",
+              "member-1-skill-1": "Executive Management",
+              "member-1-skill-2": "Strategy",
+              "member-1-skill-3": "Leadership",
+              
+              "member-2-role": "Administrator and Commercial Director",
+              "member-2-desc": "\"Graduated in Administration from UFMA, with experience in business management and work in commercial contracts, both in the national and international market.\"",
+              "member-2-skill-1": "Administration",
+              "member-2-skill-2": "Business Management",
+              "member-2-skill-3": "Contract Management",
+              
+              "member-3-role": "Diving Supervisor",
+              "member-3-desc": "\"Professional diver with certifications in the largest companies in the sector, working in saturation diving and shallow diving. Responsible for safety and coordination of underwater operations.\"",
+              "member-3-skill-1": "Professional Diving",
+              "member-3-skill-2": "Safety",
+              "member-3-skill-3": "Underwater Operations",
+              
+              // Footer
+              "footer-description": "For over 40 years offering specialized solutions in professional diving, offshore services and naval maintenance with excellence and safety.",
+              "footer-cert-1": "ISO 9001 Certified",
+              "footer-cert-2": "CREA-MA Registration",
+              "footer-services-title": "Our Services",
+              "footer-contact-title": "Contact",
+              "footer-service-1": "Ship Services",
+              "footer-service-2": "Offshore Services",
+              "footer-service-3": "Underwater Inspection",
+              "footer-service-4": "Underwater Welding",
+              "footer-service-5": "Maritime Consulting",
+              "footer-copyright": "© 2025 O Marinheiro. All rights reserved.",
+              "footer-link-about": "About",
+              "footer-link-services": "Services",
+              "footer-link-projects": "Projects",
+              "footer-link-contact": "Contact"
+            },
+            pt: {
+              // Navigation
+              about: "SOBRE NÓS",
+              services: "SERVIÇOS",
+              projects: "PROJETOS", 
+              team: "EQUIPE",
+              contact: "CONTATO",
+              
+              // Team Section
+              "team-title": "Nossa Equipe",
+              "team-description": "Conheça os profissionais especializados que fazem a diferença em cada operação marítima. Mais de 40 anos de experiência em mergulho profissional e serviços offshore.",
+              
+              // Team Members
+              "member-1-role": "Presidente e Diretor Executivo",
+              "member-1-desc": "\"Líder visionário com mais de 30 anos de experiência no setor marítimo. Mergulhador comercial e responsável pela definição de estratégias empresariais e expansão dos negócios.\"",
+              "member-1-skill-1": "Gestão Executiva",
+              "member-1-skill-2": "Estratégia",
+              "member-1-skill-3": "Liderança",
+              
+              "member-2-role": "Administrador e Diretor Comercial",
+              "member-2-desc": "\"Formado em Administração pela UFMA, com experiência em gestão empresarial e atuação em contratos comerciais, tanto no mercado nacional quanto internacional.\"",
+              "member-2-skill-1": "Administração",
+              "member-2-skill-2": "Gestão de Empresas",
+              "member-2-skill-3": "Gestão de Contratos",
+              
+              "member-3-role": "Supervisor de Mergulho",
+              "member-3-desc": "\"Mergulhador profissional com certificações nas maiores empresas do setor, com atuação no mergulho saturado e mergulho raso. Responsável pela segurança e coordenação das operações subaquáticas.\"",
+              "member-3-skill-1": "Mergulho Profissional",
+              "member-3-skill-2": "Segurança",
+              "member-3-skill-3": "Operações Subaquáticas",
+              
+              // Footer
+              "footer-description": "Há mais de 40 anos oferecendo soluções especializadas em mergulho profissional, serviços offshore e manutenção naval com excelência e segurança.",
+              "footer-cert-1": "Certificado ISO 9001",
+              "footer-cert-2": "Registro CREA-MA",
+              "footer-services-title": "Nossos Serviços",
+              "footer-contact-title": "Contato",
+              "footer-service-1": "Serviços em Navios",
+              "footer-service-2": "Serviços Offshore",
+              "footer-service-3": "Inspeção Submarina",
+              "footer-service-4": "Soldas Subaquáticas",
+              "footer-service-5": "Consultoria Marítima",
+              "footer-copyright": "© 2025 O Marinheiro. Todos os direitos reservados.",
+              "footer-link-about": "Sobre",
+              "footer-link-services": "Serviços",
+              "footer-link-projects": "Projetos",
+              "footer-link-contact": "Contato"
+            },
+            zh: {
+              // Navigation
+              about: "关于我们",
+              services: "服务",
+              projects: "项目",
+              team: "团队", 
+              contact: "联系我们",
+              
+              // Team Section
+              "team-title": "我们的团队",
+              "team-description": "认识在每次海事操作中发挥重要作用的专业人员。在专业潜水和海上服务方面拥有超过40年的经验。",
+              
+              // Team Members
+              "member-1-role": "总裁兼执行董事",
+              "member-1-desc": "\"具有远见卓识的领导者，在海事行业拥有30多年的经验。商业潜水员，负责制定商业战略和业务扩张。\"",
+              "member-1-skill-1": "执行管理",
+              "member-1-skill-2": "战略",
+              "member-1-skill-3": "领导力",
+              
+              "member-2-role": "管理员兼商务总监",
+              "member-2-desc": "\"UFMA管理学毕业生，在企业管理和商业合同方面具有经验，涉及国内和国际市场。\"",
+              "member-2-skill-1": "管理",
+              "member-2-skill-2": "企业管理",
+              "member-2-skill-3": "合同管理",
+              
+              "member-3-role": "潜水主管",
+              "member-3-desc": "\"专业潜水员，在该行业最大的公司获得认证，从事饱和潜水和浅水潜水。负责水下作业的安全和协调。\"",
+              "member-3-skill-1": "专业潜水",
+              "member-3-skill-2": "安全",
+              "member-3-skill-3": "水下作业",
+              
+              // Footer
+              "footer-description": "40多年来提供专业潜水、海上服务和船舶维护的专业解决方案，追求卓越和安全。",
+              "footer-cert-1": "ISO 9001认证",
+              "footer-cert-2": "CREA-MA注册",
+              "footer-services-title": "我们的服务",
+              "footer-contact-title": "联系方式",
+              "footer-service-1": "船舶服务",
+              "footer-service-2": "海上服务",
+              "footer-service-3": "水下检查",
+              "footer-service-4": "水下焊接",
+              "footer-service-5": "海事咨询",
+              "footer-copyright": "© 2025 水手公司。保留所有权利。",
+              "footer-link-about": "关于",
+              "footer-link-services": "服务",
+              "footer-link-projects": "项目",
+              "footer-link-contact": "联系"
+            }
+          };
+          
+          // Update navigation menu
+          const navLinks = document.querySelectorAll('.nav a');
+          const currentTranslations = translations[lang];
+          
+          if (navLinks.length >= 5 && currentTranslations) {
+            navLinks[0].textContent = currentTranslations.about;
+            navLinks[1].textContent = currentTranslations.services;
+            navLinks[2].textContent = currentTranslations.projects;
+            navLinks[3].textContent = currentTranslations.team;
+            navLinks[4].textContent = currentTranslations.contact;
+          }
+          
+          // Update all elements with data-translate attributes
+          const translatableElements = document.querySelectorAll('[data-translate]');
+          translatableElements.forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (currentTranslations[key]) {
+              element.textContent = currentTranslations[key];
+            }
+          });
+        }
+      };
+
+      // Initialize language selector when DOM is loaded
+      document.addEventListener('DOMContentLoaded', function() {
+        LanguageSelector.init();
+      });
+
       // Mobile menu toggle
       const mobileMenuToggle = document.getElementById("mobileMenuToggle");
       const nav = document.querySelector(".nav");
