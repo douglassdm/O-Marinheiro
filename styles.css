@@ -2668,3 +2668,121 @@ textarea:focus {
     border-bottom: 2px solid #42a5f5;
   }
 }
+
+/* ============= CLIENTS SECTION ============= */
+.clients-section {
+  padding: 120px 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.clients-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.clients-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.clients-scroll-container {
+  width: 100%;
+  overflow: hidden;
+  mask: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.clients-scroll-track {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  animation: infiniteScroll 60s linear infinite;
+  width: calc((200px + 80px) * 18 * 2);
+}
+
+.client-logo {
+  flex-shrink: 0;
+  width: 200px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.client-logo:hover {
+  transform: scale(1.05);
+}
+
+.client-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.7);
+  transition: filter 0.3s ease;
+}
+
+.client-logo:hover img {
+  filter: grayscale(0%) opacity(1);
+}
+
+@keyframes infiniteScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .clients-section {
+    padding: 80px 0;
+  }
+  
+  .clients-header {
+    margin-bottom: 60px;
+  }
+  
+  .clients-scroll-track {
+    gap: 40px;
+    width: calc((150px + 40px) * 18 * 2);
+  }
+  
+  .client-logo {
+    width: 150px;
+    height: 75px;
+  }
+}
+
+@media (max-width: 480px) {
+  .clients-section {
+    padding: 60px 0;
+  }
+  
+  .clients-scroll-track {
+    gap: 30px;
+    width: calc((130px + 30px) * 18 * 2);
+  }
+  
+  .client-logo {
+    width: 130px;
+    height: 65px;
+  }
+}
