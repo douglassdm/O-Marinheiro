@@ -21,6 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="anonymous">
     <title>O Marinheiro - Serviços Offshore e Navais</title>
     
     <!-- Structured Data for SEO -->
@@ -522,6 +523,23 @@
         </div>
     </section>
 
+    <!-- Service Locations Map Section -->
+    <section class="map-section" id="locations" aria-labelledby="map-title">
+        <div class="map-container">
+            <div class="map-header">
+                <span class="section-subtitle" data-translate="map-subtitle">ONDE ATUAMOS</span>
+                <h2 class="section-title" id="map-title" data-translate="map-title">Nossas Operações pelo Brasil</h2>
+                <p class="section-description" data-translate="map-description">
+                    Com mais de 4 décadas de experiência, já realizamos serviços em diversos portos e terminais marítimos pelo país.
+                </p>
+            </div>
+            
+            <div class="map-content">
+                <div id="service-map" class="interactive-map"></div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact-section" id="contact" aria-labelledby="contact-title">
         <div class="contact-container">
@@ -694,6 +712,7 @@
         <i class="fas fa-anchor fa-rotate-180"></i>
     </button>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="anonymous"></script>
 <script src="script.js"></script>
     
 </body>
