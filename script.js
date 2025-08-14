@@ -216,10 +216,6 @@ window.addEventListener('DOMContentLoaded', function() {
         // Check for reduced motion preference
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         
-        // Initialize parallax only on desktop and if motion is allowed
-        if (window.innerWidth > 1024 && !prefersReducedMotion) {
-            initProjectsParallax();
-        }
         
         // Initialize contact form
         initContactForm();
@@ -253,6 +249,9 @@ window.addEventListener('DOMContentLoaded', function() {
         
         // Initialize map functionality
         MapManager.init();
+        
+        // Preload project images to prevent white spaces
+        preloadProjectImages();
         
     } catch (error) {
         console.error('Error initializing page scripts:', error);
@@ -293,78 +292,8 @@ function initProjectsParallax() {
     if (!Utils.checkElement(projectsSection, 'Projects section') || 
         !Utils.checkElement(projectsContent, 'Projects content')) return;
 
-    // Valores target para animação suave (inspirado no useSpring)
-    let currentValues = {
-        translateX: 0,
-        translateXReverse: 0,
-        rotateX: 15,
-        rotateZ: 20,
-        translateY: -700,
-        opacity: 0.2
-    };
-
-    let targetValues = { ...currentValues };
-    let isAnimating = false;
-
-    // Função de interpolação suave (similar ao useSpring)
-    function lerp(start, end, factor) {
-        return start + (end - start) * factor;
-    }
-
-    // Função para animar valores suavemente
-    function animateToTarget() {
-        if (!isAnimating) return;
-
-        // Ajusta fator de suavização baseado no dispositivo
-        const isMobile = window.innerWidth <= 768;
-        const isTablet = window.innerWidth <= 1024 && window.innerWidth > 768;
-        
-        let factor = 0.1; // Desktop: suave
-        if (isMobile) {
-            factor = 0.2; // Mobile: mais direto para melhor performance
-        } else if (isTablet) {
-            factor = 0.15; // Tablet: meio termo
-        }
-        
-        let needsUpdate = false;
-
-        // Interpola cada valor
-        Object.keys(currentValues).forEach(key => {
-            const current = currentValues[key];
-            const target = targetValues[key];
-            const diff = Math.abs(target - current);
-            
-            if (diff > 0.1) {
-                currentValues[key] = lerp(current, target, factor);
-                needsUpdate = true;
-            } else {
-                currentValues[key] = target;
-            }
-        });
-
-        // Aplica as transformações interpoladas
-        projectsContent.style.transform = `
-            rotateX(${currentValues.rotateX}deg) 
-            rotateZ(${currentValues.rotateZ}deg) 
-            translateY(${currentValues.translateY}px)
-        `;
-        projectsContent.style.opacity = currentValues.opacity;
-
-        // Aplica movimento horizontal suave
-        projectsRows.forEach((row, index) => {
-            if (row.classList.contains('projects-row-reverse')) {
-                row.style.transform = `translateX(${currentValues.translateX - 500}px)`;
-            } else {
-                row.style.transform = `translateX(${currentValues.translateXReverse}px)`;
-            }
-        });
-
-        if (needsUpdate) {
-            requestAnimationFrame(animateToTarget);
-        } else {
-            isAnimating = false;
-        }
-    }
+    let ticking = false;
+    let lastScrollY = 0;
 
     function updateParallax() {
         try {
@@ -376,67 +305,51 @@ function initProjectsParallax() {
                 return;
             }
 
-            // Calcula progresso (similar ao useTransform do React)
+            // Calcula progresso de scroll simples
             const scrollProgress = Math.max(0, Math.min(1, -rect.top / (rect.height - viewportHeight)));
             
-            // Detecta dispositivos móveis para reduzir efeitos
-            const isMobile = window.innerWidth <= 768;
-            const isTablet = window.innerWidth <= 1024 && window.innerWidth > 768;
+            // Detecta tipo de dispositivo
+            const { isMobile, isTablet } = Utils.getDeviceType();
             
+            // Animação muito simplificada - apenas movimento horizontal e opacity
             if (isMobile) {
-                // Versão simplificada para mobile - apenas movimento horizontal e opacity
-                targetValues.translateX = scrollProgress * 300; // Reduzido drasticamente
-                targetValues.translateXReverse = scrollProgress * -300;
-                targetValues.rotateX = 0; // Remove rotações
-                targetValues.rotateZ = 0;
-                targetValues.translateY = -200 + scrollProgress * 400; // Movimento vertical reduzido
-                targetValues.opacity = Math.max(0.5, Math.min(1, 0.5 + scrollProgress * 2));
-            } else if (isTablet) {
-                // Versão intermediária para tablet
-                targetValues.translateX = scrollProgress * 600;
-                targetValues.translateXReverse = scrollProgress * -600;
-                targetValues.rotateX = Math.max(0, 8 - scrollProgress * 40); // Rotações reduzidas
-                targetValues.rotateZ = Math.max(0, 10 - scrollProgress * 50);
-                targetValues.translateY = -400 + scrollProgress * 800;
-                targetValues.opacity = Math.max(0.3, Math.min(1, 0.3 + scrollProgress * 3));
+                // Mobile: animação mínima
+                const translateX = scrollProgress * 150;
+                projectsContent.style.opacity = Math.max(0.7, Math.min(1, 0.7 + scrollProgress * 0.3));
+                
+                projectsRows.forEach((row) => {
+                    if (row.classList.contains('projects-row-reverse')) {
+                        row.style.transform = `translateX(${translateX - 150}px)`;
+                    } else {
+                        row.style.transform = `translateX(${-translateX}px)`;
+                    }
+                });
             } else {
-                // Versão completa para desktop
-                targetValues.translateX = scrollProgress * 1000;
-                targetValues.translateXReverse = scrollProgress * -1000;
-                targetValues.rotateX = Math.max(0, 15 - scrollProgress * 75);
-                targetValues.rotateZ = Math.max(0, 20 - scrollProgress * 100);
-                targetValues.translateY = -700 + scrollProgress * 1200;
-                targetValues.opacity = Math.max(0.2, Math.min(1, 0.2 + scrollProgress * 4));
-            }
+                // Desktop: animação suave mas performática
+                const translateX = scrollProgress * 300;
+                const translateY = -100 + scrollProgress * 200;
+                
+                projectsContent.style.transform = `translateY(${translateY}px)`;
+                projectsContent.style.opacity = Math.max(0.5, Math.min(1, 0.5 + scrollProgress * 0.5));
 
-            // Inicia animação suave se não estiver rodando
-            if (!isAnimating) {
-                isAnimating = true;
-                animateToTarget();
+                projectsRows.forEach((row) => {
+                    if (row.classList.contains('projects-row-reverse')) {
+                        row.style.transform = `translateX(${translateX - 300}px)`;
+                    } else {
+                        row.style.transform = `translateX(${-translateX}px)`;
+                    }
+                });
             }
         } catch (error) {
-            console.error('Error in parallax update:', error);
+            Utils.handleError(error, 'updateParallax');
         }
     }
-
-    // Throttle otimizado com diferentes sensibilidades por dispositivo
-    let lastScrollY = 0;
-    let ticking = false;
     
     function onScroll() {
         const currentScrollY = window.scrollY;
-        const { isMobile, isTablet } = Utils.getDeviceType();
         
-        // Ajusta sensibilidade baseado no dispositivo
-        let threshold = 2; // Desktop
-        if (isMobile) {
-            threshold = 8; // Mobile: menos updates para melhor performance
-        } else if (isTablet) {
-            threshold = 5; // Tablet: meio termo
-        }
-        
-        // Só atualiza se houve movimento significativo
-        if (Math.abs(currentScrollY - lastScrollY) < threshold) return;
+        // Throttling mais agressivo
+        if (Math.abs(currentScrollY - lastScrollY) < 10) return;
         
         if (!ticking) {
             requestAnimationFrame(() => {
@@ -448,10 +361,112 @@ function initProjectsParallax() {
         }
     }
 
-    window.addEventListener('scroll', onScroll, { passive: true });
+    // Event listener com throttling passivo
+    window.addEventListener('scroll', Utils.throttle(onScroll, 16), { passive: true });
     
     // Initial call
     updateParallax();
+    
+    // Inicializar gerenciamento de imagens
+    initProjectImages();
+}
+
+// Função para garantir carregamento correto das imagens
+function initProjectImages() {
+    const projectCards = document.querySelectorAll('.project-parallax-card');
+    
+    projectCards.forEach((card, index) => {
+        const img = card.querySelector('img');
+        if (!img) return;
+        
+        // Adicionar classe de loading
+        card.classList.add('image-loading');
+        
+        // Criar uma nova imagem para verificar se carrega corretamente
+        const testImage = new Image();
+        
+        testImage.onload = function() {
+            // Imagem carregou com sucesso
+            card.classList.remove('image-loading');
+            card.classList.add('image-loaded');
+            
+            // Garantir que a src original está definida
+            if (img.src !== testImage.src) {
+                img.src = testImage.src;
+            }
+        };
+        
+        testImage.onerror = function() {
+            // Erro no carregamento - tentar recarregar após um delay
+            console.warn(`Failed to load image: ${img.src}`);
+            
+            setTimeout(() => {
+                // Tentar recarregar a imagem
+                if (img.src) {
+                    testImage.src = img.src + '?reload=' + Date.now();
+                }
+            }, 1000 + (index * 200)); // Delay escalonado
+        };
+        
+        // Iniciar o teste de carregamento
+        testImage.src = img.src;
+        
+        // Observador para recarregar imagens quando elas ficam visíveis
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target.querySelector('img');
+                    if (img && (!img.complete || img.naturalHeight === 0)) {
+                        // Recarregar a imagem se não estiver carregada corretamente
+                        const originalSrc = img.src;
+                        img.src = '';
+                        img.src = originalSrc;
+                    }
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '50px'
+        });
+        
+        observer.observe(card);
+    });
+}
+
+// Preload project images to prevent blank/white issues
+function preloadProjectImages() {
+    const projectImages = [
+        'img/services/reparo-plataforma.JPG',
+        'img/services/reparo-navio.jpg',
+        'img/services/resgate.jpg',
+        'img/services/inspecoes.jpeg',
+        'img/services/hidrojateamento.jpg',
+        'img/services/reparo-mergulhador.jpg',
+        'img/services/solda.JPG',
+        'img/services/limpeza-casco.jpeg',
+        'img/services/frota.jpeg',
+        'img/services/mergulho-tecnico.jpeg',
+        'img/services/reparo-offshore.jpg',
+        'img/services/instalações.jpg',
+        'img/services/consultoria-naval.jpg',
+        'img/services/manutencao-preventiva.jpg',
+        'img/services/sede-operacional-2.jpeg'
+    ];
+
+    projectImages.forEach((imageSrc, index) => {
+        const img = new Image();
+        img.onload = function() {
+            console.log(`Image loaded: ${imageSrc}`);
+        };
+        img.onerror = function() {
+            console.warn(`Failed to preload image: ${imageSrc}`);
+        };
+        
+        // Delay progressivo para evitar sobrecarga
+        setTimeout(() => {
+            img.src = imageSrc;
+        }, index * 100);
+    });
 }
 
 // WhatsApp form submission
