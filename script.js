@@ -766,17 +766,7 @@ const LanguageSelector = {
                 // Map Section
                 "map-subtitle": "WHERE WE OPERATE",
                 "map-title": "Our Operations Across Brazil",
-                "map-description": "With more than 4 decades of experience, we have already provided services in various ports and maritime terminals throughout the country.",
-                
-                // Map Locations
-                "location-sao-luis": "Our operational headquarters",
-                "location-fortaleza": "Port services",
-                "location-maraba": "Naval maintenance",
-                "location-parauapebas": "Industrial services",
-                "location-belem": "Port operations",
-                "location-barcarena": "Port terminal",
-                "location-recife": "Offshore services",
-                "location-natal": "Naval repairs",
+                "map-description": "Specialists in underwater services for maritime terminals, port structures and railway systems throughout the national territory.",
                 
                 // Contact Section
                 "contact-subtitle": "GET IN TOUCH",
@@ -884,17 +874,7 @@ const LanguageSelector = {
                 // Map Section
                 "map-subtitle": "ONDE ATUAMOS",
                 "map-title": "Nossas Operações pelo Brasil",
-                "map-description": "Com mais de 4 décadas de experiência, já realizamos serviços em diversos portos e terminais marítimos pelo país.",
-                
-                // Map Locations
-                "location-sao-luis": "Nossa sede operacional",
-                "location-fortaleza": "Serviços portuários",
-                "location-maraba": "Manutenção naval",
-                "location-parauapebas": "Serviços industriais",
-                "location-belem": "Operações portuárias",
-                "location-barcarena": "Terminal portuário",
-                "location-recife": "Serviços offshore",
-                "location-natal": "Reparos navais",
+                "map-description": "Especialistas em serviços subaquáticos para terminais marítimos, estruturas portuárias e sistemas ferroviários em todo o território nacional.",
                 
                 // Contact Section
                 "contact-subtitle": "ENTRE EM CONTATO",
@@ -1002,17 +982,7 @@ const LanguageSelector = {
                 // Map Section
                 "map-subtitle": "我们的业务范围",
                 "map-title": "我们在巴西的业务",
-                "map-description": "凭借40多年的经验，我们已在全国各个港口和海事码头提供服务。",
-                
-                // Map Locations
-                "location-sao-luis": "我们的运营总部",
-                "location-fortaleza": "港口服务",
-                "location-maraba": "船舶维护",
-                "location-parauapebas": "工业服务",
-                "location-belem": "港口运营",
-                "location-barcarena": "港口码头",
-                "location-recife": "海上服务",
-                "location-natal": "船舶修理",
+                "map-description": "专门为海事码头、港口结构和铁路系统提供水下服务，覆盖全国范围。",
                 
                 // Contact Section
                 "contact-subtitle": "联系我们",
@@ -1190,7 +1160,6 @@ const MapManager = {
             state: 'MA',
             lat: -2.5387,
             lng: -44.2825,
-            translationKey: 'location-sao-luis',
             icon: 'fas fa-anchor'
         },
         {
@@ -1198,7 +1167,6 @@ const MapManager = {
             state: 'CE',
             lat: -3.7172,
             lng: -38.5434,
-            translationKey: 'location-fortaleza',
             icon: 'fas fa-ship'
         },
         {
@@ -1206,7 +1174,6 @@ const MapManager = {
             state: 'PA',
             lat: -5.3687,
             lng: -49.1177,
-            translationKey: 'location-maraba',
             icon: 'fas fa-tools'
         },
         {
@@ -1214,7 +1181,6 @@ const MapManager = {
             state: 'PA',
             lat: -6.0677,
             lng: -50.1618,
-            translationKey: 'location-parauapebas',
             icon: 'fas fa-cog'
         },
         {
@@ -1222,7 +1188,6 @@ const MapManager = {
             state: 'PA',
             lat: -1.4558,
             lng: -48.5044,
-            translationKey: 'location-belem',
             icon: 'fas fa-water'
         },
         {
@@ -1230,7 +1195,6 @@ const MapManager = {
             state: 'PA',
             lat: -1.6178,
             lng: -48.6262,
-            translationKey: 'location-barcarena',
             icon: 'fas fa-anchor'
         },
         {
@@ -1238,7 +1202,6 @@ const MapManager = {
             state: 'PE',
             lat: -8.0476,
             lng: -34.8770,
-            translationKey: 'location-recife',
             icon: 'fas fa-ship'
         },
         {
@@ -1246,7 +1209,6 @@ const MapManager = {
             state: 'RN',
             lat: -5.7945,
             lng: -35.2110,
-            translationKey: 'location-natal',
             icon: 'fas fa-wrench'
         }
     ],
@@ -1314,17 +1276,12 @@ const MapManager = {
     // Update popup content with current language
     updatePopupContent(lang = 'pt') {
         try {
-            // Get current translations
-            const translations = this.getCurrentTranslations(lang);
-            
             this.markers.forEach(markerData => {
                 const location = markerData.location;
-                const translatedDescription = translations[location.translationKey] || location.translationKey;
                 
                 const popupContent = `
                     <div class="map-popup">
                         <h4>${location.city} - ${location.state}</h4>
-                        <p>${translatedDescription}</p>
                     </div>
                 `;
                 
@@ -1335,43 +1292,6 @@ const MapManager = {
         }
     },
 
-    // Get current translations for the specified language
-    getCurrentTranslations(lang) {
-        const translations = {
-            en: {
-                'location-sao-luis': 'Our operational headquarters',
-                'location-fortaleza': 'Port services',
-                'location-maraba': 'Naval maintenance',
-                'location-parauapebas': 'Industrial services',
-                'location-belem': 'Port operations',
-                'location-barcarena': 'Port terminal',
-                'location-recife': 'Offshore services',
-                'location-natal': 'Naval repairs'
-            },
-            pt: {
-                'location-sao-luis': 'Nossa sede operacional',
-                'location-fortaleza': 'Serviços portuários',
-                'location-maraba': 'Manutenção naval',
-                'location-parauapebas': 'Serviços industriais',
-                'location-belem': 'Operações portuárias',
-                'location-barcarena': 'Terminal portuário',
-                'location-recife': 'Serviços offshore',
-                'location-natal': 'Reparos navais'
-            },
-            zh: {
-                'location-sao-luis': '我们的运营总部',
-                'location-fortaleza': '港口服务',
-                'location-maraba': '船舶维护',
-                'location-parauapebas': '工业服务',
-                'location-belem': '港口运营',
-                'location-barcarena': '港口码头',
-                'location-recife': '海上服务',
-                'location-natal': '船舶修理'
-            }
-        };
-        
-        return translations[lang] || translations.pt;
-    },
 
     // Resize map when window resizes
     handleResize() {
