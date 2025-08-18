@@ -1,0 +1,2157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Conheça nosso sistema R.O.V e drone FIFISH V6 para inspeção submarina. Soluções tecnológicas avançadas para operações marítimas."
+    />
+    <meta
+      name="keywords"
+      content="ROV, FIFISH V6, drone submarino, inspeção submarina, O Marinheiro"
+    />
+    <meta name="author" content="O Marinheiro" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Tecnologia - O Marinheiro" />
+    <meta
+      property="og:description"
+      content="Conheça nosso sistema R.O.V e drone FIFISH V6 para inspeção submarina."
+    />
+    <meta property="og:image" content="img/logo_omarinheiro.png" />
+    <meta property="og:url" content="https://omarinheiro.com/tecnologia" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tecnologia - O Marinheiro" />
+    <meta
+      name="twitter:description"
+      content="Conheça nosso sistema R.O.V e drone FIFISH V6 para inspeção submarina."
+    />
+    <meta name="twitter:image" content="img/logo_omarinheiro.png" />
+    <meta name="theme-color" content="#024b86" />
+    <link rel="icon" type="image/png" href="img/logo_omarinheiro.png" />
+    <link rel="apple-touch-icon" href="img/logo_omarinheiro.png" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <title>Tecnologia - O Marinheiro</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        background: linear-gradient(
+          135deg,
+          #024b86 0%,
+          #1976d2 50%,
+          #42a5f5 100%
+        );
+        background-attachment: fixed;
+        min-height: 100%;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #0a1628 0%, #1e293b 50%, #334155 100%);
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      /* Accessibility Styles */
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 6px;
+        background: #000;
+        color: #fff;
+        padding: 8px;
+        text-decoration: none;
+        border-radius: 4px;
+        z-index: 10001;
+        font-size: 14px;
+        font-weight: 600;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+      }
+
+      .skip-link:focus {
+        top: 6px;
+        opacity: 1;
+        transform: translateY(0);
+        outline: 2px solid #42a5f5;
+        outline-offset: 2px;
+      }
+
+      /* Enhanced Focus States */
+      *:focus {
+        outline: 2px solid #1976d2;
+        outline-offset: 2px;
+        border-radius: 4px;
+      }
+
+      /* Custom focus for buttons */
+      button:focus,
+      .hero-cta:focus,
+      .book-now-btn:focus,
+      .submit-btn:focus {
+        outline: 3px solid #42a5f5;
+        outline-offset: 3px;
+        box-shadow: 0 0 0 5px rgba(66, 165, 245, 0.2);
+      }
+
+      /* Custom focus for navigation links */
+      .nav a:focus {
+        outline: 2px solid #42a5f5;
+        outline-offset: 2px;
+        background: rgba(66, 165, 245, 0.1);
+        border-radius: 4px;
+        padding: 4px 8px;
+      }
+
+      /* Screen Reader Only Text */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      /* Header */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        margin: 0;
+      }
+
+      .logo {
+        width: 40px;
+        font-size: 1rem;
+        font-weight: bold;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        white-space: nowrap;
+      }
+
+      /* Mobile menu toggle */
+      .mobile-menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* Header Right Section */
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      /* Language Selector */
+      .language-selector {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 25px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      .lang-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.3rem;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      .lang-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(1.05);
+      }
+
+      .lang-btn.active {
+        background: rgba(66, 165, 245, 0.3);
+        box-shadow: 0 2px 8px rgba(66, 165, 245, 0.4);
+      }
+
+      .flag-icon {
+        width: 24px;
+        height: 18px;
+        object-fit: cover;
+        border-radius: 3px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        .mobile-menu-toggle {
+          display: block;
+        }
+
+        .header-right {
+          gap: 1rem;
+        }
+
+        .language-selector {
+          gap: 0.3rem;
+          padding: 0.3rem;
+        }
+
+        .flag-icon {
+          width: 20px;
+          height: 15px;
+        }
+
+        .nav {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+          flex-direction: column;
+          padding: 1rem;
+          border-radius: 0 0 15px 15px;
+          transform: translateY(-100%);
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+        }
+
+        .nav.active {
+          transform: translateY(0);
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .nav a {
+          color: #333;
+          text-shadow: none;
+          padding: 1rem;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          font-size: 0.9rem;
+        }
+
+        .nav a:last-child {
+          border-bottom: none;
+        }
+
+        .book-now-btn {
+          margin-top: 0.5rem;
+          text-align: center;
+        }
+      }
+
+      .nav {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .nav a {
+        text-decoration: none;
+        color: white;
+        transition: color 0.3s ease;
+      }
+
+      .nav a:hover {
+        color: #42a5f5;
+        text-shadow: 0 0 10px rgba(66, 165, 245, 0.5);
+      }
+
+      .book-now-btn {
+        background: linear-gradient(135deg, #1976d2, #42a5f5);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);
+      }
+
+      .book-now-btn:hover {
+        background: linear-gradient(135deg, #024b86, #1976d2);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(2, 75, 134, 0.4);
+      }
+
+      /* Main Content */
+      .main {
+        margin-top: 0;
+        padding: 0;
+        padding-top: 0;
+      }
+
+
+      /* Section Styles */
+      .section-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        color: #2c3e50;
+      }
+
+      .section-header h2 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: #024b86;
+        position: relative;
+      }
+
+      .section-header h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, #024b86, #1976d2, #42a5f5);
+        border-radius: 2px;
+      }
+
+      .section-header p {
+        font-size: 1.3rem;
+        color: #5a6c7d;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+      }
+
+      /* ROV Section - Complete Redesign */
+      .rov-section {
+        padding: 8rem 0 4rem 0;
+        background: linear-gradient(135deg, #0a1628 0%, #1e293b 50%, #334155 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .rov-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 40% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+        pointer-events: none;
+      }
+
+      /* Hero Header */
+      .rov-hero-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 4rem;
+        gap: 3rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-content {
+        flex: 1;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(14, 165, 233, 0.2));
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        color: #60a5fa;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        backdrop-filter: blur(10px);
+      }
+
+      .hero-content h2 {
+        font-size: 3rem;
+        font-weight: 800;
+        color: white;
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
+        background: linear-gradient(135deg, #ffffff 0%, #60a5fa 50%, #3b82f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-content p {
+        font-size: 1.2rem;
+        color: #cbd5e1;
+        line-height: 1.7;
+        max-width: 600px;
+      }
+
+      .hero-stats {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .hero-stat {
+        text-align: center;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        min-width: 120px;
+        transition: all 0.3s ease;
+      }
+
+      .hero-stat:hover {
+        transform: translateY(-5px);
+        background: rgba(59, 130, 246, 0.2);
+        border-color: rgba(59, 130, 246, 0.5);
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: white;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+        color: #94a3b8;
+        font-weight: 500;
+      }
+
+      /* Main ROV Showcase */
+      .rov-showcase {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        gap: 4rem;
+        margin-bottom: 6rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .rov-visual {
+        position: relative;
+      }
+
+      .rov-image-frame {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(14, 165, 233, 0.1));
+        padding: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        margin-bottom: 2rem;
+      }
+
+      .rov-main-image {
+        width: 100%;
+        height: 450px;
+        object-fit: cover;
+        border-radius: 15px;
+        transition: all 0.3s ease;
+      }
+
+      .image-glow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 120%;
+        height: 120%;
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .rov-image-frame:hover .image-glow {
+        opacity: 1;
+      }
+
+      .rov-image-frame:hover .rov-main-image {
+        transform: scale(1.02);
+      }
+
+      .status-indicators {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        right: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      .status-pill {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.7rem 1.2rem;
+        border-radius: 25px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        animation: pulse-glow 2s infinite;
+      }
+
+      .status-pill.operational {
+        background: rgba(34, 197, 94, 0.9);
+        color: white;
+      }
+
+      @keyframes pulse-glow {
+        0%, 100% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.4); }
+        50% { box-shadow: 0 0 30px rgba(34, 197, 94, 0.6); }
+      }
+
+      .depth-display {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.7rem 1.2rem;
+        background: rgba(59, 130, 246, 0.9);
+        backdrop-filter: blur(15px);
+        border-radius: 15px;
+        color: white;
+        font-weight: 700;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .tech-highlights {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+
+      .highlight-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .highlight-card:hover {
+        transform: translateY(-5px);
+        background: rgba(59, 130, 246, 0.2);
+        border-color: rgba(59, 130, 246, 0.5);
+      }
+
+      .highlight-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem auto;
+        color: white;
+        font-size: 1.5rem;
+      }
+
+      .highlight-content strong {
+        display: block;
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .highlight-content span {
+        color: #94a3b8;
+        font-size: 0.9rem;
+      }
+
+      /* ROV Info Cards */
+      .rov-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .info-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+      }
+
+      .info-card:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(59, 130, 246, 0.5);
+      }
+
+      .card-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .card-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.3rem;
+      }
+
+      .card-header h3 {
+        color: white;
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      .card-content p {
+        color: #cbd5e1;
+        line-height: 1.7;
+        font-size: 1rem;
+      }
+
+      .benefit-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .benefit-item {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 1rem;
+        background: rgba(59, 130, 246, 0.1);
+        border-radius: 10px;
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .benefit-item:hover {
+        background: rgba(59, 130, 246, 0.2);
+        transform: translateX(5px);
+      }
+
+      .benefit-item i {
+        color: #60a5fa;
+        font-size: 1.1rem;
+      }
+
+      .benefit-item span {
+        color: #e2e8f0;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      /* Technical Specifications */
+      .tech-specs-section {
+        position: relative;
+        z-index: 2;
+      }
+
+      .specs-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .specs-header h3 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: white;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #ffffff 0%, #60a5fa 50%, #3b82f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .specs-header p {
+        color: #94a3b8;
+        font-size: 1.1rem;
+      }
+
+      .specs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+      }
+
+      .spec-group {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+      }
+
+      .spec-group:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(59, 130, 246, 0.5);
+      }
+
+      .group-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .group-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.3rem;
+      }
+
+      .group-header h4 {
+        color: white;
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      .spec-items {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .spec-item {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .spec-item:hover {
+        background: rgba(59, 130, 246, 0.2);
+        border-color: rgba(59, 130, 246, 0.5);
+      }
+
+      .spec-item.featured {
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(14, 165, 233, 0.2));
+        border: 2px solid rgba(59, 130, 246, 0.5);
+      }
+
+      .spec-metric {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .metric-value {
+        font-size: 2rem;
+        font-weight: 800;
+        color: white;
+      }
+
+      .metric-unit {
+        font-size: 0.9rem;
+        color: #94a3b8;
+        font-weight: 500;
+      }
+
+      .metric-bar {
+        height: 6px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 3px;
+        overflow: hidden;
+      }
+
+      .bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+        border-radius: 3px;
+        transition: width 1.5s ease;
+      }
+
+
+      /* Applications Section */
+      .applications-section {
+        padding: 6rem 0;
+        background: #ffffff;
+      }
+
+      .applications-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+
+      .application-card {
+        background: white;
+        border-radius: 20px;
+        padding: 2.5rem 2rem;
+        text-align: center;
+        border: 1px solid #e9ecef;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        animation: fadeInUp 0.6s ease forwards;
+      }
+
+      .application-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border-color: #42a5f5;
+      }
+
+      .app-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, #024b86, #1976d2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem auto;
+        box-shadow: 0 8px 20px rgba(66, 165, 245, 0.4);
+      }
+
+      .app-icon i {
+        font-size: 1.8rem;
+        color: white;
+      }
+
+      .application-card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        color: #024b86;
+        font-weight: 700;
+      }
+
+      .application-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #5a6c7d;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .header {
+          padding: 1rem;
+        }
+
+        .nav {
+          gap: 1rem;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .section-container {
+          padding: 2rem 1rem;
+        }
+
+        .rov-section {
+          padding: 6rem 0 4rem 0;
+        }
+
+        .section-header h2 {
+          font-size: 2.5rem;
+        }
+
+        /* ROV Responsive Styles */
+        .rov-hero-header {
+          flex-direction: column;
+          text-align: center;
+          gap: 2rem;
+        }
+
+        .hero-content h2 {
+          font-size: 2.5rem;
+        }
+
+        .hero-stats {
+          flex-direction: column;
+          gap: 1rem;
+          width: 100%;
+        }
+
+        .hero-stat {
+          min-width: 100%;
+        }
+
+        .rov-showcase {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .tech-highlights {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .specs-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .benefit-grid {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+
+        .applications-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.5rem;
+        }
+
+        .main-rov-image {
+          height: 250px;
+        }
+
+      }
+
+      @media (max-width: 480px) {
+        .nav a {
+          text-decoration: none;
+          color: black;
+          transition: color 0.3s ease;
+        }
+
+        .section-header h2 {
+          font-size: 2rem;
+        }
+
+        .section-header p {
+          font-size: 1.1rem;
+        }
+
+        .applications-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .hero-content h2 {
+          font-size: 2rem;
+        }
+
+        .hero-stats {
+          flex-direction: column;
+          gap: 0.8rem;
+        }
+
+        .rov-main-image {
+          height: 300px;
+        }
+
+        .tech-highlights {
+          grid-template-columns: 1fr;
+          gap: 0.8rem;
+        }
+
+        .specs-header h3 {
+          font-size: 2rem;
+        }
+
+        .info-card {
+          padding: 1.5rem;
+        }
+
+
+
+        .rov-section {
+          padding: 5rem 0 4rem 0;
+        }
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .spec-section:nth-child(1),
+      .application-card:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .spec-section:nth-child(2),
+      .application-card:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .spec-section:nth-child(3),
+      .application-card:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      .spec-section:nth-child(4),
+      .application-card:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+
+      /* Footer Styles */
+      .footer {
+        background: #024b86;
+        color: white;
+        padding: 4rem 0 0 0;
+      }
+
+      .footer-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 4rem;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 3rem;
+        margin-bottom: 3rem;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .footer-brand {
+        padding-right: 0;
+      }
+
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .footer-logo-img {
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+      }
+
+      .footer-logo h3 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: white;
+        margin: 0;
+      }
+
+      .footer-description {
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .footer-certifications {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .footer-certifications span {
+        margin: 0 0.5rem;
+      }
+
+      .footer-certifications span:first-child {
+        margin-left: 0;
+      }
+
+      .footer-services h4,
+      .footer-contact h4,
+      .footer-social h4 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        color: white;
+      }
+
+      .footer-services ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-services li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-services a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-services a:hover {
+        color: #42a5f5;
+      }
+
+      .footer-contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.8rem;
+        margin-bottom: 1rem;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .footer-contact-item i {
+        color: #42a5f5;
+        width: 16px;
+        margin-top: 0.2rem;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .social-link:hover {
+        background: #42a5f5;
+        transform: translateY(-2px);
+      }
+
+      .footer-hours h5 {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+        color: white;
+      }
+
+      .footer-hours p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 2rem 0;
+      }
+
+      .footer-bottom-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .footer-bottom p {
+        color: rgba(255, 255, 255, 0.7);
+        margin: 0;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: #42a5f5;
+      }
+
+      /* Scroll to Top Button */
+      .scroll-to-top {
+        position: fixed !important;
+        bottom: 30px !important;
+        right: 30px !important;
+        width: 60px;
+        height: 60px;
+        background: rgba(25, 118, 210, 0.9);
+        border: none;
+        border-radius: 50%;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 9999;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px) scale(0.8);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px rgba(25, 118, 210, 0.3);
+      }
+
+      .scroll-to-top:hover {
+        background: linear-gradient(135deg, #42a5f5, #1976d2, #024b86);
+        transform: translateY(-12px) scale(1.2) rotate(0deg);
+        box-shadow: 0 25px 60px rgba(2, 75, 134, 0.4),
+          0 10px 30px rgba(66, 165, 245, 0.3),
+          inset 0 3px 6px rgba(255, 255, 255, 0.3),
+          0 0 40px rgba(25, 118, 210, 0.3);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .scroll-to-top.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1) rotate(0deg);
+        position: fixed !important;
+        bottom: 30px !important;
+        right: 30px !important;
+      }
+
+      /* Mobile adjustments */
+      @media (max-width: 768px) {
+        .footer-container {
+          padding: 0 1rem;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .footer-brand {
+          grid-column: 1;
+          margin-bottom: 1.5rem;
+          text-align: center;
+          padding-right: 0;
+        }
+
+        .footer-logo h3 {
+          font-size: 1.5rem;
+        }
+
+        .footer-bottom-content {
+          flex-direction: column;
+          gap: 1rem;
+          text-align: center;
+        }
+
+        .footer-links {
+          gap: 1rem;
+        }
+
+        .scroll-to-top {
+          position: fixed !important;
+          bottom: 20px !important;
+          right: 20px !important;
+          left: auto !important;
+          top: auto !important;
+          width: 50px;
+          height: 50px;
+          font-size: 1.2rem;
+          z-index: 9999;
+        }
+
+        .scroll-to-top:hover,
+        .scroll-to-top:active,
+        .scroll-to-top.show {
+          position: fixed !important;
+          bottom: 20px !important;
+          right: 20px !important;
+          left: auto !important;
+          top: auto !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header" role="banner">
+      <div
+        id="headerLogo"
+        style="display: flex; align-items: center; gap: 0.7rem; cursor: pointer"
+        aria-label="Voltar ao início da página"
+      >
+        <a href="index.html#top" aria-label="Voltar ao início da página">
+          <img
+            src="img/logo_omarinheiro.png"
+            alt="Logo da empresa O Marinheiro - Serviços Offshore e Navais"
+            class="logo"
+          />
+        </a>
+        <div class="logo">O Marinheiro</div>
+      </div>
+
+      <button
+        class="mobile-menu-toggle"
+        id="mobileMenuToggle"
+        aria-label="Abrir menu de navegação"
+        aria-expanded="false"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <div class="header-right">
+        <div class="language-selector" aria-label="Seletor de idioma">
+          <button
+            class="lang-btn active"
+            data-lang="en"
+            aria-label="Switch to English"
+          >
+            <img src="img/flags/usa.png" alt="English" class="flag-icon" />
+          </button>
+          <button
+            class="lang-btn"
+            data-lang="pt"
+            aria-label="Mudar para Português"
+          >
+            <img src="img/flags/brazil.png" alt="Português" class="flag-icon" />
+          </button>
+          <button class="lang-btn" data-lang="zh" aria-label="切换到中文">
+            <img src="img/flags/china.png" alt="中文" class="flag-icon" />
+          </button>
+        </div>
+
+        <nav
+          class="nav"
+          id="main-nav"
+          role="navigation"
+          aria-label="Navegação principal"
+        >
+          <a href="index.html#about">SOBRE NÓS</a>
+          <a href="index.html#services">SERVIÇOS</a>
+          <a href="index.html#projects">PROJETOS</a>
+          <a href="equipe.html">EQUIPE</a>
+          <a href="tecnologia.html">TECNOLOGIA</a>
+          <a href="index.html#contact" class="book-now-btn">CONTATO</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main" id="main-content">
+
+      <!-- ROV Section - Complete Redesign -->
+      <section class="rov-section">
+        <div class="section-container">
+          <!-- Hero Header -->
+          <div class="rov-hero-header">
+            <div class="hero-content">
+              <div class="hero-badge">
+                <i class="fas fa-robot"></i>
+                <span data-translate="rov-technology">Tecnologia R.O.V</span>
+              </div>
+              <h2 data-translate="rov-section-title">R.O.V - Remotely Operated Vehicles</h2>
+              <p data-translate="rov-hero-description">
+                Investimos em tecnologia de inspeção subaquática de alto desempenho para elevar o padrão de qualidade em serviços navais, marítimos e offshore.
+              </p>
+            </div>
+            <div class="hero-stats">
+              <div class="hero-stat">
+                <div class="stat-number">100m</div>
+                <div class="stat-label" data-translate="depth">Profundidade</div>
+              </div>
+              <div class="hero-stat">
+                <div class="stat-number">4K</div>
+                <div class="stat-label" data-translate="resolution">Resolução</div>
+              </div>
+              <div class="hero-stat">
+                <div class="stat-number">4,5h</div>
+                <div class="stat-label" data-translate="autonomy">Autonomia</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main ROV Showcase -->
+          <div class="rov-showcase">
+            <div class="rov-visual">
+              <div class="rov-image-frame">
+                <img src="img/ROV.jpeg" alt="ROV Principal em Operação" class="rov-main-image" />
+                <div class="image-glow"></div>
+                <div class="status-indicators">
+                  <div class="status-pill operational">
+                    <i class="fas fa-check-circle"></i>
+                    <span data-translate="operational-status">OPERACIONAL</span>
+                  </div>
+                  <div class="depth-display">
+                    <i class="fas fa-water"></i>
+                    <span>100m</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="tech-highlights">
+                <div class="highlight-card">
+                  <div class="highlight-icon">
+                    <i class="fas fa-eye"></i>
+                  </div>
+                  <div class="highlight-content">
+                    <strong>4K Ultra HD</strong>
+                    <span data-translate="imaging">Captação de Imagens</span>
+                  </div>
+                </div>
+                <div class="highlight-card">
+                  <div class="highlight-icon">
+                    <i class="fas fa-lightbulb"></i>
+                  </div>
+                  <div class="highlight-content">
+                    <strong>4.000 Lumens</strong>
+                    <span data-translate="lighting">Iluminação LED</span>
+                  </div>
+                </div>
+                <div class="highlight-card">
+                  <div class="highlight-icon">
+                    <i class="fas fa-cog"></i>
+                  </div>
+                  <div class="highlight-content">
+                    <strong>8 Thrusters</strong>
+                    <span data-translate="propulsion">Sistema de Propulsão</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="rov-info">
+              <div class="info-card capabilities">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <i class="fas fa-rocket"></i>
+                  </div>
+                  <h3 data-translate="rov-capabilities">Capacidades Operacionais</h3>
+                </div>
+                <div class="card-content">
+                  <p data-translate="rov-description">
+                    Por meio de ROVs avançados, realizamos inspeções em até 100 metros de profundidade, com imagens em 4K, iluminação de 4.000 lúmens e autonomia de 4,5 horas, garantindo precisão mesmo em ambientes complexos.
+                  </p>
+                </div>
+              </div>
+
+              <div class="info-card benefits">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <i class="fas fa-trophy"></i>
+                  </div>
+                  <h3 data-translate="key-benefits">Principais Benefícios</h3>
+                </div>
+                <div class="card-content">
+                  <div class="benefit-grid">
+                    <div class="benefit-item">
+                      <i class="fas fa-shield-alt"></i>
+                      <span data-translate="risk-reduction">Redução de Riscos</span>
+                    </div>
+                    <div class="benefit-item">
+                      <i class="fas fa-dollar-sign"></i>
+                      <span data-translate="cost-optimization">Otimização de Custos</span>
+                    </div>
+                    <div class="benefit-item">
+                      <i class="fas fa-chart-line"></i>
+                      <span data-translate="reliable-data">Dados Confiáveis</span>
+                    </div>
+                    <div class="benefit-item">
+                      <i class="fas fa-award"></i>
+                      <span data-translate="precision">Precisão Extrema</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Technical Specifications Grid -->
+          <div class="tech-specs-section">
+            <div class="specs-header">
+              <h3 data-translate="technical-specs">Especificações Técnicas</h3>
+              <p data-translate="precision-engineering">Engenharia de Precisão em Cada Detalhe</p>
+            </div>
+            
+            <div class="specs-grid">
+              <!-- Performance Specs -->
+              <div class="spec-group performance">
+                <div class="group-header">
+                  <div class="group-icon">
+                    <i class="fas fa-tachometer-alt"></i>
+                  </div>
+                  <h4 data-translate="performance">Performance</h4>
+                </div>
+                <div class="spec-items">
+                  <div class="spec-item featured">
+                    <div class="spec-metric">
+                      <span class="metric-value">100m</span>
+                      <span class="metric-unit" data-translate="max-depth">Profundidade Máxima</span>
+                    </div>
+                    <div class="metric-bar">
+                      <div class="bar-fill" style="width: 75%"></div>
+                    </div>
+                  </div>
+                  <div class="spec-item">
+                    <div class="spec-metric">
+                      <span class="metric-value">4,5h</span>
+                      <span class="metric-unit" data-translate="autonomy">Autonomia</span>
+                    </div>
+                  </div>
+                  <div class="spec-item">
+                    <div class="spec-metric">
+                      <span class="metric-value">8</span>
+                      <span class="metric-unit" data-translate="thrusters">Thrusters</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Vision Specs -->
+              <div class="spec-group vision">
+                <div class="group-header">
+                  <div class="group-icon">
+                    <i class="fas fa-video"></i>
+                  </div>
+                  <h4 data-translate="vision-systems">Sistemas de Visão</h4>
+                </div>
+                <div class="spec-items">
+                  <div class="spec-item featured">
+                    <div class="spec-metric">
+                      <span class="metric-value">4K</span>
+                      <span class="metric-unit" data-translate="cameras-4k">Ultra HD</span>
+                    </div>
+                    <div class="metric-bar">
+                      <div class="bar-fill" style="width: 95%"></div>
+                    </div>
+                  </div>
+                  <div class="spec-item">
+                    <div class="spec-metric">
+                      <span class="metric-value">4.000</span>
+                      <span class="metric-unit" data-translate="lumens-led">Lumens LED</span>
+                    </div>
+                  </div>
+                  <div class="spec-item">
+                    <div class="spec-metric">
+                      <span class="metric-value">HD</span>
+                      <span class="metric-unit" data-translate="continuous-recording">Gravação</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Control Specs -->
+              <div class="spec-group control">
+                <div class="group-header">
+                  <div class="group-icon">
+                    <i class="fas fa-robot"></i>
+                  </div>
+                  <h4 data-translate="control-systems">Sistemas de Controle</h4>
+                </div>
+                <div class="spec-items">
+                  <div class="spec-item featured">
+                    <div class="spec-metric">
+                      <span class="metric-value">7 DOF</span>
+                      <span class="metric-unit" data-translate="degrees-freedom">Graus de Liberdade</span>
+                    </div>
+                    <div class="metric-bar">
+                      <div class="bar-fill" style="width: 92%"></div>
+                    </div>
+                  </div>
+                  <div class="spec-item">
+                    <div class="spec-metric">
+                      <span class="metric-value">200kg</span>
+                      <span class="metric-unit" data-translate="grip-force">Força</span>
+                    </div>
+                  </div>
+                  <div class="spec-item">
+                    <div class="spec-metric">
+                      <span class="metric-value">Multi</span>
+                      <span class="metric-unit" data-translate="tools">Ferramentas</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Applications Section -->
+      <section class="applications-section">
+        <div class="section-container">
+          <div class="section-header">
+            <h2 data-translate="applications-title">Aplicações e Serviços</h2>
+            <p data-translate="applications-subtitle">Soluções Especializadas para Cada Desafio</p>
+          </div>
+          
+          <div class="applications-grid">
+            <div class="application-card">
+              <div class="app-icon">
+                <i class="fas fa-search"></i>
+              </div>
+              <h3 data-translate="inspection-title">Inspeção Estrutural</h3>
+              <p data-translate="inspection-desc">Inspeção detalhada de cascos, plataformas, pilares e estruturas submarinas com documentação fotográfica e videográfica de alta qualidade.</p>
+            </div>
+            
+            <div class="application-card">
+              <div class="app-icon">
+                <i class="fas fa-tools"></i>
+              </div>
+              <h3 data-translate="maintenance-title">Manutenção Submarina</h3>
+              <p data-translate="maintenance-desc">Serviços de soldas subaquáticas, corte, limpeza e reparos estruturais executados com precisão através de braços robóticos.</p>
+            </div>
+            
+            <div class="application-card">
+              <div class="app-icon">
+                <i class="fas fa-anchor"></i>
+              </div>
+              <h3 data-translate="recovery-title">Recuperação de Objetos</h3>
+              <p data-translate="recovery-desc">Localização e recuperação de equipamentos, ferramentas e estruturas perdidas no fundo marinho com operações de precisão.</p>
+            </div>
+            
+            <div class="application-card">
+              <div class="app-icon">
+                <i class="fas fa-map"></i>
+              </div>
+              <h3 data-translate="survey-title">Levantamento Batimétrico</h3>
+              <p data-translate="survey-desc">Mapeamento detalhado do fundo marinho para projetos de engenharia, rotas de cabos e estudos ambientais.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="footer"
+      role="contentinfo"
+      aria-label="Rodapé do site com informações da empresa"
+    >
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <img
+                src="img/logo_omarinheiro.png"
+                alt="Logo da empresa O Marinheiro no rodapé do site"
+                class="footer-logo-img"
+              />
+              <h3>O Marinheiro</h3>
+            </div>
+            <p class="footer-description" data-translate="footer-description">
+              Há mais de 40 anos oferecendo soluções especializadas em mergulho
+              profissional, serviços offshore e manutenção naval com excelência
+              e segurança.
+            </p>
+            <div class="footer-certifications">
+              <span data-translate="footer-cert-1">Certificado ISO 9001</span>
+              <span>•</span>
+              <span data-translate="footer-cert-2">Registro CREA-MA</span>
+            </div>
+          </div>
+
+          <div class="footer-services">
+            <h4 data-translate="footer-services-title">Nossos Serviços</h4>
+            <ul>
+              <li>
+                <a href="index.html#services" data-translate="footer-service-1"
+                  >Serviços em Navios</a
+                >
+              </li>
+              <li>
+                <a href="index.html#services" data-translate="footer-service-2"
+                  >Serviços Offshore</a
+                >
+              </li>
+              <li>
+                <a href="index.html#services" data-translate="footer-service-3"
+                  >Inspeção Submarina</a
+                >
+              </li>
+              <li>
+                <a href="index.html#services" data-translate="footer-service-4"
+                  >Soldas Subaquáticas</a
+                >
+              </li>
+              <li>
+                <a href="index.html#services" data-translate="footer-service-5"
+                  >Consultoria Marítima</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-contact">
+            <h4 data-translate="footer-contact-title">Contato</h4>
+            <div class="footer-contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span
+                >Av. Nina Rodrigues, 100 - Ponta D' Areia, São Luís - MA</span
+              >
+            </div>
+            <div class="footer-contact-item">
+              <i class="fas fa-phone"></i>
+              <span>(98) 9 9908-0000 - Guilherme</span>
+              <span>(98) 9 9236-5484 - Diego Interprete</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>comeercial@omarinheirorv.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-bottom-content">
+            <p data-translate="footer-copyright">
+              &copy; 2025 O Marinheiro. Todos os direitos reservados.
+            </p>
+            <div class="footer-links">
+              <a href="index.html#about" data-translate="footer-link-about"
+                >Sobre</a
+              >
+              <a
+                href="index.html#services"
+                data-translate="footer-link-services"
+                >Serviços</a
+              >
+              <a
+                href="index.html#projects"
+                data-translate="footer-link-projects"
+                >Projetos</a
+              >
+              <a href="index.html#contact" data-translate="footer-link-contact"
+                >Contato</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button
+      id="scrollToTop"
+      class="scroll-to-top"
+      aria-label="Voltar ao topo da página"
+    >
+      <i class="fas fa-anchor fa-rotate-180"></i>
+    </button>
+
+    <script>
+      // Language System
+      const translations = {
+        pt: {
+          'rov-section-title': 'R.O.V - Remotely Operated Vehicles',
+          'rov-section-subtitle': 'Tecnologia Subaquática de Vanguarda',
+          'rov-capabilities': 'Capacidades Operacionais',
+          'rov-technology': 'Tecnologia R.O.V',
+          'rov-hero-description': 'Investimos em tecnologia de inspeção subaquática de alto desempenho para elevar o padrão de qualidade em serviços navais, marítimos e offshore.',
+          'rov-description': 'Por meio de ROVs avançados, realizamos inspeções em até 100 metros de profundidade, com imagens em 4K, iluminação de 4.000 lúmens e autonomia de 4,5 horas, garantindo precisão mesmo em ambientes complexos.',
+          'applications-title': 'Aplicações e Serviços',
+          'applications-subtitle': 'Soluções Especializadas para Cada Desafio',
+          'inspection-title': 'Inspeção Estrutural',
+          'inspection-desc': 'Inspeção detalhada de cascos, plataformas, pilares e estruturas submarinas com documentação fotográfica e videográfica de alta qualidade.',
+          'maintenance-title': 'Manutenção Submarina',
+          'maintenance-desc': 'Serviços de soldas subaquáticas, corte, limpeza e reparos estruturais executados com precisão através de braços robóticos.',
+          'recovery-title': 'Recuperação de Objetos',
+          'recovery-desc': 'Localização e recuperação de equipamentos, ferramentas e estruturas perdidas no fundo marinho com operações de precisão.',
+          'survey-title': 'Levantamento Batimétrico',
+          'survey-desc': 'Mapeamento detalhado do fundo marinho para projetos de engenharia, rotas de cabos e estudos ambientais.',
+          'footer-description': 'Há mais de 40 anos oferecendo soluções especializadas em mergulho profissional, serviços offshore e manutenção naval com excelência e segurança.',
+          'footer-cert-1': 'Certificado ISO 9001',
+          'footer-cert-2': 'Registro CREA-MA',
+          'footer-services-title': 'Nossos Serviços',
+          'footer-service-1': 'Serviços em Navios',
+          'footer-service-2': 'Serviços Offshore',
+          'footer-service-3': 'Inspeção Submarina',
+          'footer-service-4': 'Soldas Subaquáticas',
+          'footer-service-5': 'Consultoria Marítima',
+          'footer-contact-title': 'Contato',
+          'footer-copyright': '© 2025 O Marinheiro. Todos os direitos reservados.',
+          'footer-link-about': 'Sobre',
+          'footer-link-services': 'Serviços',
+          'footer-link-projects': 'Projetos',
+          'footer-link-contact': 'Contato',
+          
+          // ROV Technical Specs
+          'depth-mobility-title': 'Profundidade & Mobilidade',
+          'max-depth': 'Profundidade Máxima',
+          'thrusters': 'Thrusters Vetoriais',
+          'max-speed': 'Velocidade Máxima',
+          'cable-range': 'Autonomia de Cabo',
+          'visual-systems-title': 'Sistemas Visuais',
+          'cameras-zoom': 'Câmeras com Zoom 30x',
+          'lumens-led': 'Lumens LED',
+          'panoramic-cameras': 'Câmeras Panorâmicas',
+          'continuous-recording': 'Gravação Contínua',
+          'manipulation-tools-title': 'Manipulação & Ferramentas',
+          'degrees-freedom': 'Graus de Liberdade',
+          'grip-force': 'Força de Preensão',
+          'integrated-system': 'Sistema Integrado',
+          'interchangeable-tools': 'Ferramentas Intercambiáveis',
+          
+          
+          // ROV Gallery
+          'rov-in-action': 'ROV em Ação',
+          'control-center': 'Central de Controle',
+          'drone-rov-photo': 'Foto do Drone ROV',
+          'coming-soon': 'Em breve',
+          'more-photos': 'Mais Fotos',
+          
+          // New ROV Features
+          'operational-status': 'OPERACIONAL',
+          'max-depth-small': 'profundidade máx',
+          'thrusters-compact': 'Thrusters',
+          'cameras-compact': 'Câmeras',
+          'manipulator-compact': 'Manipulador',
+          'cutting-edge': 'ÚLTIMA GERAÇÃO',
+          'risk-reduction': 'Redução de Riscos',
+          'operational-safety': 'Segurança operacional',
+          'cost-optimization': 'Otimização de Custos',
+          'maintenance-efficiency': 'Eficiência em manutenção',
+          'reliable-data': 'Informações Confiáveis',
+          'strategic-decisions': 'Para decisões estratégicas',
+          'innovation-experience': 'Inovação + Experiência',
+          'operational-excellence': 'Excelência operacional',
+          'autonomy': 'Autonomia',
+          'cameras-4k': 'Ultra HD',
+          'technical-specs': 'Especificações Técnicas',
+          'precision-engineering': 'Engenharia de Precisão em Cada Detalhe',
+          'depth': 'Profundidade',
+          'resolution': 'Resolução',
+          'imaging': 'Captação de Imagens',
+          'lighting': 'Iluminação LED',
+          'propulsion': 'Sistema de Propulsão',
+          'key-benefits': 'Principais Benefícios',
+          'precision': 'Precisão Extrema',
+          'performance': 'Performance',
+          'vision-systems': 'Sistemas de Visão',
+          'control-systems': 'Sistemas de Controle',
+          'tools': 'Ferramentas'
+        },
+        en: {
+          'rov-section-title': 'R.O.V - Remotely Operated Vehicles',
+          'rov-section-subtitle': 'Cutting-edge Underwater Technology',
+          'rov-capabilities': 'Operational Capabilities',
+          'rov-technology': 'R.O.V Technology',
+          'rov-hero-description': 'We invest in high-performance underwater inspection technology to elevate quality standards in naval, maritime and offshore services.',
+          'rov-description': 'Through advanced ROVs, we perform inspections up to 100 meters deep, with 4K images, 4,000 lumens lighting and 4.5-hour autonomy, ensuring precision even in complex environments.',
+          'applications-title': 'Applications and Services',
+          'applications-subtitle': 'Specialized Solutions for Every Challenge',
+          'inspection-title': 'Structural Inspection',
+          'inspection-desc': 'Detailed inspection of hulls, platforms, pillars and underwater structures with high-quality photographic and videographic documentation.',
+          'maintenance-title': 'Underwater Maintenance',
+          'maintenance-desc': 'Underwater welding, cutting, cleaning and structural repair services performed with precision through robotic arms.',
+          'recovery-title': 'Object Recovery',
+          'recovery-desc': 'Location and recovery of equipment, tools and structures lost on the seabed with precision operations.',
+          'survey-title': 'Bathymetric Survey',
+          'survey-desc': 'Detailed seabed mapping for engineering projects, cable routes and environmental studies.',
+          'footer-description': 'For over 40 years offering specialized solutions in professional diving, offshore services and naval maintenance with excellence and safety.',
+          'footer-cert-1': 'ISO 9001 Certified',
+          'footer-cert-2': 'CREA-MA Registration',
+          'footer-services-title': 'Our Services',
+          'footer-service-1': 'Ship Services',
+          'footer-service-2': 'Offshore Services',
+          'footer-service-3': 'Underwater Inspection',
+          'footer-service-4': 'Underwater Welding',
+          'footer-service-5': 'Maritime Consulting',
+          'footer-contact-title': 'Contact',
+          'footer-copyright': '© 2025 O Marinheiro. All rights reserved.',
+          'footer-link-about': 'About',
+          'footer-link-services': 'Services',
+          'footer-link-projects': 'Projects',
+          'footer-link-contact': 'Contact',
+          
+          // ROV Technical Specs
+          'depth-mobility-title': 'Depth & Mobility',
+          'max-depth': 'Maximum Depth',
+          'thrusters': 'Vector Thrusters',
+          'max-speed': 'Maximum Speed',
+          'cable-range': 'Cable Range',
+          'visual-systems-title': 'Visual Systems',
+          'cameras-zoom': '30x Zoom Cameras',
+          'lumens-led': 'LED Lumens',
+          'panoramic-cameras': 'Panoramic Cameras',
+          'continuous-recording': 'Continuous Recording',
+          'manipulation-tools-title': 'Manipulation & Tools',
+          'degrees-freedom': 'Degrees of Freedom',
+          'grip-force': 'Grip Force',
+          'integrated-system': 'Integrated System',
+          'interchangeable-tools': 'Interchangeable Tools',
+          
+          
+          // ROV Gallery
+          'rov-in-action': 'ROV in Action',
+          'control-center': 'Control Center',
+          'drone-rov-photo': 'Drone ROV Photo',
+          'coming-soon': 'Coming Soon',
+          'more-photos': 'More Photos',
+          
+          // New ROV Features
+          'operational-status': 'OPERATIONAL',
+          'max-depth-small': 'max depth',
+          'thrusters-compact': 'Thrusters',
+          'cameras-compact': 'Cameras',
+          'manipulator-compact': 'Manipulator',
+          'cutting-edge': 'CUTTING-EDGE',
+          'risk-reduction': 'Risk Reduction',
+          'operational-safety': 'Operational safety',
+          'cost-optimization': 'Cost Optimization',
+          'maintenance-efficiency': 'Maintenance efficiency',
+          'reliable-data': 'Reliable Information',
+          'strategic-decisions': 'For strategic decisions',
+          'innovation-experience': 'Innovation + Experience',
+          'operational-excellence': 'Operational excellence',
+          'autonomy': 'Autonomy',
+          'cameras-4k': 'Ultra HD',
+          'technical-specs': 'Technical Specifications',
+          'precision-engineering': 'Precision Engineering in Every Detail',
+          'depth': 'Depth',
+          'resolution': 'Resolution',
+          'imaging': 'Image Capture',
+          'lighting': 'LED Lighting',
+          'propulsion': 'Propulsion System',
+          'key-benefits': 'Key Benefits',
+          'precision': 'Extreme Precision',
+          'performance': 'Performance',
+          'vision-systems': 'Vision Systems',
+          'control-systems': 'Control Systems',
+          'tools': 'Tools'
+        },
+        zh: {
+          'rov-section-title': 'R.O.V - 遥控水下机器人',
+          'rov-section-subtitle': '尖端水下技术',
+          'rov-capabilities': '操作能力',
+          'rov-technology': 'R.O.V技术',
+          'rov-hero-description': '我们投资高性能水下检测技术，提升海军、海事和海上服务的质量标准。',
+          'rov-description': '通过先进的ROV，我们可以进行100米深度的检测，提供4K图像、4000流明照明和4.5小时自主性，即使在复杂环境中也能确保精度。',
+          'applications-title': '应用和服务',
+          'applications-subtitle': '针对每个挑战的专业解决方案',
+          'inspection-title': '结构检查',
+          'inspection-desc': '对船体、平台、支柱和水下结构进行详细检查，提供高质量的照片和视频记录。',
+          'maintenance-title': '水下维护',
+          'maintenance-desc': '通过机械臂精确执行水下焊接、切割、清洁和结构修复服务。',
+          'recovery-title': '物体回收',
+          'recovery-desc': '通过精密操作定位和回收丢失在海底的设备、工具和结构。',
+          'survey-title': '水深测量',
+          'survey-desc': '为工程项目、电缆路线和环境研究进行详细的海底测绘。',
+          'footer-description': '40多年来为专业潜水、海上服务和海军维护提供优质安全的专业解决方案。',
+          'footer-cert-1': 'ISO 9001认证',
+          'footer-cert-2': 'CREA-MA注册',
+          'footer-services-title': '我们的服务',
+          'footer-service-1': '船舶服务',
+          'footer-service-2': '海上服务',
+          'footer-service-3': '水下检查',
+          'footer-service-4': '水下焊接',
+          'footer-service-5': '海事咨询',
+          'footer-contact-title': '联系方式',
+          'footer-copyright': '© 2025 O Marinheiro. 版权所有。',
+          'footer-link-about': '关于',
+          'footer-link-services': '服务',
+          'footer-link-projects': '项目',
+          'footer-link-contact': '联系',
+          
+          // ROV Technical Specs
+          'depth-mobility-title': '深度和机动性',
+          'max-depth': '最大深度',
+          'thrusters': '矢量推进器',
+          'max-speed': '最大速度',
+          'cable-range': '电缆范围',
+          'visual-systems-title': '视觉系统',
+          'cameras-zoom': '30倍变焦摄像头',
+          'lumens-led': 'LED流明',
+          'panoramic-cameras': '全景摄像头',
+          'continuous-recording': '连续录制',
+          'manipulation-tools-title': '操作和工具',
+          'degrees-freedom': '自由度',
+          'grip-force': '抓握力',
+          'integrated-system': '集成系统',
+          'interchangeable-tools': '可互换工具',
+          
+          
+          // ROV Gallery
+          'rov-in-action': 'ROV运行中',
+          'control-center': '控制中心',
+          'drone-rov-photo': '无人机ROV照片',
+          'coming-soon': '即将推出',
+          'more-photos': '更多照片',
+          
+          // New ROV Features
+          'operational-status': '运行中',
+          'max-depth-small': '最大深度',
+          'thrusters-compact': '推进器',
+          'cameras-compact': '摄像头',
+          'manipulator-compact': '机械臂',
+          'cutting-edge': '尖端技术',
+          'risk-reduction': '风险降低',
+          'operational-safety': '操作安全',
+          'cost-optimization': '成本优化',
+          'maintenance-efficiency': '维护效率',
+          'reliable-data': '可靠信息',
+          'strategic-decisions': '战略决策',
+          'innovation-experience': '创新+经验',
+          'operational-excellence': '操作卓越',
+          'autonomy': '自主性',
+          'cameras-4k': '超高清',
+          'technical-specs': '技术规格',
+          'precision-engineering': '每个细节的精密工程',
+          'depth': '深度',
+          'resolution': '分辨率',
+          'imaging': '图像捕获',
+          'lighting': 'LED照明',
+          'propulsion': '推进系统',
+          'key-benefits': '主要优势',
+          'precision': '极致精度',
+          'performance': '性能',
+          'vision-systems': '视觉系统',
+          'control-systems': '控制系统',
+          'tools': '工具'
+        }
+      };
+
+      let currentLanguage = 'pt';
+
+      function setLanguage(lang) {
+        currentLanguage = lang;
+        document.querySelectorAll('[data-translate]').forEach(element => {
+          const key = element.getAttribute('data-translate');
+          if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+          }
+        });
+
+        // Update language buttons
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+          btn.classList.remove('active');
+          if (btn.getAttribute('data-lang') === lang) {
+            btn.classList.add('active');
+          }
+        });
+
+        localStorage.setItem('preferred-language', lang);
+      }
+
+      // Language button event listeners
+      document.querySelectorAll('.lang-btn').forEach(button => {
+        button.addEventListener('click', () => {
+          const lang = button.getAttribute('data-lang');
+          setLanguage(lang);
+        });
+      });
+
+      // Mobile menu toggle
+      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+      const nav = document.querySelector('.nav');
+
+      if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function () {
+          nav.classList.toggle('active');
+          const isOpen = nav.classList.contains('active');
+          this.setAttribute('aria-expanded', isOpen);
+        });
+      }
+
+      // Scroll to top functionality
+      const scrollToTopBtn = document.getElementById('scrollToTop');
+
+      function checkScrollPosition() {
+        if (window.pageYOffset > 300) {
+          scrollToTopBtn.classList.add('show');
+        } else {
+          scrollToTopBtn.classList.remove('show');
+        }
+      }
+
+      window.addEventListener('scroll', checkScrollPosition);
+
+      scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      // Header logo click handler
+      document.getElementById('headerLogo').addEventListener('click', () => {
+        window.location.href = 'index.html#top';
+      });
+
+
+      // Initialize
+      document.addEventListener('DOMContentLoaded', () => {
+        const savedLanguage = localStorage.getItem('preferred-language') || 'pt';
+        setLanguage(savedLanguage);
+        checkScrollPosition();
+      });
+    </script>
+  </body>
+</html>

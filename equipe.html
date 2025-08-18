@@ -295,6 +295,28 @@
         }
       }
 
+      @media (min-width: 769px) {
+        .mobile-menu-toggle {
+          display: none;
+        }
+
+        .nav {
+          position: static;
+          transform: none;
+          opacity: 1;
+          visibility: visible;
+          background: none;
+          backdrop-filter: none;
+          -webkit-backdrop-filter: none;
+          border-bottom: none;
+          box-shadow: none;
+          flex-direction: row;
+          padding: 0;
+          border-radius: 0;
+          transition: none;
+        }
+      }
+
       .nav {
         display: flex;
         gap: 2rem;
@@ -1444,6 +1466,7 @@
           <a href="index.html#services">SERVIÇOS</a>
           <a href="index.html#projects">PROJETOS</a>
           <a href="equipe.html">EQUIPE</a>
+          <a href="tecnologia.html">TECNOLOGIA</a>
           <a href="index.html#contact" class="book-now-btn">CONTATO</a>
         </nav>
       </div>
@@ -1747,6 +1770,7 @@
               services: "SERVICES",
               projects: "PROJECTS",
               team: "TEAM",
+              technology: "TECHNOLOGY",
               contact: "CONTACT",
 
               // Team Section
@@ -1800,6 +1824,7 @@
               services: "SERVIÇOS",
               projects: "PROJETOS",
               team: "EQUIPE",
+              technology: "TECNOLOGIA",
               contact: "CONTATO",
 
               // Team Section
@@ -1854,6 +1879,7 @@
               services: "服务",
               projects: "项目",
               team: "团队",
+              technology: "技术",
               contact: "联系我们",
 
               // Team Section
@@ -1907,12 +1933,13 @@
           const navLinks = document.querySelectorAll(".nav a");
           const currentTranslations = translations[lang];
 
-          if (navLinks.length >= 5 && currentTranslations) {
+          if (navLinks.length >= 6 && currentTranslations) {
             navLinks[0].textContent = currentTranslations.about;
             navLinks[1].textContent = currentTranslations.services;
             navLinks[2].textContent = currentTranslations.projects;
             navLinks[3].textContent = currentTranslations.team;
-            navLinks[4].textContent = currentTranslations.contact;
+            navLinks[4].textContent = currentTranslations.technology;
+            navLinks[5].textContent = currentTranslations.contact;
           }
 
           // Update all elements with data-translate attributes

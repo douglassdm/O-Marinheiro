@@ -367,6 +367,37 @@ textarea:focus {
   }
 }
 
+@media (min-width: 769px) {
+  .mobile-menu-toggle {
+    display: none;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .nav {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: none;
+    box-shadow: none;
+    flex-direction: row;
+    padding: 0;
+    border-radius: 0;
+    transition: none;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+}
+
 .nav {
   display: flex;
   gap: 2rem;
@@ -963,6 +994,191 @@ textarea:focus {
 
 .hero-cta {
   animation-delay: 0.6s;
+}
+
+/* ROV Preview Section */
+.rov-preview-section {
+  padding: 8rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.rov-preview-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(25, 118, 210, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(66, 165, 245, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.rov-preview-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.rov-preview-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.rov-preview-text {
+  padding-right: 2rem;
+}
+
+.rov-highlight-box {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border: 1px solid rgba(25, 118, 210, 0.2);
+  transition: all 0.3s ease;
+}
+
+.rov-highlight-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(25, 118, 210, 0.15);
+}
+
+.highlight-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #1976d2, #42a5f5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.highlight-content h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1976d2;
+  margin: 0 0 0.5rem 0;
+}
+
+.highlight-content p {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+  font-weight: 500;
+}
+
+.rov-curiosity-hook {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(139, 195, 74, 0.1));
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.rov-curiosity-hook p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2e7d32;
+  line-height: 1.4;
+}
+
+.rov-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: linear-gradient(135deg, #1976d2, #42a5f5);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);
+  border: none;
+  cursor: pointer;
+}
+
+.rov-cta-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #024b86, #1976d2);
+  box-shadow: 0 8px 25px rgba(2, 75, 134, 0.4);
+}
+
+.rov-cta-btn i {
+  font-size: 1.2rem;
+}
+
+.rov-preview-image {
+  position: relative;
+}
+
+.rov-image-container {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  background: #f5f5f5;
+}
+
+.rov-image-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+}
+
+.rov-image-container img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.rov-image-container:hover img {
+  transform: scale(1.02);
+}
+
+.rov-status-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(34, 197, 94, 0.9);
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  animation: pulse-status 2s infinite;
+}
+
+@keyframes pulse-status {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.4); 
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.6); 
+  }
 }
 
 /* Services Section */
@@ -1709,6 +1925,44 @@ textarea:focus {
   .hero-content {
     max-width: 100%;
     padding: 0 1.5rem;
+  }
+
+  /* ROV Preview Section Responsive */
+  .rov-preview-container {
+    padding: 0 2rem;
+  }
+
+  .rov-preview-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .rov-preview-text {
+    padding-right: 0;
+  }
+
+  .rov-highlight-box {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .highlight-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .rov-image-container img {
+    height: 250px;
+  }
+
+  .rov-curiosity-hook p {
+    font-size: 0.9rem;
+  }
+
+  .rov-cta-btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
   }
 
   .services-container {

@@ -726,6 +726,7 @@ const LanguageSelector = {
                 services: "SERVICES", 
                 projects: "PROJECTS",
                 team: "TEAM",
+                technology: "TECHNOLOGY",
                 contact: "CONTACT",
                 
                 // Hero Section
@@ -744,6 +745,16 @@ const LanguageSelector = {
                 "feature-2-desc": "Underwater Inspections, Vessel Salvage and Rescue, and Offshore Services",
                 "feature-3-title": "Safety First",
                 "feature-3-desc": "Comprehensive safety protocols and equipment to ensure your peace of mind on all journeys.",
+                
+                // ROV Preview Section
+                "rov-preview-subtitle": "ADVANCED TECHNOLOGY",
+                "rov-preview-title": "Latest Generation Underwater Drone",
+                "rov-preview-description": "We have an underwater drone that performs inspections where divers cannot go. Safe, precise and with crystal clear 4K vision.",
+                "rov-highlight-title": "100 meters deep",
+                "rov-highlight-desc": "Zero risk for divers + 4K Images",
+                "rov-curiosity": "💡 How does this work? Discover the technology that is revolutionizing underwater inspections",
+                "rov-cta-btn": "See Technology",
+                "rov-status": "OPERATIONAL",
                 
                 // Services Section
                 "services-subtitle": "OUR SERVICES",
@@ -834,6 +845,7 @@ const LanguageSelector = {
                 services: "SERVIÇOS",
                 projects: "PROJETOS", 
                 team: "EQUIPE",
+                technology: "TECNOLOGIA",
                 contact: "CONTATO",
                 
                 // Hero Section
@@ -852,6 +864,16 @@ const LanguageSelector = {
                 "feature-2-desc": "Inspeções Submarinas, Salvamento e Resgate de Embarcações e Serviços Offshore",
                 "feature-3-title": "Segurança em primeiro lugar",
                 "feature-3-desc": "Protocolos e equipamentos de segurança abrangentes para garantir sua tranquilidade em todas as viagens.",
+                
+                // ROV Preview Section
+                "rov-preview-subtitle": "TECNOLOGIA AVANÇADA",
+                "rov-preview-title": "Drone Submarino de Última Geração",
+                "rov-preview-description": "Temos um drone submarino que realiza inspeções onde mergulhadores não podem ir. Seguro, preciso e com visão 4K cristalina.",
+                "rov-highlight-title": "100 metros de profundidade",
+                "rov-highlight-desc": "Zero risco para mergulhadores + Imagens em 4K",
+                "rov-curiosity": "💡 Como isso funciona? Descubra a tecnologia que está revolucionando inspeções submarinas",
+                "rov-cta-btn": "Ver Tecnologia",
+                "rov-status": "OPERACIONAL",
                 
                 // Services Section
                 "services-subtitle": "NOSSOS SERVIÇOS",
@@ -941,7 +963,8 @@ const LanguageSelector = {
                 about: "关于我们",
                 services: "服务",
                 projects: "项目",
-                team: "团队", 
+                team: "团队",
+                technology: "技术",
                 contact: "联系我们",
                 
                 // Hero Section
@@ -960,6 +983,16 @@ const LanguageSelector = {
                 "feature-2-desc": "水下检查、船舶打捞救援和海上服务",
                 "feature-3-title": "安全第一",
                 "feature-3-desc": "全面的安全协议和设备，确保您在所有航程中的安心。",
+                
+                // ROV Preview Section
+                "rov-preview-subtitle": "先进技术",
+                "rov-preview-title": "最新一代水下无人机",
+                "rov-preview-description": "我们拥有一台水下无人机，可以在潜水员无法到达的地方进行检测。安全、精确，具有水晶般清晰的4K视觉。",
+                "rov-highlight-title": "100米深度",
+                "rov-highlight-desc": "潜水员零风险 + 4K图像",
+                "rov-curiosity": "💡 这是如何工作的？探索正在革命化水下检测的技术",
+                "rov-cta-btn": "查看技术",
+                "rov-status": "运行中",
                 
                 // Services Section
                 "services-subtitle": "我们的服务",
@@ -1050,12 +1083,13 @@ const LanguageSelector = {
         const navLinks = document.querySelectorAll('.nav a');
         const currentTranslations = translations[lang];
         
-        if (navLinks.length >= 5 && currentTranslations) {
+        if (navLinks.length >= 6 && currentTranslations) {
             navLinks[0].textContent = currentTranslations.about;
             navLinks[1].textContent = currentTranslations.services;
             navLinks[2].textContent = currentTranslations.projects;
             navLinks[3].textContent = currentTranslations.team;
-            navLinks[4].textContent = currentTranslations.contact;
+            navLinks[4].textContent = currentTranslations.technology;
+            navLinks[5].textContent = currentTranslations.contact;
         }
         
         // Update all elements with data-translate attributes
