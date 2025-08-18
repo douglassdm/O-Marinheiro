@@ -1123,6 +1123,11 @@ textarea:focus {
   font-size: 1.2rem;
 }
 
+/* Hide mobile CTA button on desktop */
+.rov-cta-btn-mobile {
+  display: none;
+}
+
 .rov-preview-image {
   position: relative;
 }
@@ -1154,32 +1159,6 @@ textarea:focus {
   transform: scale(1.02);
 }
 
-.rov-status-badge {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  background: rgba(34, 197, 94, 0.9);
-  color: white;
-  padding: 0.7rem 1.2rem;
-  border-radius: 25px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  animation: pulse-status 2s infinite;
-}
-
-@keyframes pulse-status {
-  0%, 100% { 
-    box-shadow: 0 0 20px rgba(34, 197, 94, 0.4); 
-  }
-  50% { 
-    box-shadow: 0 0 30px rgba(34, 197, 94, 0.6); 
-  }
-}
 
 /* Services Section */
 .services-section {
@@ -1940,6 +1919,14 @@ textarea:focus {
 
   .rov-preview-text {
     padding-right: 0;
+    order: 1;
+  }
+
+  .rov-preview-image {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
   .rov-highlight-box {
@@ -1956,13 +1943,34 @@ textarea:focus {
     height: 250px;
   }
 
-  .rov-curiosity-hook p {
-    font-size: 0.9rem;
+  /* Hide desktop CTA button on mobile */
+  .rov-preview-text .rov-cta-btn {
+    display: none;
   }
 
-  .rov-cta-btn {
+  /* Show mobile CTA button */
+  .rov-cta-btn-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    color: white;
     padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
     font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);
+    border: none;
+    cursor: pointer;
+  }
+
+  .rov-cta-btn-mobile:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #024b86, #1976d2);
+    box-shadow: 0 8px 25px rgba(2, 75, 134, 0.4);
   }
 
   .services-container {

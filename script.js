@@ -784,6 +784,23 @@ const LanguageSelector = {
                 "projects-title-2": "Projects",
                 "projects-description": "We build innovative solutions for the maritime sector with the latest technologies. We are a team passionate about developing incredible projects.",
                 
+                // Project Titles
+                "project-1-title": "Platform Maintenance",
+                "project-2-title": "Structural Ship Repairs",
+                "project-3-title": "Port Rescue Operation",
+                "project-4-title": "Port Terminal Inspection",
+                "project-5-title": "UAP Hull Hydrojetting",
+                "project-6-title": "Inspection Diving",
+                "project-7-title": "Advanced Underwater Welding",
+                "project-8-title": "Naval Hull Cleaning",
+                "project-9-title": "Equipment",
+                "project-10-title": "Professional Technical Diving",
+                "project-11-title": "Complex Offshore Repairs",
+                "project-12-title": "Facilities",
+                "project-13-title": "Specialized Naval Consulting",
+                "project-14-title": "Preventive Maintenance",
+                "project-15-title": "Operational Headquarters",
+                
                 // Clients Section
                 "clients-subtitle": "OUR CLIENTS",
                 "clients-title": "Companies That Trust Our Services",
@@ -903,6 +920,23 @@ const LanguageSelector = {
                 "projects-title-2": "Marítimos",
                 "projects-description": "Construímos soluções inovadoras para o setor marítimo com as mais recentes tecnologias. Somos uma equipe apaixonada por desenvolver projetos incríveis.",
                 
+                // Project Titles
+                "project-1-title": "Manutenção de Plataforma",
+                "project-2-title": "Reparos Estruturais em Navio",
+                "project-3-title": "Operação de Resgate no Porto",
+                "project-4-title": "Inspeção de Terminal Portuário",
+                "project-5-title": "Hidrojateamento UAP em Casco",
+                "project-6-title": "Mergulho de Inspeção",
+                "project-7-title": "Soldas Submarinas Avançadas",
+                "project-8-title": "Limpeza de Cascos Navais",
+                "project-9-title": "Equipamento",
+                "project-10-title": "Mergulho Técnico Profissional",
+                "project-11-title": "Reparos Offshore Complexos",
+                "project-12-title": "Instalações",
+                "project-13-title": "Consultoria Naval Especializada",
+                "project-14-title": "Manutenção Preventiva",
+                "project-15-title": "Sede Operacional",
+                
                 // Clients Section
                 "clients-subtitle": "NOSSOS CLIENTES",
                 "clients-title": "Empresas que Confiam em Nossos Serviços",
@@ -1021,6 +1055,23 @@ const LanguageSelector = {
                 "projects-title-1": "我们的海事",
                 "projects-title-2": "项目",
                 "projects-description": "我们用最新技术为海事行业构建创新解决方案。我们是一支致力于开发令人惊叹项目的团队。",
+                
+                // Project Titles
+                "project-1-title": "平台维护",
+                "project-2-title": "船舶结构修复",
+                "project-3-title": "港口救援行动",
+                "project-4-title": "港口码头检查",
+                "project-5-title": "UAP船体高压水射流",
+                "project-6-title": "检查潜水",
+                "project-7-title": "先进水下焊接",
+                "project-8-title": "海军船体清洁",
+                "project-9-title": "设备",
+                "project-10-title": "专业技术潜水",
+                "project-11-title": "复杂海上修复",
+                "project-12-title": "设施",
+                "project-13-title": "专业海军咨询",
+                "project-14-title": "预防性维护",
+                "project-15-title": "运营总部",
                 
                 // Clients Section
                 "clients-subtitle": "我们的客户",
