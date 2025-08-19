@@ -63,7 +63,12 @@
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         line-height: 1.6;
         color: #333;
-        background: linear-gradient(135deg, #0a1628 0%, #1e293b 50%, #334155 100%);
+        background: linear-gradient(
+          135deg,
+          #0a1628 0%,
+          #1e293b 50%,
+          #334155 100%
+        );
         min-height: 100vh;
         position: relative;
         overflow-x: hidden;
@@ -326,7 +331,6 @@
         padding-top: 0;
       }
 
-
       /* Section Styles */
       .section-container {
         max-width: 1400px;
@@ -349,7 +353,7 @@
       }
 
       .section-header h2::after {
-        content: '';
+        content: "";
         position: absolute;
         bottom: -10px;
         left: 50%;
@@ -370,21 +374,38 @@
       /* ROV Section - Complete Redesign */
       .rov-section {
         padding: 8rem 0 4rem 0;
-        background: linear-gradient(135deg, #0a1628 0%, #1e293b 50%, #334155 100%);
+        background: linear-gradient(
+          135deg,
+          #0a1628 0%,
+          #1e293b 50%,
+          #334155 100%
+        );
         position: relative;
         overflow: hidden;
       }
 
       .rov-section::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-                    radial-gradient(circle at 80% 20%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
-                    radial-gradient(circle at 40% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+        background: radial-gradient(
+            circle at 20% 50%,
+            rgba(59, 130, 246, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(14, 165, 233, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 40% 80%,
+            rgba(6, 182, 212, 0.1) 0%,
+            transparent 50%
+          );
         pointer-events: none;
       }
 
@@ -407,7 +428,11 @@
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(14, 165, 233, 0.2));
+        background: linear-gradient(
+          135deg,
+          rgba(59, 130, 246, 0.2),
+          rgba(14, 165, 233, 0.2)
+        );
         border: 1px solid rgba(59, 130, 246, 0.3);
         padding: 0.5rem 1rem;
         border-radius: 25px;
@@ -424,7 +449,12 @@
         color: white;
         margin-bottom: 1.5rem;
         line-height: 1.1;
-        background: linear-gradient(135deg, #ffffff 0%, #60a5fa 50%, #3b82f6 100%);
+        background: linear-gradient(
+          135deg,
+          #ffffff 0%,
+          #60a5fa 50%,
+          #3b82f6 100%
+        );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -492,7 +522,11 @@
         position: relative;
         border-radius: 20px;
         overflow: hidden;
-        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(14, 165, 233, 0.1));
+        background: linear-gradient(
+          135deg,
+          rgba(59, 130, 246, 0.1),
+          rgba(14, 165, 233, 0.1)
+        );
         padding: 1rem;
         border: 1px solid rgba(255, 255, 255, 0.2);
         margin-bottom: 2rem;
@@ -513,7 +547,11 @@
         transform: translate(-50%, -50%);
         width: 120%;
         height: 120%;
-        background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+        background: radial-gradient(
+          circle,
+          rgba(59, 130, 246, 0.3) 0%,
+          transparent 70%
+        );
         pointer-events: none;
         opacity: 0;
         transition: opacity 0.3s ease;
@@ -556,8 +594,13 @@
       }
 
       @keyframes pulse-glow {
-        0%, 100% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.4); }
-        50% { box-shadow: 0 0 30px rgba(34, 197, 94, 0.6); }
+        0%,
+        100% {
+          box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+        }
+        50% {
+          box-shadow: 0 0 30px rgba(34, 197, 94, 0.6);
+        }
       }
 
       .depth-display {
@@ -724,7 +767,12 @@
         font-weight: 800;
         color: white;
         margin-bottom: 1rem;
-        background: linear-gradient(135deg, #ffffff 0%, #60a5fa 50%, #3b82f6 100%);
+        background: linear-gradient(
+          135deg,
+          #ffffff 0%,
+          #60a5fa 50%,
+          #3b82f6 100%
+        );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -804,7 +852,11 @@
       }
 
       .spec-item.featured {
-        background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(14, 165, 233, 0.2));
+        background: linear-gradient(
+          135deg,
+          rgba(59, 130, 246, 0.2),
+          rgba(14, 165, 233, 0.2)
+        );
         border: 2px solid rgba(59, 130, 246, 0.5);
       }
 
@@ -840,7 +892,6 @@
         border-radius: 3px;
         transition: width 1.5s ease;
       }
-
 
       /* Applications Section */
       .applications-section {
@@ -969,7 +1020,6 @@
           gap: 1rem;
         }
 
-
         .applications-grid {
           grid-template-columns: repeat(2, 1fr);
           gap: 1.5rem;
@@ -978,7 +1028,6 @@
         .main-rov-image {
           height: 250px;
         }
-
       }
 
       @media (max-width: 480px) {
@@ -1026,8 +1075,6 @@
         .info-card {
           padding: 1.5rem;
         }
-
-
 
         .rov-section {
           padding: 5rem 0 4rem 0;
@@ -1405,7 +1452,6 @@
 
     <!-- Main Content -->
     <main class="main" id="main-content">
-
       <!-- ROV Section - Complete Redesign -->
       <section class="rov-section">
         <div class="section-container">
@@ -1416,23 +1462,33 @@
                 <i class="fas fa-robot"></i>
                 <span data-translate="rov-technology">Tecnologia R.O.V</span>
               </div>
-              <h2 data-translate="rov-section-title">R.O.V - Remotely Operated Vehicles</h2>
+              <h2 data-translate="rov-section-title">
+                R.O.V - Remotely Operated Vehicles
+              </h2>
               <p data-translate="rov-hero-description">
-                Investimos em tecnologia de inspeção subaquática de alto desempenho para elevar o padrão de qualidade em serviços navais, marítimos e offshore.
+                Investimos em tecnologia de inspeção subaquática de alto
+                desempenho para elevar o padrão de qualidade em serviços navais,
+                marítimos e offshore.
               </p>
             </div>
             <div class="hero-stats">
               <div class="hero-stat">
                 <div class="stat-number">100m</div>
-                <div class="stat-label" data-translate="depth">Profundidade</div>
+                <div class="stat-label" data-translate="depth">
+                  Profundidade
+                </div>
               </div>
               <div class="hero-stat">
                 <div class="stat-number">4K</div>
-                <div class="stat-label" data-translate="resolution">Resolução</div>
+                <div class="stat-label" data-translate="resolution">
+                  Resolução
+                </div>
               </div>
               <div class="hero-stat">
                 <div class="stat-number">4,5h</div>
-                <div class="stat-label" data-translate="autonomy">Autonomia</div>
+                <div class="stat-label" data-translate="autonomy">
+                  Autonomia
+                </div>
               </div>
             </div>
           </div>
@@ -1441,7 +1497,11 @@
           <div class="rov-showcase">
             <div class="rov-visual">
               <div class="rov-image-frame">
-                <img src="img/ROV.jpeg" alt="ROV Principal em Operação" class="rov-main-image" />
+                <img
+                  src="img/ROV.jpeg"
+                  alt="ROV Principal em Operação"
+                  class="rov-main-image"
+                />
                 <div class="image-glow"></div>
                 <div class="status-indicators">
                   <div class="status-pill operational">
@@ -1454,7 +1514,7 @@
                   </div>
                 </div>
               </div>
-              
+
               <div class="tech-highlights">
                 <div class="highlight-card">
                   <div class="highlight-icon">
@@ -1480,7 +1540,9 @@
                   </div>
                   <div class="highlight-content">
                     <strong>8 Thrusters</strong>
-                    <span data-translate="propulsion">Sistema de Propulsão</span>
+                    <span data-translate="propulsion"
+                      >Sistema de Propulsão</span
+                    >
                   </div>
                 </div>
               </div>
@@ -1492,11 +1554,16 @@
                   <div class="card-icon">
                     <i class="fas fa-rocket"></i>
                   </div>
-                  <h3 data-translate="rov-capabilities">Capacidades Operacionais</h3>
+                  <h3 data-translate="rov-capabilities">
+                    Capacidades Operacionais
+                  </h3>
                 </div>
                 <div class="card-content">
                   <p data-translate="rov-description">
-                    Por meio de ROVs avançados, realizamos inspeções em até 100 metros de profundidade, com imagens em 4K, iluminação de 4.000 lúmens e autonomia de 4,5 horas, garantindo precisão mesmo em ambientes complexos.
+                    Por meio de ROVs avançados, realizamos inspeções em até 100
+                    metros de profundidade, com imagens em 4K, iluminação de
+                    4.000 lúmens e autonomia de 4,5 horas, garantindo precisão
+                    mesmo em ambientes complexos.
                   </p>
                 </div>
               </div>
@@ -1512,15 +1579,21 @@
                   <div class="benefit-grid">
                     <div class="benefit-item">
                       <i class="fas fa-shield-alt"></i>
-                      <span data-translate="risk-reduction">Redução de Riscos</span>
+                      <span data-translate="risk-reduction"
+                        >Redução de Riscos</span
+                      >
                     </div>
                     <div class="benefit-item">
                       <i class="fas fa-dollar-sign"></i>
-                      <span data-translate="cost-optimization">Otimização de Custos</span>
+                      <span data-translate="cost-optimization"
+                        >Otimização de Custos</span
+                      >
                     </div>
                     <div class="benefit-item">
                       <i class="fas fa-chart-line"></i>
-                      <span data-translate="reliable-data">Dados Confiáveis</span>
+                      <span data-translate="reliable-data"
+                        >Dados Confiáveis</span
+                      >
                     </div>
                     <div class="benefit-item">
                       <i class="fas fa-award"></i>
@@ -1536,9 +1609,11 @@
           <div class="tech-specs-section">
             <div class="specs-header">
               <h3 data-translate="technical-specs">Especificações Técnicas</h3>
-              <p data-translate="precision-engineering">Engenharia de Precisão em Cada Detalhe</p>
+              <p data-translate="precision-engineering">
+                Engenharia de Precisão em Cada Detalhe
+              </p>
             </div>
-            
+
             <div class="specs-grid">
               <!-- Performance Specs -->
               <div class="spec-group performance">
@@ -1552,7 +1627,9 @@
                   <div class="spec-item featured">
                     <div class="spec-metric">
                       <span class="metric-value">100m</span>
-                      <span class="metric-unit" data-translate="max-depth">Profundidade Máxima</span>
+                      <span class="metric-unit" data-translate="max-depth"
+                        >Profundidade Máxima</span
+                      >
                     </div>
                     <div class="metric-bar">
                       <div class="bar-fill" style="width: 75%"></div>
@@ -1561,13 +1638,17 @@
                   <div class="spec-item">
                     <div class="spec-metric">
                       <span class="metric-value">4,5h</span>
-                      <span class="metric-unit" data-translate="autonomy">Autonomia</span>
+                      <span class="metric-unit" data-translate="autonomy"
+                        >Autonomia</span
+                      >
                     </div>
                   </div>
                   <div class="spec-item">
                     <div class="spec-metric">
                       <span class="metric-value">8</span>
-                      <span class="metric-unit" data-translate="thrusters">Thrusters</span>
+                      <span class="metric-unit" data-translate="thrusters"
+                        >Thrusters</span
+                      >
                     </div>
                   </div>
                 </div>
@@ -1585,7 +1666,9 @@
                   <div class="spec-item featured">
                     <div class="spec-metric">
                       <span class="metric-value">4K</span>
-                      <span class="metric-unit" data-translate="cameras-4k">Ultra HD</span>
+                      <span class="metric-unit" data-translate="cameras-4k"
+                        >Ultra HD</span
+                      >
                     </div>
                     <div class="metric-bar">
                       <div class="bar-fill" style="width: 95%"></div>
@@ -1594,13 +1677,19 @@
                   <div class="spec-item">
                     <div class="spec-metric">
                       <span class="metric-value">4.000</span>
-                      <span class="metric-unit" data-translate="lumens-led">Lumens LED</span>
+                      <span class="metric-unit" data-translate="lumens-led"
+                        >Lumens LED</span
+                      >
                     </div>
                   </div>
                   <div class="spec-item">
                     <div class="spec-metric">
                       <span class="metric-value">HD</span>
-                      <span class="metric-unit" data-translate="continuous-recording">Gravação</span>
+                      <span
+                        class="metric-unit"
+                        data-translate="continuous-recording"
+                        >Gravação</span
+                      >
                     </div>
                   </div>
                 </div>
@@ -1618,7 +1707,9 @@
                   <div class="spec-item featured">
                     <div class="spec-metric">
                       <span class="metric-value">7 DOF</span>
-                      <span class="metric-unit" data-translate="degrees-freedom">Graus de Liberdade</span>
+                      <span class="metric-unit" data-translate="degrees-freedom"
+                        >Graus de Liberdade</span
+                      >
                     </div>
                     <div class="metric-bar">
                       <div class="bar-fill" style="width: 92%"></div>
@@ -1627,13 +1718,17 @@
                   <div class="spec-item">
                     <div class="spec-metric">
                       <span class="metric-value">200kg</span>
-                      <span class="metric-unit" data-translate="grip-force">Força</span>
+                      <span class="metric-unit" data-translate="grip-force"
+                        >Força</span
+                      >
                     </div>
                   </div>
                   <div class="spec-item">
                     <div class="spec-metric">
                       <span class="metric-value">Multi</span>
-                      <span class="metric-unit" data-translate="tools">Ferramentas</span>
+                      <span class="metric-unit" data-translate="tools"
+                        >Ferramentas</span
+                      >
                     </div>
                   </div>
                 </div>
@@ -1643,46 +1738,60 @@
         </div>
       </section>
 
-
       <!-- Applications Section -->
       <section class="applications-section">
         <div class="section-container">
           <div class="section-header">
             <h2 data-translate="applications-title">Aplicações e Serviços</h2>
-            <p data-translate="applications-subtitle">Soluções Especializadas para Cada Desafio</p>
+            <p data-translate="applications-subtitle">
+              Soluções Especializadas para Cada Desafio
+            </p>
           </div>
-          
+
           <div class="applications-grid">
             <div class="application-card">
               <div class="app-icon">
                 <i class="fas fa-search"></i>
               </div>
               <h3 data-translate="inspection-title">Inspeção Estrutural</h3>
-              <p data-translate="inspection-desc">Inspeção detalhada de cascos, plataformas, pilares e estruturas submarinas com documentação fotográfica e videográfica de alta qualidade.</p>
+              <p data-translate="inspection-desc">
+                Inspeção detalhada de cascos, plataformas, pilares e estruturas
+                submarinas com documentação fotográfica e videográfica de alta
+                qualidade.
+              </p>
             </div>
-            
+
             <div class="application-card">
               <div class="app-icon">
                 <i class="fas fa-tools"></i>
               </div>
               <h3 data-translate="maintenance-title">Manutenção Submarina</h3>
-              <p data-translate="maintenance-desc">Serviços de soldas subaquáticas, corte, limpeza e reparos estruturais executados com precisão através de braços robóticos.</p>
+              <p data-translate="maintenance-desc">
+                Serviços de soldas subaquáticas, corte, limpeza e reparos
+                estruturais executados com precisão através de braços robóticos.
+              </p>
             </div>
-            
+
             <div class="application-card">
               <div class="app-icon">
                 <i class="fas fa-anchor"></i>
               </div>
               <h3 data-translate="recovery-title">Recuperação de Objetos</h3>
-              <p data-translate="recovery-desc">Localização e recuperação de equipamentos, ferramentas e estruturas perdidas no fundo marinho com operações de precisão.</p>
+              <p data-translate="recovery-desc">
+                Localização e recuperação de equipamentos, ferramentas e
+                estruturas perdidas no fundo marinho com operações de precisão.
+              </p>
             </div>
-            
+
             <div class="application-card">
               <div class="app-icon">
                 <i class="fas fa-map"></i>
               </div>
               <h3 data-translate="survey-title">Levantamento Batimétrico</h3>
-              <p data-translate="survey-desc">Mapeamento detalhado do fundo marinho para projetos de engenharia, rotas de cabos e estudos ambientais.</p>
+              <p data-translate="survey-desc">
+                Mapeamento detalhado do fundo marinho para projetos de
+                engenharia, rotas de cabos e estudos ambientais.
+              </p>
             </div>
           </div>
         </div>
@@ -1759,8 +1868,8 @@
             </div>
             <div class="footer-contact-item">
               <i class="fas fa-phone"></i>
-              <span>(98) 9 9908-0000 - Guilherme</span>
-              <span>(98) 9 9236-5484 - Diego Interprete</span>
+              <span>(98) 9 9908-0000 - Guilherme (Brasil)</span>
+              <span>(98) 9 9236-5484 - Diego (Internacional)</span>
             </div>
             <div class="footer-contact-item">
               <i class="fas fa-envelope"></i>
@@ -1810,345 +1919,363 @@
       // Language System
       const translations = {
         pt: {
-          'rov-section-title': 'R.O.V - Remotely Operated Vehicles',
-          'rov-section-subtitle': 'Tecnologia Subaquática de Vanguarda',
-          'rov-capabilities': 'Capacidades Operacionais',
-          'rov-technology': 'Tecnologia R.O.V',
-          'rov-hero-description': 'Investimos em tecnologia de inspeção subaquática de alto desempenho para elevar o padrão de qualidade em serviços navais, marítimos e offshore.',
-          'rov-description': 'Por meio de ROVs avançados, realizamos inspeções em até 100 metros de profundidade, com imagens em 4K, iluminação de 4.000 lúmens e autonomia de 4,5 horas, garantindo precisão mesmo em ambientes complexos.',
-          'applications-title': 'Aplicações e Serviços',
-          'applications-subtitle': 'Soluções Especializadas para Cada Desafio',
-          'inspection-title': 'Inspeção Estrutural',
-          'inspection-desc': 'Inspeção detalhada de cascos, plataformas, pilares e estruturas submarinas com documentação fotográfica e videográfica de alta qualidade.',
-          'maintenance-title': 'Manutenção Submarina',
-          'maintenance-desc': 'Serviços de soldas subaquáticas, corte, limpeza e reparos estruturais executados com precisão através de braços robóticos.',
-          'recovery-title': 'Recuperação de Objetos',
-          'recovery-desc': 'Localização e recuperação de equipamentos, ferramentas e estruturas perdidas no fundo marinho com operações de precisão.',
-          'survey-title': 'Levantamento Batimétrico',
-          'survey-desc': 'Mapeamento detalhado do fundo marinho para projetos de engenharia, rotas de cabos e estudos ambientais.',
-          'footer-description': 'Há mais de 40 anos oferecendo soluções especializadas em mergulho profissional, serviços offshore e manutenção naval com excelência e segurança.',
-          'footer-cert-1': 'Certificado ISO 9001',
-          'footer-cert-2': 'Registro CREA-MA',
-          'footer-services-title': 'Nossos Serviços',
-          'footer-service-1': 'Serviços em Navios',
-          'footer-service-2': 'Serviços Offshore',
-          'footer-service-3': 'Inspeção Submarina',
-          'footer-service-4': 'Soldas Subaquáticas',
-          'footer-service-5': 'Consultoria Marítima',
-          'footer-contact-title': 'Contato',
-          'footer-copyright': '© 2025 O Marinheiro. Todos os direitos reservados.',
-          'footer-link-about': 'Sobre',
-          'footer-link-services': 'Serviços',
-          'footer-link-projects': 'Projetos',
-          'footer-link-contact': 'Contato',
-          
+          "rov-section-title": "R.O.V - Remotely Operated Vehicles",
+          "rov-section-subtitle": "Tecnologia Subaquática de Vanguarda",
+          "rov-capabilities": "Capacidades Operacionais",
+          "rov-technology": "Tecnologia R.O.V",
+          "rov-hero-description":
+            "Investimos em tecnologia de inspeção subaquática de alto desempenho para elevar o padrão de qualidade em serviços navais, marítimos e offshore.",
+          "rov-description":
+            "Por meio de ROVs avançados, realizamos inspeções em até 100 metros de profundidade, com imagens em 4K, iluminação de 4.000 lúmens e autonomia de 4,5 horas, garantindo precisão mesmo em ambientes complexos.",
+          "applications-title": "Aplicações e Serviços",
+          "applications-subtitle": "Soluções Especializadas para Cada Desafio",
+          "inspection-title": "Inspeção Estrutural",
+          "inspection-desc":
+            "Inspeção detalhada de cascos, plataformas, pilares e estruturas submarinas com documentação fotográfica e videográfica de alta qualidade.",
+          "maintenance-title": "Manutenção Submarina",
+          "maintenance-desc":
+            "Serviços de soldas subaquáticas, corte, limpeza e reparos estruturais executados com precisão através de braços robóticos.",
+          "recovery-title": "Recuperação de Objetos",
+          "recovery-desc":
+            "Localização e recuperação de equipamentos, ferramentas e estruturas perdidas no fundo marinho com operações de precisão.",
+          "survey-title": "Levantamento Batimétrico",
+          "survey-desc":
+            "Mapeamento detalhado do fundo marinho para projetos de engenharia, rotas de cabos e estudos ambientais.",
+          "footer-description":
+            "Há mais de 40 anos oferecendo soluções especializadas em mergulho profissional, serviços offshore e manutenção naval com excelência e segurança.",
+          "footer-cert-1": "Certificado ISO 9001",
+          "footer-cert-2": "Registro CREA-MA",
+          "footer-services-title": "Nossos Serviços",
+          "footer-service-1": "Serviços em Navios",
+          "footer-service-2": "Serviços Offshore",
+          "footer-service-3": "Inspeção Submarina",
+          "footer-service-4": "Soldas Subaquáticas",
+          "footer-service-5": "Consultoria Marítima",
+          "footer-contact-title": "Contato",
+          "footer-copyright":
+            "© 2025 O Marinheiro. Todos os direitos reservados.",
+          "footer-link-about": "Sobre",
+          "footer-link-services": "Serviços",
+          "footer-link-projects": "Projetos",
+          "footer-link-contact": "Contato",
+
           // ROV Technical Specs
-          'depth-mobility-title': 'Profundidade & Mobilidade',
-          'max-depth': 'Profundidade Máxima',
-          'thrusters': 'Thrusters Vetoriais',
-          'max-speed': 'Velocidade Máxima',
-          'cable-range': 'Autonomia de Cabo',
-          'visual-systems-title': 'Sistemas Visuais',
-          'cameras-zoom': 'Câmeras com Zoom 30x',
-          'lumens-led': 'Lumens LED',
-          'panoramic-cameras': 'Câmeras Panorâmicas',
-          'continuous-recording': 'Gravação Contínua',
-          'manipulation-tools-title': 'Manipulação & Ferramentas',
-          'degrees-freedom': 'Graus de Liberdade',
-          'grip-force': 'Força de Preensão',
-          'integrated-system': 'Sistema Integrado',
-          'interchangeable-tools': 'Ferramentas Intercambiáveis',
-          
-          
+          "depth-mobility-title": "Profundidade & Mobilidade",
+          "max-depth": "Profundidade Máxima",
+          thrusters: "Thrusters Vetoriais",
+          "max-speed": "Velocidade Máxima",
+          "cable-range": "Autonomia de Cabo",
+          "visual-systems-title": "Sistemas Visuais",
+          "cameras-zoom": "Câmeras com Zoom 30x",
+          "lumens-led": "Lumens LED",
+          "panoramic-cameras": "Câmeras Panorâmicas",
+          "continuous-recording": "Gravação Contínua",
+          "manipulation-tools-title": "Manipulação & Ferramentas",
+          "degrees-freedom": "Graus de Liberdade",
+          "grip-force": "Força de Preensão",
+          "integrated-system": "Sistema Integrado",
+          "interchangeable-tools": "Ferramentas Intercambiáveis",
+
           // ROV Gallery
-          'rov-in-action': 'ROV em Ação',
-          'control-center': 'Central de Controle',
-          'drone-rov-photo': 'Foto do Drone ROV',
-          'coming-soon': 'Em breve',
-          'more-photos': 'Mais Fotos',
-          
+          "rov-in-action": "ROV em Ação",
+          "control-center": "Central de Controle",
+          "drone-rov-photo": "Foto do Drone ROV",
+          "coming-soon": "Em breve",
+          "more-photos": "Mais Fotos",
+
           // New ROV Features
-          'operational-status': 'OPERACIONAL',
-          'max-depth-small': 'profundidade máx',
-          'thrusters-compact': 'Thrusters',
-          'cameras-compact': 'Câmeras',
-          'manipulator-compact': 'Manipulador',
-          'cutting-edge': 'ÚLTIMA GERAÇÃO',
-          'risk-reduction': 'Redução de Riscos',
-          'operational-safety': 'Segurança operacional',
-          'cost-optimization': 'Otimização de Custos',
-          'maintenance-efficiency': 'Eficiência em manutenção',
-          'reliable-data': 'Informações Confiáveis',
-          'strategic-decisions': 'Para decisões estratégicas',
-          'innovation-experience': 'Inovação + Experiência',
-          'operational-excellence': 'Excelência operacional',
-          'autonomy': 'Autonomia',
-          'cameras-4k': 'Ultra HD',
-          'technical-specs': 'Especificações Técnicas',
-          'precision-engineering': 'Engenharia de Precisão em Cada Detalhe',
-          'depth': 'Profundidade',
-          'resolution': 'Resolução',
-          'imaging': 'Captação de Imagens',
-          'lighting': 'Iluminação LED',
-          'propulsion': 'Sistema de Propulsão',
-          'key-benefits': 'Principais Benefícios',
-          'precision': 'Precisão Extrema',
-          'performance': 'Performance',
-          'vision-systems': 'Sistemas de Visão',
-          'control-systems': 'Sistemas de Controle',
-          'tools': 'Ferramentas'
+          "operational-status": "OPERACIONAL",
+          "max-depth-small": "profundidade máx",
+          "thrusters-compact": "Thrusters",
+          "cameras-compact": "Câmeras",
+          "manipulator-compact": "Manipulador",
+          "cutting-edge": "ÚLTIMA GERAÇÃO",
+          "risk-reduction": "Redução de Riscos",
+          "operational-safety": "Segurança operacional",
+          "cost-optimization": "Otimização de Custos",
+          "maintenance-efficiency": "Eficiência em manutenção",
+          "reliable-data": "Informações Confiáveis",
+          "strategic-decisions": "Para decisões estratégicas",
+          "innovation-experience": "Inovação + Experiência",
+          "operational-excellence": "Excelência operacional",
+          autonomy: "Autonomia",
+          "cameras-4k": "Ultra HD",
+          "technical-specs": "Especificações Técnicas",
+          "precision-engineering": "Engenharia de Precisão em Cada Detalhe",
+          depth: "Profundidade",
+          resolution: "Resolução",
+          imaging: "Captação de Imagens",
+          lighting: "Iluminação LED",
+          propulsion: "Sistema de Propulsão",
+          "key-benefits": "Principais Benefícios",
+          precision: "Precisão Extrema",
+          performance: "Performance",
+          "vision-systems": "Sistemas de Visão",
+          "control-systems": "Sistemas de Controle",
+          tools: "Ferramentas",
         },
         en: {
-          'rov-section-title': 'R.O.V - Remotely Operated Vehicles',
-          'rov-section-subtitle': 'Cutting-edge Underwater Technology',
-          'rov-capabilities': 'Operational Capabilities',
-          'rov-technology': 'R.O.V Technology',
-          'rov-hero-description': 'We invest in high-performance underwater inspection technology to elevate quality standards in naval, maritime and offshore services.',
-          'rov-description': 'Through advanced ROVs, we perform inspections up to 100 meters deep, with 4K images, 4,000 lumens lighting and 4.5-hour autonomy, ensuring precision even in complex environments.',
-          'applications-title': 'Applications and Services',
-          'applications-subtitle': 'Specialized Solutions for Every Challenge',
-          'inspection-title': 'Structural Inspection',
-          'inspection-desc': 'Detailed inspection of hulls, platforms, pillars and underwater structures with high-quality photographic and videographic documentation.',
-          'maintenance-title': 'Underwater Maintenance',
-          'maintenance-desc': 'Underwater welding, cutting, cleaning and structural repair services performed with precision through robotic arms.',
-          'recovery-title': 'Object Recovery',
-          'recovery-desc': 'Location and recovery of equipment, tools and structures lost on the seabed with precision operations.',
-          'survey-title': 'Bathymetric Survey',
-          'survey-desc': 'Detailed seabed mapping for engineering projects, cable routes and environmental studies.',
-          'footer-description': 'For over 40 years offering specialized solutions in professional diving, offshore services and naval maintenance with excellence and safety.',
-          'footer-cert-1': 'ISO 9001 Certified',
-          'footer-cert-2': 'CREA-MA Registration',
-          'footer-services-title': 'Our Services',
-          'footer-service-1': 'Ship Services',
-          'footer-service-2': 'Offshore Services',
-          'footer-service-3': 'Underwater Inspection',
-          'footer-service-4': 'Underwater Welding',
-          'footer-service-5': 'Maritime Consulting',
-          'footer-contact-title': 'Contact',
-          'footer-copyright': '© 2025 O Marinheiro. All rights reserved.',
-          'footer-link-about': 'About',
-          'footer-link-services': 'Services',
-          'footer-link-projects': 'Projects',
-          'footer-link-contact': 'Contact',
-          
+          "rov-section-title": "R.O.V - Remotely Operated Vehicles",
+          "rov-section-subtitle": "Cutting-edge Underwater Technology",
+          "rov-capabilities": "Operational Capabilities",
+          "rov-technology": "R.O.V Technology",
+          "rov-hero-description":
+            "We invest in high-performance underwater inspection technology to elevate quality standards in naval, maritime and offshore services.",
+          "rov-description":
+            "Through advanced ROVs, we perform inspections up to 100 meters deep, with 4K images, 4,000 lumens lighting and 4.5-hour autonomy, ensuring precision even in complex environments.",
+          "applications-title": "Applications and Services",
+          "applications-subtitle": "Specialized Solutions for Every Challenge",
+          "inspection-title": "Structural Inspection",
+          "inspection-desc":
+            "Detailed inspection of hulls, platforms, pillars and underwater structures with high-quality photographic and videographic documentation.",
+          "maintenance-title": "Underwater Maintenance",
+          "maintenance-desc":
+            "Underwater welding, cutting, cleaning and structural repair services performed with precision through robotic arms.",
+          "recovery-title": "Object Recovery",
+          "recovery-desc":
+            "Location and recovery of equipment, tools and structures lost on the seabed with precision operations.",
+          "survey-title": "Bathymetric Survey",
+          "survey-desc":
+            "Detailed seabed mapping for engineering projects, cable routes and environmental studies.",
+          "footer-description":
+            "For over 40 years offering specialized solutions in professional diving, offshore services and naval maintenance with excellence and safety.",
+          "footer-cert-1": "ISO 9001 Certified",
+          "footer-cert-2": "CREA-MA Registration",
+          "footer-services-title": "Our Services",
+          "footer-service-1": "Ship Services",
+          "footer-service-2": "Offshore Services",
+          "footer-service-3": "Underwater Inspection",
+          "footer-service-4": "Underwater Welding",
+          "footer-service-5": "Maritime Consulting",
+          "footer-contact-title": "Contact",
+          "footer-copyright": "© 2025 O Marinheiro. All rights reserved.",
+          "footer-link-about": "About",
+          "footer-link-services": "Services",
+          "footer-link-projects": "Projects",
+          "footer-link-contact": "Contact",
+
           // ROV Technical Specs
-          'depth-mobility-title': 'Depth & Mobility',
-          'max-depth': 'Maximum Depth',
-          'thrusters': 'Vector Thrusters',
-          'max-speed': 'Maximum Speed',
-          'cable-range': 'Cable Range',
-          'visual-systems-title': 'Visual Systems',
-          'cameras-zoom': '30x Zoom Cameras',
-          'lumens-led': 'LED Lumens',
-          'panoramic-cameras': 'Panoramic Cameras',
-          'continuous-recording': 'Continuous Recording',
-          'manipulation-tools-title': 'Manipulation & Tools',
-          'degrees-freedom': 'Degrees of Freedom',
-          'grip-force': 'Grip Force',
-          'integrated-system': 'Integrated System',
-          'interchangeable-tools': 'Interchangeable Tools',
-          
-          
+          "depth-mobility-title": "Depth & Mobility",
+          "max-depth": "Maximum Depth",
+          thrusters: "Vector Thrusters",
+          "max-speed": "Maximum Speed",
+          "cable-range": "Cable Range",
+          "visual-systems-title": "Visual Systems",
+          "cameras-zoom": "30x Zoom Cameras",
+          "lumens-led": "LED Lumens",
+          "panoramic-cameras": "Panoramic Cameras",
+          "continuous-recording": "Continuous Recording",
+          "manipulation-tools-title": "Manipulation & Tools",
+          "degrees-freedom": "Degrees of Freedom",
+          "grip-force": "Grip Force",
+          "integrated-system": "Integrated System",
+          "interchangeable-tools": "Interchangeable Tools",
+
           // ROV Gallery
-          'rov-in-action': 'ROV in Action',
-          'control-center': 'Control Center',
-          'drone-rov-photo': 'Drone ROV Photo',
-          'coming-soon': 'Coming Soon',
-          'more-photos': 'More Photos',
-          
+          "rov-in-action": "ROV in Action",
+          "control-center": "Control Center",
+          "drone-rov-photo": "Drone ROV Photo",
+          "coming-soon": "Coming Soon",
+          "more-photos": "More Photos",
+
           // New ROV Features
-          'operational-status': 'OPERATIONAL',
-          'max-depth-small': 'max depth',
-          'thrusters-compact': 'Thrusters',
-          'cameras-compact': 'Cameras',
-          'manipulator-compact': 'Manipulator',
-          'cutting-edge': 'CUTTING-EDGE',
-          'risk-reduction': 'Risk Reduction',
-          'operational-safety': 'Operational safety',
-          'cost-optimization': 'Cost Optimization',
-          'maintenance-efficiency': 'Maintenance efficiency',
-          'reliable-data': 'Reliable Information',
-          'strategic-decisions': 'For strategic decisions',
-          'innovation-experience': 'Innovation + Experience',
-          'operational-excellence': 'Operational excellence',
-          'autonomy': 'Autonomy',
-          'cameras-4k': 'Ultra HD',
-          'technical-specs': 'Technical Specifications',
-          'precision-engineering': 'Precision Engineering in Every Detail',
-          'depth': 'Depth',
-          'resolution': 'Resolution',
-          'imaging': 'Image Capture',
-          'lighting': 'LED Lighting',
-          'propulsion': 'Propulsion System',
-          'key-benefits': 'Key Benefits',
-          'precision': 'Extreme Precision',
-          'performance': 'Performance',
-          'vision-systems': 'Vision Systems',
-          'control-systems': 'Control Systems',
-          'tools': 'Tools'
+          "operational-status": "OPERATIONAL",
+          "max-depth-small": "max depth",
+          "thrusters-compact": "Thrusters",
+          "cameras-compact": "Cameras",
+          "manipulator-compact": "Manipulator",
+          "cutting-edge": "CUTTING-EDGE",
+          "risk-reduction": "Risk Reduction",
+          "operational-safety": "Operational safety",
+          "cost-optimization": "Cost Optimization",
+          "maintenance-efficiency": "Maintenance efficiency",
+          "reliable-data": "Reliable Information",
+          "strategic-decisions": "For strategic decisions",
+          "innovation-experience": "Innovation + Experience",
+          "operational-excellence": "Operational excellence",
+          autonomy: "Autonomy",
+          "cameras-4k": "Ultra HD",
+          "technical-specs": "Technical Specifications",
+          "precision-engineering": "Precision Engineering in Every Detail",
+          depth: "Depth",
+          resolution: "Resolution",
+          imaging: "Image Capture",
+          lighting: "LED Lighting",
+          propulsion: "Propulsion System",
+          "key-benefits": "Key Benefits",
+          precision: "Extreme Precision",
+          performance: "Performance",
+          "vision-systems": "Vision Systems",
+          "control-systems": "Control Systems",
+          tools: "Tools",
         },
         zh: {
-          'rov-section-title': 'R.O.V - 遥控水下机器人',
-          'rov-section-subtitle': '尖端水下技术',
-          'rov-capabilities': '操作能力',
-          'rov-technology': 'R.O.V技术',
-          'rov-hero-description': '我们投资高性能水下检测技术，提升海军、海事和海上服务的质量标准。',
-          'rov-description': '通过先进的ROV，我们可以进行100米深度的检测，提供4K图像、4000流明照明和4.5小时自主性，即使在复杂环境中也能确保精度。',
-          'applications-title': '应用和服务',
-          'applications-subtitle': '针对每个挑战的专业解决方案',
-          'inspection-title': '结构检查',
-          'inspection-desc': '对船体、平台、支柱和水下结构进行详细检查，提供高质量的照片和视频记录。',
-          'maintenance-title': '水下维护',
-          'maintenance-desc': '通过机械臂精确执行水下焊接、切割、清洁和结构修复服务。',
-          'recovery-title': '物体回收',
-          'recovery-desc': '通过精密操作定位和回收丢失在海底的设备、工具和结构。',
-          'survey-title': '水深测量',
-          'survey-desc': '为工程项目、电缆路线和环境研究进行详细的海底测绘。',
-          'footer-description': '40多年来为专业潜水、海上服务和海军维护提供优质安全的专业解决方案。',
-          'footer-cert-1': 'ISO 9001认证',
-          'footer-cert-2': 'CREA-MA注册',
-          'footer-services-title': '我们的服务',
-          'footer-service-1': '船舶服务',
-          'footer-service-2': '海上服务',
-          'footer-service-3': '水下检查',
-          'footer-service-4': '水下焊接',
-          'footer-service-5': '海事咨询',
-          'footer-contact-title': '联系方式',
-          'footer-copyright': '© 2025 O Marinheiro. 版权所有。',
-          'footer-link-about': '关于',
-          'footer-link-services': '服务',
-          'footer-link-projects': '项目',
-          'footer-link-contact': '联系',
-          
+          "rov-section-title": "R.O.V - 遥控水下机器人",
+          "rov-section-subtitle": "尖端水下技术",
+          "rov-capabilities": "操作能力",
+          "rov-technology": "R.O.V技术",
+          "rov-hero-description":
+            "我们投资高性能水下检测技术，提升海军、海事和海上服务的质量标准。",
+          "rov-description":
+            "通过先进的ROV，我们可以进行100米深度的检测，提供4K图像、4000流明照明和4.5小时自主性，即使在复杂环境中也能确保精度。",
+          "applications-title": "应用和服务",
+          "applications-subtitle": "针对每个挑战的专业解决方案",
+          "inspection-title": "结构检查",
+          "inspection-desc":
+            "对船体、平台、支柱和水下结构进行详细检查，提供高质量的照片和视频记录。",
+          "maintenance-title": "水下维护",
+          "maintenance-desc":
+            "通过机械臂精确执行水下焊接、切割、清洁和结构修复服务。",
+          "recovery-title": "物体回收",
+          "recovery-desc":
+            "通过精密操作定位和回收丢失在海底的设备、工具和结构。",
+          "survey-title": "水深测量",
+          "survey-desc": "为工程项目、电缆路线和环境研究进行详细的海底测绘。",
+          "footer-description":
+            "40多年来为专业潜水、海上服务和海军维护提供优质安全的专业解决方案。",
+          "footer-cert-1": "ISO 9001认证",
+          "footer-cert-2": "CREA-MA注册",
+          "footer-services-title": "我们的服务",
+          "footer-service-1": "船舶服务",
+          "footer-service-2": "海上服务",
+          "footer-service-3": "水下检查",
+          "footer-service-4": "水下焊接",
+          "footer-service-5": "海事咨询",
+          "footer-contact-title": "联系方式",
+          "footer-copyright": "© 2025 O Marinheiro. 版权所有。",
+          "footer-link-about": "关于",
+          "footer-link-services": "服务",
+          "footer-link-projects": "项目",
+          "footer-link-contact": "联系",
+
           // ROV Technical Specs
-          'depth-mobility-title': '深度和机动性',
-          'max-depth': '最大深度',
-          'thrusters': '矢量推进器',
-          'max-speed': '最大速度',
-          'cable-range': '电缆范围',
-          'visual-systems-title': '视觉系统',
-          'cameras-zoom': '30倍变焦摄像头',
-          'lumens-led': 'LED流明',
-          'panoramic-cameras': '全景摄像头',
-          'continuous-recording': '连续录制',
-          'manipulation-tools-title': '操作和工具',
-          'degrees-freedom': '自由度',
-          'grip-force': '抓握力',
-          'integrated-system': '集成系统',
-          'interchangeable-tools': '可互换工具',
-          
-          
+          "depth-mobility-title": "深度和机动性",
+          "max-depth": "最大深度",
+          thrusters: "矢量推进器",
+          "max-speed": "最大速度",
+          "cable-range": "电缆范围",
+          "visual-systems-title": "视觉系统",
+          "cameras-zoom": "30倍变焦摄像头",
+          "lumens-led": "LED流明",
+          "panoramic-cameras": "全景摄像头",
+          "continuous-recording": "连续录制",
+          "manipulation-tools-title": "操作和工具",
+          "degrees-freedom": "自由度",
+          "grip-force": "抓握力",
+          "integrated-system": "集成系统",
+          "interchangeable-tools": "可互换工具",
+
           // ROV Gallery
-          'rov-in-action': 'ROV运行中',
-          'control-center': '控制中心',
-          'drone-rov-photo': '无人机ROV照片',
-          'coming-soon': '即将推出',
-          'more-photos': '更多照片',
-          
+          "rov-in-action": "ROV运行中",
+          "control-center": "控制中心",
+          "drone-rov-photo": "无人机ROV照片",
+          "coming-soon": "即将推出",
+          "more-photos": "更多照片",
+
           // New ROV Features
-          'operational-status': '运行中',
-          'max-depth-small': '最大深度',
-          'thrusters-compact': '推进器',
-          'cameras-compact': '摄像头',
-          'manipulator-compact': '机械臂',
-          'cutting-edge': '尖端技术',
-          'risk-reduction': '风险降低',
-          'operational-safety': '操作安全',
-          'cost-optimization': '成本优化',
-          'maintenance-efficiency': '维护效率',
-          'reliable-data': '可靠信息',
-          'strategic-decisions': '战略决策',
-          'innovation-experience': '创新+经验',
-          'operational-excellence': '操作卓越',
-          'autonomy': '自主性',
-          'cameras-4k': '超高清',
-          'technical-specs': '技术规格',
-          'precision-engineering': '每个细节的精密工程',
-          'depth': '深度',
-          'resolution': '分辨率',
-          'imaging': '图像捕获',
-          'lighting': 'LED照明',
-          'propulsion': '推进系统',
-          'key-benefits': '主要优势',
-          'precision': '极致精度',
-          'performance': '性能',
-          'vision-systems': '视觉系统',
-          'control-systems': '控制系统',
-          'tools': '工具'
-        }
+          "operational-status": "运行中",
+          "max-depth-small": "最大深度",
+          "thrusters-compact": "推进器",
+          "cameras-compact": "摄像头",
+          "manipulator-compact": "机械臂",
+          "cutting-edge": "尖端技术",
+          "risk-reduction": "风险降低",
+          "operational-safety": "操作安全",
+          "cost-optimization": "成本优化",
+          "maintenance-efficiency": "维护效率",
+          "reliable-data": "可靠信息",
+          "strategic-decisions": "战略决策",
+          "innovation-experience": "创新+经验",
+          "operational-excellence": "操作卓越",
+          autonomy: "自主性",
+          "cameras-4k": "超高清",
+          "technical-specs": "技术规格",
+          "precision-engineering": "每个细节的精密工程",
+          depth: "深度",
+          resolution: "分辨率",
+          imaging: "图像捕获",
+          lighting: "LED照明",
+          propulsion: "推进系统",
+          "key-benefits": "主要优势",
+          precision: "极致精度",
+          performance: "性能",
+          "vision-systems": "视觉系统",
+          "control-systems": "控制系统",
+          tools: "工具",
+        },
       };
 
-      let currentLanguage = 'pt';
+      let currentLanguage = "pt";
 
       function setLanguage(lang) {
         currentLanguage = lang;
-        document.querySelectorAll('[data-translate]').forEach(element => {
-          const key = element.getAttribute('data-translate');
+        document.querySelectorAll("[data-translate]").forEach((element) => {
+          const key = element.getAttribute("data-translate");
           if (translations[lang] && translations[lang][key]) {
             element.textContent = translations[lang][key];
           }
         });
 
         // Update language buttons
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-          btn.classList.remove('active');
-          if (btn.getAttribute('data-lang') === lang) {
-            btn.classList.add('active');
+        document.querySelectorAll(".lang-btn").forEach((btn) => {
+          btn.classList.remove("active");
+          if (btn.getAttribute("data-lang") === lang) {
+            btn.classList.add("active");
           }
         });
 
-        localStorage.setItem('preferred-language', lang);
+        localStorage.setItem("preferred-language", lang);
       }
 
       // Language button event listeners
-      document.querySelectorAll('.lang-btn').forEach(button => {
-        button.addEventListener('click', () => {
-          const lang = button.getAttribute('data-lang');
+      document.querySelectorAll(".lang-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+          const lang = button.getAttribute("data-lang");
           setLanguage(lang);
         });
       });
 
       // Mobile menu toggle
-      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-      const nav = document.querySelector('.nav');
+      const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+      const nav = document.querySelector(".nav");
 
       if (mobileMenuToggle) {
-        mobileMenuToggle.addEventListener('click', function () {
-          nav.classList.toggle('active');
-          const isOpen = nav.classList.contains('active');
-          this.setAttribute('aria-expanded', isOpen);
+        mobileMenuToggle.addEventListener("click", function () {
+          nav.classList.toggle("active");
+          const isOpen = nav.classList.contains("active");
+          this.setAttribute("aria-expanded", isOpen);
         });
       }
 
       // Scroll to top functionality
-      const scrollToTopBtn = document.getElementById('scrollToTop');
+      const scrollToTopBtn = document.getElementById("scrollToTop");
 
       function checkScrollPosition() {
         if (window.pageYOffset > 300) {
-          scrollToTopBtn.classList.add('show');
+          scrollToTopBtn.classList.add("show");
         } else {
-          scrollToTopBtn.classList.remove('show');
+          scrollToTopBtn.classList.remove("show");
         }
       }
 
-      window.addEventListener('scroll', checkScrollPosition);
+      window.addEventListener("scroll", checkScrollPosition);
 
-      scrollToTopBtn.addEventListener('click', () => {
+      scrollToTopBtn.addEventListener("click", () => {
         window.scrollTo({
           top: 0,
-          behavior: 'smooth'
+          behavior: "smooth",
         });
       });
 
       // Header logo click handler
-      document.getElementById('headerLogo').addEventListener('click', () => {
-        window.location.href = 'index.html#top';
+      document.getElementById("headerLogo").addEventListener("click", () => {
+        window.location.href = "index.html#top";
       });
 
-
       // Initialize
-      document.addEventListener('DOMContentLoaded', () => {
-        const savedLanguage = localStorage.getItem('preferred-language') || 'pt';
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedLanguage =
+          localStorage.getItem("preferred-language") || "pt";
         setLanguage(savedLanguage);
         checkScrollPosition();
       });
